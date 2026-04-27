@@ -12,7 +12,7 @@ const NAV_LINKS = [
   { label: "Products", href: "/products" },
   { label: "Pharmacovigilance", href: "/Form" },
   { label: "News & Blog", href: "", disabled: true },
-  { label: "CRS", href: "/CRS" },
+  { label: "CSR", href: "/CRS" },
   { label: "Careers", href: "/career" },
   { label: "Contact us", href: "/contact" },
 ];
