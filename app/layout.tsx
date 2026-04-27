@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Global Pharmaceutical",
   description: "",
   icons: {
-    icon: '/favicon.png',
+    icon: '/favicon.ico',
   },
 };
 
