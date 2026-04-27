@@ -111,9 +111,17 @@ export default function GlobalPharmaWebsite() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
+          crossOrigin="anonymous"
           style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          onError={(e) => {
+            console.warn("Video failed to load:", e);
+          }}
+          webkit-playsinline="true"
+          x5-playsinline="true"
         >
+          <source src={assetPath("/video000.mp4")} type="video/mp4" />
+          Your browser does not support the video tag.
         </video>
       </section>
 
