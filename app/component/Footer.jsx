@@ -1,4 +1,7 @@
+/* eslint-disable react-hooks/set-state-in-effect */
+"use client"
 /* eslint-disable @next/next/no-img-element */
+
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { FaPhoneAlt } from 'react-icons/fa'

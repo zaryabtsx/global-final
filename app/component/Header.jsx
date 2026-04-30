@@ -1,5 +1,7 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 /* eslint-disable @next/next/no-img-element */
+"use client"
+
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { CiSearch } from "react-icons/ci";
