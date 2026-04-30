@@ -230,7 +230,7 @@ export default function App() {
                   className="shrink-0"
                   style={{
                     width: `calc(${100 / itemsToShow}% - ${(16 * (itemsToShow - 1)) / itemsToShow}px)`,
-                    height: "320px",
+                    height: "380px",
                   } as React.CSSProperties}
                 >
                   <Link
@@ -247,7 +247,7 @@ export default function App() {
                       >
                         {product.name}
                       </h3>
-                      <div className="grow flex items-center justify-center overflow-hidden max-h-64">
+                      <div className="grow flex items-center justify-center overflow-hidden max-h-80">
                         <motion.img
                           whileHover={{ scale: 1.05 }}
                           src={product.image}

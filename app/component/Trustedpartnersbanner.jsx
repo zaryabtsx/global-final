@@ -81,7 +81,7 @@ export default function TrustedPartnersBanner() {
   const itemWidthPercent = 100 / totalSlides;
 
   // Unified logo width
-  const logoWidth = isMobile ? "260px" : "400px";
+  const logoWidth = isMobile ? "260px" : "500px";
 
   return (
     <div

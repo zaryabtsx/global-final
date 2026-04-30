@@ -8,7 +8,7 @@ const cards = [
   },
   {
     number: "100%",
-    label: "CGMC PROGRAM",
+    label: "GCMC PROGRAM",
     style: { right: "1.6%", top: "30%" },
   },
   {
