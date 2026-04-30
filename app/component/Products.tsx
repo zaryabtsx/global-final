@@ -363,12 +363,12 @@ export default function Products() {
           </nav>
 
           {/* Stats */}
-          <div className="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-100">
+          {/* <div className="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-100">
             <p className="text-lg text-gray-500 mb-1">Total Products</p>
             <p className="text-2xl font-bold text-[#9D0B0F]">{ALL_PRODUCTS.length}</p>
             <p className="text-lg text-gray-500 mt-2 mb-1">Showing</p>
             <p className="text-xl font-bold text-gray-700">{filteredProducts.length}</p>
-          </div>
+          </div> */}
         </aside>
 
         {/* Right Content */}
