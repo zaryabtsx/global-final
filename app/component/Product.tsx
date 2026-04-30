@@ -220,7 +220,7 @@ export default function App() {
             <motion.div
               className="flex gap-4"
               animate={{
-                x: `calc(-${((currentIndex % products.length) + products.length) % products.length * (100 / itemsToShow)}% - ${((currentIndex % products.length) + products.length) % products.length * 16}px)`,
+                x: `calc(-${((currentIndex % products.length) + products.length) % products.length * (100 / itemsToShow)}% - ${((currentIndex % products.length) + products.length) % products.length * 20}px)`,
               }}
               transition={{ type: "spring", stiffness: 200, damping: 25 }}
             >
@@ -230,7 +230,7 @@ export default function App() {
                   className="shrink-0"
                   style={{
                     width: `calc(${100 / itemsToShow}% - ${(16 * (itemsToShow - 1)) / itemsToShow}px)`,
-                    height: "380px",
+                    height: "300px",
                   } as React.CSSProperties}
                 >
                   <Link

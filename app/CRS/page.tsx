@@ -68,10 +68,10 @@ function StatItem({ stat, animate }: { stat: any, animate: boolean }) {
 
   return (
     <div className="flex-1 text-center px-6">
-      <div className="text-4xl font-extrabold text-red-800 leading-tight">
+      <div className="text-5xl font-extrabold text-red-800 leading-tight">
         {display}
       </div>
-      <p className="text-gray-500 text-sm mt-2">{stat.label}</p>
+      <p className="text-gray-500 text-lg mt-2">{stat.label}</p>
     </div>
   );
 }
@@ -124,7 +124,7 @@ const Page = () => {
               A Pledge to Lifelong Support for Thalassemia Patients
             </h1>
             <p 
-              className={`text-sm md:text-base text-gray-600 leading-relaxed pl-10 transition-all duration-800 ease-out
+              className={`text-sm md:text-lg text-gray-600 leading-relaxed pl-10 transition-all duration-800 ease-out
                 ${loadAnimate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
             >
               Comprehensive, free-of-charge thalassemia care for everyone
@@ -159,7 +159,7 @@ const Page = () => {
             </p>
             <div className="w-12 h-1 bg-[#9d0b0f] mb-6 ml-10" />
             <p 
-              className={`text-sm md:text-base text-gray-700 pl-10 leading-relaxed md:leading-loose text-justify transition-all duration-800 ease-out
+              className={`text-sm md:text-lg text-gray-700 pl-10 leading-relaxed md:leading-loose text-justify transition-all duration-800 ease-out
                 ${loadAnimate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
             >
               Jamila Sultana Foundation is a flagship initiative of Global
@@ -189,7 +189,7 @@ const Page = () => {
 
       {/* Impact Section - Scroll Animation */}
       <section ref={impactRef} className="bg-white py-16 px-4">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <h2 
               className={`text-3xl md:text-4xl font-bold text-[#9d0b0f] transition-all duration-800 ease-out
@@ -198,7 +198,7 @@ const Page = () => {
               Our Impact
             </h2>
             <p 
-              className={`text-gray-600 mt-2 text-sm md:text-base px-2 transition-all duration-800 ease-out
+              className={`text-gray-600 mt-2 text-m md:text-lg px-2 transition-all duration-800 ease-out
                 ${impactAnimate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
             >
               Numbers That Reflect Real Lives Changed
