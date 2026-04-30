@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 const services = [
   {
     id: 1,
@@ -63,7 +64,7 @@ export default function WhatWeOffer() {
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-red-700">What We Offer</h2>
+          <h2 className="text-3xl font-bold text-[#9d0b0f]">What We Offer</h2>
           <p className="text-gray-600 mt-1 text-lg">Comprehensive Care, All Under One Roof</p>
           <div className="w-10 h-1 bg-red-600 mx-auto mt-3 rounded" />
         </div>

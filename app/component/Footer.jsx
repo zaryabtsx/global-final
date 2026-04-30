@@ -99,7 +99,7 @@ const Footer = () => {
                 <span style={{ color: "#fff", fontSize: iconSize }}>
                   <FaPhoneAlt />
                 </span>
-                <a href="tel:+92-51-449-302" style={{ color: "#f6fafb", fontSize: contactFontSize, textDecoration: "none", transition: "color 0.3s ease" }} onMouseEnter={(e) => e.target.style.color = "#d4d4d4"} onMouseLeave={(e) => e.target.style.color = "#f6fafb"}>+92-51-449-302</a>
+                <a href="tel:+92-51-449-302" style={{ color: "#f6fafb", fontSize: contactFontSize, textDecoration: "none", transition: "color 0.3s ease" }} onMouseEnter={(e) => e.target.style.color = "#d4d4d4"} onMouseLeave={(e) => e.target.style.color = "#f6fafb"}>+92 336 5559068</a>
               </div>
               <div style={{ display: "flex", gap: 14, alignItems: "center", justifyContent: screenSize.isMobile ? "center" : "flex-start" }}>
                 <span style={{ color: "#fff", fontSize: iconSize }}>

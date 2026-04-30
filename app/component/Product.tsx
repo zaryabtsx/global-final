@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/set-state-in-effect */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from "react";
@@ -236,9 +237,13 @@ export default function App() {
                     href={`/detailedproduct/${encodeURIComponent(product.name)}`}
                     className="block h-full"
                   >
-                    <div className="bg-white rounded-md p-3 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-50 flex flex-col h-full group cursor-pointer hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300">
+                    <div className="bg-white rounded-md p-3 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border-2 border-red-700 flex flex-col h-full group cursor-pointer hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300 relative">
+                      {/* TOP 10 Badge */}
+                      <div className="absolute -top-13 right-40 -left-10 z-10">
+                       <img src="/bandge.png" alt="" />
+                      </div>
                       <h3
-                        className={`text-3xl font-bold mb-2 pl-2 ${product.color} tracking-tight`}
+                        className={`text-3xl font-bold mb-2 pt-4 pl-2 ${product.color} tracking-tight`}
                       >
                         {product.name}
                       </h3>
@@ -290,6 +295,24 @@ export default function App() {
           </a>
         </div>
       </div>
+
+      <style jsx>{`
+        .badge-gradient {
+          background: linear-gradient(135deg, #c41e3a 0%, #8B1D1D 100%);
+        }
+        
+        .badge-pointer {
+          position: absolute;
+          left: -8px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 0;
+          height: 0;
+          border-top: 8px solid transparent;
+          border-bottom: 8px solid transparent;
+          border-right: 8px solid #8B1D1D;
+        }
+      `}</style>
     </div>
   );
 }

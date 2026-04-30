@@ -17,101 +17,101 @@ const ImageSlider = () => {
 
   const slides = [
     { 
-      bg: '/slider-1.webp', 
+      bg: '/01.jpg.jpeg', 
       label: "Pharmaceutical Factory" 
     },
     { 
-      bg: '/slider-2.webp', 
+      bg: '/1.jpg.jpeg', 
       label: "Warehouse & Pharmacy" 
     },
     { 
-      bg: '/slider-3.webp', 
+      bg: '/02.jpg.jpeg', 
+      label: "Manufacturing Facility" 
+    },
+    // { 
+    //   bg: '/03.jpg.jpeg', 
+    //   label: "Pharmaceutical Factory" 
+    // },
+    { 
+      bg: '/04.jpg.jpeg', 
+      label: "Warehouse & Pharmacy" 
+    },
+    { 
+      bg: '/05.jpg.jpeg', 
       label: "Manufacturing Facility" 
     },
     { 
-      bg: '/slider-4.webp', 
+      bg: '/06.jpg.jpeg', 
       label: "Pharmaceutical Factory" 
     },
     { 
-      bg: '/slider-5.webp', 
+      bg: '/07.jpg.jpeg', 
       label: "Warehouse & Pharmacy" 
     },
     { 
-      bg: '/slider-6.webp', 
+      bg: '/08.jpg.jpeg', 
       label: "Manufacturing Facility" 
     },
     { 
-      bg: '/slider-7.webp', 
+      bg: '/09.jpg.jpeg', 
       label: "Pharmaceutical Factory" 
     },
     { 
-      bg: '/slider-8.webp', 
+      bg: '/10.jpg.jpeg', 
       label: "Warehouse & Pharmacy" 
     },
     { 
-      bg: '/slider-9.webp', 
+      bg: '/11.jpg.jpeg', 
       label: "Manufacturing Facility" 
     },
     { 
-      bg: '/slider-10.webp', 
+      bg: '/12.jpg.jpeg', 
       label: "Pharmaceutical Factory" 
     },
     { 
-      bg: '/slider-11.webp', 
+      bg: '/13.jpg.jpeg', 
       label: "Warehouse & Pharmacy" 
     },
     { 
-      bg: '/slider-12.webp', 
+      bg: '/14.jpg.jpeg', 
       label: "Manufacturing Facility" 
     },
     { 
-      bg: '/slider-13.webp', 
+      bg: '/15.jpg.jpeg', 
       label: "Pharmaceutical Factory" 
     },
-    { 
-      bg: '/slider-14.webp', 
-      label: "Warehouse & Pharmacy" 
-    },
-    { 
-      bg: '/slider-15.webp', 
-      label: "Manufacturing Facility" 
-    },
-    { 
-      bg: '/slider-16.webp', 
-      label: "Pharmaceutical Factory" 
-    },
-    { 
-      bg: '/slider-17.webp', 
-      label: "Warehouse & Pharmacy" 
-    },
-    { 
-      bg: '/slider-18.webp', 
-      label: "Manufacturing Facility" 
-    },
-    { 
-      bg: '/slider-19.webp', 
-      label: "Pharmaceutical Factory" 
-    },
-    { 
-      bg: '/slider-20.webp', 
-      label: "Warehouse & Pharmacy" 
-    },
-    { 
-      bg: '/slider-21.webp', 
-      label: "Manufacturing Facility" 
-    },
-    { 
-      bg: '/slider-22.webp', 
-      label: "Pharmaceutical Factory" 
-    },
-    { 
-      bg: '/slider-23.webp', 
-      label: "Warehouse & Pharmacy" 
-    },
-    { 
-      bg: '/slider-24.webp', 
-      label: "Manufacturing Facility" 
-    },
+    // { 
+    //   bg: '/16.jpg.jpeg', 
+    //   label: "Warehouse & Pharmacy" 
+    // },
+    // { 
+    //   bg: '/17.jpg.jpeg', 
+    //   label: "Manufacturing Facility" 
+    // },
+    // { 
+    //   bg: '/slider-19.webp', 
+    //   label: "Pharmaceutical Factory" 
+    // },
+    // { 
+    //   bg: '/slider-20.webp', 
+    //   label: "Warehouse & Pharmacy" 
+    // },
+    // { 
+    //   bg: '/slider-21.webp', 
+    //   label: "Manufacturing Facility" 
+    // },
+    // { 
+    //   bg: '/slider-22.webp', 
+    //   label: "Pharmaceutical Factory" 
+    // },
+    // { 
+    //   bg: '/slider-23.webp', 
+    //   label: "Warehouse & Pharmacy" 
+    // },
+    // { 
+    //   bg: '/slider-24.webp', 
+    //   label: "Manufacturing Facility" 
+    // },
     // { 
     //   bg: '/slider-25.webp', 
     //   label: "Warehouse & Pharmacy" 

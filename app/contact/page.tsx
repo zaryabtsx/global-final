@@ -206,12 +206,12 @@ export default function App() {
                 <ContactInfoItem 
                   icon={Phone} 
                   title="" 
-                  content={["+92 51 449 3022-24", "+92 51 449 3027", "+92 51 449 3025"]} 
+                  content={["+92 336 5559068", "+92 336 5559069", "+92 336 5559071", "+92 336 5559072"]} 
                 />
                 <ContactInfoItem 
                   icon={Mail} 
                   title="" 
-                  content={["info@globalpharmaceuticalspk.com", "kanwal@globalpharmaceuticalspk.com", "saeed@globalpharmaceuticalspk.com"]} 
+                  content={["info@globalpharmaceuticalspk.com", "kanwal@globalpharmaceuticalspk.com"]} 
                 />
               </motion.div>
 
@@ -224,17 +224,17 @@ export default function App() {
                 <ContactInfoItem 
                   icon={MapPin} 
                   title="Factory" 
-                  content={["Plot 22-23, Industrial triangle,", "Kahuta Road, Islamabad"]} 
+                  content={["Plot 204-205, Industrial triangle,", "Kahuta Road, Islamabad"]} 
                 />
                 <ContactInfoItem 
                   icon={Phone} 
                   title="" 
-                  content={["+92 51 449 3022-24", "+92 51 449 3027", "+92 51 449 3025"]} 
+                  content={["051-4492032" ,"   " ,  "  " , "   "]} 
                 />
                 <ContactInfoItem 
                   icon={Mail} 
                   title="" 
-                  content={["info@globalpharmaceuticalspk.com", "kanwal@globalpharmaceuticalspk.com", "saeed@globalpharmaceuticalspk.com"]} 
+                  content={["info@globalpharmaceuticalspk.com", "kanwal@globalpharmaceuticalspk.com"]} 
                 />
               </motion.div>
             </div>

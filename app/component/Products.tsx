@@ -295,7 +295,7 @@ export default function Products() {
         </div>
         <div className="w-full md:w-1/2 h-75 md:h-125 relative">
           <img
-            src="/our-product.webp"
+            src="/14.jpg.jpeg"
             alt="Pharmaceutical Production"
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"

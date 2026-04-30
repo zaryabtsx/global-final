@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 const galleryItems = [
   {
     id: 1,
@@ -83,7 +84,7 @@ export default function Gallery() {
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-red-700">Gallery</h2>
+          <h2 className="text-3xl font-bold text-[#9d0b0f]">Gallery</h2>
           <p className="text-gray-600 mt-1 text-base">Moments From Our Foundation</p>
           <div className="w-10 h-1 bg-red-600 mx-auto mt-3 rounded" />
         </div>

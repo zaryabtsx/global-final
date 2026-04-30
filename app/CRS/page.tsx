@@ -94,15 +94,16 @@ const Page = () => {
   }, [animate]);
 
   return (
-    <div>
+    <>
+    <div className="bg-white">
       <Header />
 
-      <div className="w-full">
+      <div className="w-full ">
         {/* ── Hero Section ── */}
         <div className="flex flex-col md:flex-row items-stretch min-h-56 md:min-h-[220px]">
           {/* Left text panel */}
           <div className="flex-1 md:flex-0 md:basis-[42%] bg-gray-100 px-6 py-10 md:px-9 md:py-10 flex flex-col justify-center gap-3">
-            <h1 className="font-outfit text-3xl md:text-5xl font-bold text-red-900 leading-tight">
+            <h1 className="font-outfit text-3xl md:text-5xl font-bold text-[#9d0b0f] leading-tight">
               A Pledge to Lifelong Support for Thalassemia Patients
             </h1>
             <p className="text-sm md:text-base text-gray-600 leading-relaxed">
@@ -126,13 +127,13 @@ const Page = () => {
         <div className="flex flex-col md:flex-row items-start px-6 py-12 md:px-10 md:py-12 gap-6 md:gap-12 bg-white">
           {/* Text */}
           <div className="flex-1">
-            <h2 className="font-outfit text-3xl md:text-4xl font-bold text-red-900 mb-2">
+            <h2 className="font-outfit text-3xl md:text-4xl font-bold text-[#9d0b0f] mb-2">
               Who We Are
             </h2>
             <p className="text-base md:text-lg text-gray-700 font-semibold mb-4">
               Self-Funded. Independent. Fully Committed.
             </p>
-            <div className="w-12 h-1 bg-red-900 mb-6" />
+            <div className="w-12 h-1 bg-[#9d0b0f] mb-6" />
             <p className="text-sm md:text-base text-gray-700 leading-relaxed md:leading-loose text-justify">
               Jamila Sultana Foundation is a flagship initiative of Global
               Pharmaceuticals, entirely funded by the organization&apos;s CEO. This
@@ -152,7 +153,7 @@ const Page = () => {
             <img
               src="/jamila.png"
               alt="Jamila Sultana Foundation Logo"
-              className="max-w-xs md:max-w-md w-full h-auto"
+              className="max-w-xs  w-full h-auto"
             />
           </div>
         </div>
@@ -160,24 +161,33 @@ const Page = () => {
       <WhatWeOffer />
 
       <section ref={sectionRef} className="bg-white py-16 px-4">
-        <div className="max-w-4xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-red-700">Our Impact</h2>
-            <p className="text-gray-600 mt-1 text-base">
-              Numbers That Reflect Real Lives Changed
-            </p>
-            <div className="w-10 h-1 bg-red-600 mx-auto mt-3 rounded" />
-          </div>
+  <div className="max-w-4xl mx-auto">
+    {/* Header */}
+    <div className="text-center mb-10">
+      <h2 className="text-3xl md:text-4xl font-bold text-[#9d0b0f]">
+        Our Impact
+      </h2>
 
-          {/* Stats Row */}
-          <div className="flex items-center justify-center divide-x divide-gray-300">
-            {stats.map((stat) => (
-              <StatItem key={stat.id} stat={stat} animate={animate} />
-            ))}
-          </div>
+      <p className="text-gray-600 mt-2 text-sm md:text-base px-2">
+        Numbers That Reflect Real Lives Changed
+      </p>
+
+      <div className="w-10 h-1 bg-red-600 mx-auto mt-3 rounded" />
+    </div>
+
+    {/* Stats Row */}
+    <div className="grid grid-cols-2 md:flex items-center justify-center gap-6 md:gap-0 md:divide-x divide-gray-300">
+      {stats.map((stat) => (
+        <div
+          key={stat.id}
+          className="flex justify-center md:px-6"
+        >
+          <StatItem stat={stat} animate={animate} />
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
    <section className="flex flex-col md:flex-row min-h-auto md:min-h-[260px]">
       {/* Left Panel */}
       <div className="flex-1 bg-white py-10 md:py-20 px-6 md:px-20 flex flex-col justify-center gap-6">
@@ -199,7 +209,7 @@ const Page = () => {
       </div>
  
       {/* Right Panel */}
-      <div className="flex-1 bg-red-700 flex flex-col items-center justify-center text-center px-6 md:px-10 py-12 md:py-10">
+      <div className="flex-1 bg-[#9d0b0f] flex flex-col items-center justify-center text-center px-6 md:px-10 py-12 md:py-10">
         <h2 className="text-white text-2xl md:text-3xl font-extrabold leading-tight mb-4">
           Become A Blood <br /> Donor Today
         </h2>
@@ -216,6 +226,7 @@ const Page = () => {
     <Gallery></Gallery>
     <Footer />
     </div>
+    </>
   );
 };
 
