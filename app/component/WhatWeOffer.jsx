@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+import React, { useEffect, useRef, useState } from "react";
+
 const services = [
   {
     id: 1,
@@ -44,35 +46,77 @@ const services = [
   },
 ];
 
-const ServiceCard = ({ title, description, image, alt }) => (
-  <div className="bg-white rounded-lg overflow-hidden shadow-sm">
+const ServiceCard = ({ title, description, image, alt, animate, index }) => (
+  <div 
+    className={`bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-800 ease-out
+      ${animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+    style={{ transitionDelay: `${index * 100}ms` }}
+  >
     <img
       src={image}
       alt={alt}
       className="w-full h-48 object-cover"
     />
     <div className="p-4">
-      <h3 className="font-bold text-gray-900 text-base">{title}</h3>
-      <p className="text-gray-500 text-sm mt-1">{description}</p>
+      <h3 className="font-bold text-red-800 text-base">{title}</h3>
+      <p className="text-gray-500 text-base mt-1">{description}</p>
     </div>
   </div>
 );
 
 export default function WhatWeOffer() {
+  const sectionRef = useRef(null);           // Fixed: Removed strict HTMLElement type
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !animate) {
+          setAnimate(true);
+        }
+      },
+      { 
+        threshold: 0.2,
+        rootMargin: "0px 0px -50px 0px"
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [animate]);
+
   return (
-    <section className="bg-gray-100 py-16 px-4">
+    <section ref={sectionRef} className="bg-gray-100 py-16 px-4">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-[#9d0b0f]">What We Offer</h2>
-          <p className="text-gray-600 mt-1 text-lg">Comprehensive Care, All Under One Roof</p>
-          <div className="w-10 h-1 bg-red-600 mx-auto mt-3 rounded" />
+          <h2 
+            className={`text-3xl md:text-4xl font-bold text-[#9d0b0f] transition-all duration-800 ease-out
+              ${animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+          >
+            What We Offer
+          </h2>
+          <p 
+            className={`text-gray-600 mt-1 text-lg transition-all duration-800 ease-out delay-150
+              ${animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+          >
+            Comprehensive Care, All Under One Roof
+          </p>
+          <div className="w-10 h-1 bg-red-700 mx-auto mt-3 rounded" />
         </div>
 
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service) => (
-            <ServiceCard key={service.id} {...service} />
+          {services.map((service, index) => (
+            <ServiceCard 
+              key={service.id} 
+              {...service} 
+              animate={animate}
+              index={index}
+            />
           ))}
         </div>
       </div>

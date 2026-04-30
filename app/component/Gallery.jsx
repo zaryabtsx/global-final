@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+import React, { useEffect, useRef, useState } from "react";
+
 const galleryItems = [
   {
     id: 1,
@@ -62,8 +64,12 @@ const galleryItems = [
   },
 ];
 
-const GalleryCard = ({ image, caption }) => (
-  <div className="relative rounded-lg overflow-hidden group cursor-pointer">
+const GalleryCard = ({ image, caption, animate, index }) => (
+  <div 
+    className={`relative rounded-lg overflow-hidden group cursor-pointer transition-all duration-800 ease-out
+      ${animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+    style={{ transitionDelay: `${index * 80}ms` }}
+  >
     <img
       src={image}
       alt={caption}
@@ -79,20 +85,59 @@ const GalleryCard = ({ image, caption }) => (
 );
 
 export default function Gallery() {
+  const sectionRef = useRef(null);        // Fixed ref
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !animate) {
+          setAnimate(true);
+        }
+      },
+      { 
+        threshold: 0.2,
+        rootMargin: "0px 0px -50px 0px" 
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [animate]);
+
   return (
-    <section className="bg-gray-100 py-16 px-4">
+    <section ref={sectionRef} className="bg-gray-100 py-16 px-4">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-[#9d0b0f]">Gallery</h2>
-          <p className="text-gray-600 mt-1 text-base">Moments From Our Foundation</p>
-          <div className="w-10 h-1 bg-red-600 mx-auto mt-3 rounded" />
+          <h2 
+            className={`text-3xl md:text-4xl font-bold text-[#9d0b0f] transition-all duration-800 ease-out
+              ${animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+          >
+            Gallery
+          </h2>
+          <p 
+            className={`text-gray-600 mt-1 text-base transition-all duration-800 ease-out delay-150
+              ${animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+          >
+            Moments From Our Foundation
+          </p>
+          <div className="w-10 h-1 bg-red-700 mx-auto mt-3 rounded" />
         </div>
 
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {galleryItems.map((item) => (
-            <GalleryCard key={item.id} image={item.image} caption={item.caption} />
+          {galleryItems.map((item, index) => (
+            <GalleryCard 
+              key={item.id} 
+              image={item.image} 
+              caption={item.caption} 
+              animate={animate}
+              index={index}
+            />
           ))}
         </div>
       </div>

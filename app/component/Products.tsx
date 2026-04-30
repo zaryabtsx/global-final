@@ -345,13 +345,6 @@ export default function Products() {
                 }`}
               >
                 <span className="leading-snug capitalize">{cat.toLowerCase()}</span>
-                <span className={`text-xs px-2 py-0.5 rounded-full shrink-0 ml-2 ${
-                  categoryFilter === cat
-                    ? 'bg-white/20 text-white'
-                    : 'bg-gray-100 text-gray-500'
-                }`}>
-                  {categoryCount(cat)}
-                </span>
               </button>
             ))}
 

@@ -247,7 +247,7 @@ export default function App() {
                       >
                         {product.name}
                       </h3>
-                      <div className="grow flex items-center justify-center mb-2 overflow-hidden max-h-56">
+                      <div className="grow flex items-center justify-center overflow-hidden max-h-64">
                         <motion.img
                           whileHover={{ scale: 1.05 }}
                           src={product.image}

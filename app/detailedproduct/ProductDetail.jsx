@@ -15,6 +15,7 @@ import Image from "next/image";
 import Header from "../component/Header";
 import Footer from "../component/Footer";
 import { ALL_PRODUCTS } from "../component/Products";
+import { PRODUCT_DATA } from "../component/Product";
 
 const NAV_LINKS = [
   "About us",
@@ -247,6 +248,8 @@ export default function ProductDetail({ productName = "Pelton-C", onBack }) {
   const productData = ALL_PRODUCTS.find((p) => p.name === productName);
   const styling = PRODUCT_STYLING[productName] || DEFAULT_STYLING;
 
+  const homeProductData = PRODUCT_DATA[productName];
+
   const product = productData
     ? {
         name: productData.name,
@@ -261,23 +264,40 @@ export default function ProductDetail({ productName = "Pelton-C", onBack }) {
           `${productData.name} is a premium pharmaceutical product designed to deliver superior quality and efficacy. It contains ${productData.generic} in ${productData.form} form and is registered under number ${productData.reg}.`,
         img: productData.image
           ? productData.image
-          : getGlobalPharmaImage(productData.name),
+          : homeProductData
+            ? homeProductData.img
+            : getGlobalPharmaImage(productData.name),
         prescribingInfo: "Detailed prescribing information available",
         ...styling,
       }
-    : {
-        name: productName,
-        category: "Pharmaceutical",
-        generic: "Not available",
-        form: "Not specified",
-        reg: "N/A",
-        essential: false,
-        packSize: "N/A",
-        description: "Product details not available. Please check back later.",
-        img: "/Product-images/placeholder.png",
-        prescribingInfo: "Detailed prescribing information available",
-        ...DEFAULT_STYLING,
-      };
+    : homeProductData
+      ? {
+          name: productName,
+          category: "Pharmaceutical",
+          generic: "Not available",
+          form: "Not specified",
+          reg: "N/A",
+          essential: false,
+          packSize: "N/A",
+          description: `Product details for ${productName} are available on the home page.`,
+          img: homeProductData.img,
+          prescribingInfo: "Detailed prescribing information available",
+          color: homeProductData.color,
+          ...DEFAULT_STYLING,
+        }
+      : {
+          name: productName,
+          category: "Pharmaceutical",
+          generic: "Not available",
+          form: "Not specified",
+          reg: "N/A",
+          essential: false,
+          packSize: "N/A",
+          description: "Product details not available. Please check back later.",
+          img: "/Product-images/placeholder.png",
+          prescribingInfo: "Detailed prescribing information available",
+          ...DEFAULT_STYLING,
+        };
 
   const screenSize = useResponsive();
   const router = useRouter();
@@ -342,6 +362,7 @@ export default function ProductDetail({ productName = "Pelton-C", onBack }) {
       boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
       position: "relative",
       overflow: screenSize.isMobile ? "hidden" : "visible",
+      height: "30%"
     },
     infoBox: {
       display: "flex",
@@ -463,8 +484,8 @@ export default function ProductDetail({ productName = "Pelton-C", onBack }) {
                   src={product.img}
                   alt={productName}
                   style={{
-                    width: "200%",
-                    height: "40%",
+                    width: "60%",
+                    height: "20%",
                     maxWidth: "580px",
                     maxHeight: "280px",
                     objectFit: "contain",
