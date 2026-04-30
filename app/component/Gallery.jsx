@@ -2,62 +2,62 @@
 const galleryItems = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=600&q=80",
+    image: "/CRS-Gallery/g-1.png",
     caption: "Mr Murtaza Ameer Ali Burhani known as a blood hero. He has donated blood over 170 times",
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=600&q=80",
+    image: "/CRS-Gallery/g-2.png",
     caption: "Psychologist conducting activity sessions for mental relaxation of our patients",
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1615461066841-6116e61059a6?w=600&q=80",
+    image: "/CRS-Gallery/g-3.png",
     caption: "Patients being managed at JSF",
   },
   {
     id: 4,
-    image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&q=80",
+    image: "/CRS-Gallery/g-4.png",
     caption: "Jamile Sultana Foundation thank our heroes who help us in saving lives",
   },
   {
     id: 5,
-    image: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=600&q=80",
+    image: "/CRS-Gallery/g-5.png",
     caption: "Staff training sessions for better management and care of patients",
   },
   {
     id: 6,
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80",
+    image: "/CRS-Gallery/g-6.png",
     caption: "Psychologist conducting activity sessions for mental relaxation of our patients",
   },
   {
     id: 7,
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80",
+    image: "/CRS-Gallery/g-7.png",
     caption: "Qualified doctors assessing donors eligibility and fitness for blood donation",
   },
   {
     id: 8,
-    image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80",
+    image: "/CRS-Gallery/g-8.png",
     caption: "Snippets of blood camps where donors are being registered and screening done to assess their general health",
   },
   {
     id: 9,
-    image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80",
+    image: "/CRS-Gallery/g-9.png",
     caption: "Collaborating with different organizations and groups to help spread our message, awareness and create a network of voluntary donors",
   },
   {
     id: 10,
-    image: "https://images.unsplash.com/photo-1581093804475-577d72e13cfd?w=600&q=80",
+    image: "/CRS-Gallery/g-10.png",
     caption: "Lab staff working",
   },
   {
     id: 11,
-    image: "https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?w=600&q=80",
+    image: "/CRS-Gallery/g-11.png",
     caption: "Patients being managed at JSF",
   },
   {
     id: 12,
-    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80",
+    image: "/CRS-Gallery/g-12.png",
     caption: "Qualified doctors available for free consultations",
   },
 ];
