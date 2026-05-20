@@ -17,15 +17,15 @@ const ImageSlider = () => {
 
   const slides = [
     { 
-      bg: '/01.jpg.jpeg', 
+      bg: '/1.jpg', 
       label: "Pharmaceutical Factory" 
     },
     { 
-      bg: '/1.jpg.jpeg', 
+      bg: '/2.jpg', 
       label: "Warehouse & Pharmacy" 
     },
     { 
-      bg: '/02.jpg.jpeg', 
+      bg: '/3.jpg', 
       label: "Manufacturing Facility" 
     },
     // { 
@@ -33,53 +33,53 @@ const ImageSlider = () => {
     //   label: "Pharmaceutical Factory" 
     // },
     { 
-      bg: '/04.jpg.jpeg', 
+      bg: '/4.jpg', 
       label: "Warehouse & Pharmacy" 
     },
     { 
-      bg: '/05.jpg.jpeg', 
+      bg: '/5.jpg', 
       label: "Manufacturing Facility" 
     },
     { 
-      bg: '/06.jpg.jpeg', 
+      bg: '/6.jpg', 
       label: "Pharmaceutical Factory" 
     },
     { 
-      bg: '/07.jpg.jpeg', 
+      bg: '/7.jpg', 
       label: "Warehouse & Pharmacy" 
     },
     { 
-      bg: '/08.jpg.jpeg', 
+      bg: '/8.jpg', 
       label: "Manufacturing Facility" 
     },
     { 
-      bg: '/09.jpg.jpeg', 
+      bg: '/9.jpg', 
       label: "Pharmaceutical Factory" 
     },
     { 
-      bg: '/10.jpg.jpeg', 
+      bg: '/10.jpg', 
       label: "Warehouse & Pharmacy" 
     },
     { 
-      bg: '/11.jpg.jpeg', 
+      bg: '/11.jpg', 
       label: "Manufacturing Facility" 
     },
     { 
-      bg: '/12.jpg.jpeg', 
+      bg: '/12.jpg', 
       label: "Pharmaceutical Factory" 
     },
     { 
-      bg: '/13.jpg.jpeg', 
+      bg: '/13.jpg', 
       label: "Warehouse & Pharmacy" 
     },
     { 
-      bg: '/14.jpg.jpeg', 
+      bg: '/14.jpg', 
       label: "Manufacturing Facility" 
     },
-    { 
-      bg: '/15.jpg.jpeg', 
-      label: "Pharmaceutical Factory" 
-    },
+    // { 
+    //   bg: '/15.jpg.jpeg', 
+    //   label: "Pharmaceutical Factory" 
+    // },
     // { 
     //   bg: '/16.jpg.jpeg', 
     //   label: "Warehouse & Pharmacy" 
