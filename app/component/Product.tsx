@@ -103,12 +103,12 @@ const products: Product[] = [
     image: "/product-1.png",
     color: "text-[#147ea2]",
   },
-  {
-    id: 2,
-    name: "Piractim",
-    image: "/product-2.png",
-    color: "text-[#406da5]",
-  },
+  // {
+  //   id: 2,
+  //   name: "Piractim",
+  //   image: "/product-2.png",
+  //   color: "text-[#406da5]",
+  // },
   {
     id: 3,
     name: "Citolin",
@@ -139,12 +139,12 @@ const products: Product[] = [
     image: "/product-7.png",
     color: "text-[#c0392b]",
   },
-  {
-    id: 8,
-    name: "Anzonil",
-    image: "/product-8.png",
-    color: "text-[#555555]",
-  },
+  // {
+  //   id: 8,
+  //   name: "Anzonil",
+  //   image: "/product-8.png",
+  //   color: "text-[#555555]",
+  // },
   {
     id: 9,
     name: "Pelton-C",
