@@ -100,7 +100,7 @@ const products: Product[] = [
   {
     id: 1,
     name: "Tamsol-D",
-    image: "/product-1.png",
+    image: "/2.png",
     color: "text-[#147ea2]",
   },
   // {
@@ -118,7 +118,7 @@ const products: Product[] = [
   {
     id: 4,
     name: "Vonoglob",
-    image: "/product-4.png",
+    image: "/3.png",
     color: "text-[#3b5bdb]",
   },
   {
@@ -130,7 +130,7 @@ const products: Product[] = [
   {
     id: 6,
     name: "Artinil-K",
-    image: "/product-6.png",
+    image: "/1.png",
     color: "text-[#1a7f7a]",
   },
   {
