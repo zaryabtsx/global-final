@@ -2,8 +2,10 @@
 import { useState, useEffect } from "react";
 import { useResponsive } from "./useResponsive";
 import { sendADRFormEmail } from "../actions/sendEmail";
+import { useTranslation } from "../i18n/LanguageProvider";
 
 export default function PharmaCovigelence() {
+  const { t } = useTranslation();
   const screenSize = useResponsive();
   const [mounted, setMounted] = useState(false);
   const [showForm, setShowForm] = useState(false);
@@ -54,7 +56,7 @@ export default function PharmaCovigelence() {
         !formData.reporterEmail ||
         !formData.reportDetails
       ) {
-        setSubmitError("Please fill in all required fields.");
+        setSubmitError(t("pharmacovigilance.fillRequired"));
         setIsSubmitting(false);
         return;
       }
@@ -84,13 +86,11 @@ export default function PharmaCovigelence() {
           setShowForm(false);
         }, 3000);
       } else {
-        setSubmitError(result.error || "Failed to submit report");
+        setSubmitError(result.error || t("pharmacovigilance.failedSubmit"));
       }
     } catch (error) {
       console.error("Submission error:", error);
-      setSubmitError(
-        "An error occurred while submitting the report. Please try again.",
-      );
+      setSubmitError(t("pharmacovigilance.errorOccurred"));
     } finally {
       setIsSubmitting(false);
     }
@@ -119,7 +119,7 @@ export default function PharmaCovigelence() {
 
             }}
           >
-            Pharmacovigilance
+            {t("pharmacovigilance.title")}
           </h1>
 
           {/* Red underline */}
@@ -143,18 +143,7 @@ export default function PharmaCovigelence() {
               fontFamily: "'Outfit', sans-serif",
             }}
           >
-            We employ a robust system for collecting and analyzing adverse event
-            reports, ensuring full compliance with global regulatory standards
-            and safeguarding patient health. Our pharmacovigilance team is
-            dedicated to the continuous monitoring and assessment of the safety
-            profile of our products, ensuring that any potential risks are
-            promptly identified and addressed. Through proactive risk management
-            strategies, we assess and mitigate safety risks associated with our
-            medications, prioritizing patient well-being in all stages of
-            product life cycles. Our commitment to safety is reflected in the
-            preparation and submission of Periodic Safety Update Reports (PSURs)
-            to regulatory authorities, ensuring transparency and ongoing
-            evaluation of product safety.
+            {t("pharmacovigilance.bodyText")}
           </p>
 
           {/* Email line and Submit Button */}
@@ -177,7 +166,7 @@ export default function PharmaCovigelence() {
                 fontStyle: "normal",
               }}
             >
-              Emails :{" "}
+              {t("pharmacovigilance.emailsLabel")}{" "}
               <a
                 href="mailto:amna.shabbir@globalpharmaceuticalspk.com"
                 style={{ color: "#c0151f", textDecoration: "none" , fontSize: emailFontSize}}
@@ -218,7 +207,7 @@ export default function PharmaCovigelence() {
               letterSpacing: "0.2px",
             }}
           >
-            Pharmacovigilance Report
+            {t("pharmacovigilance.reportTitle")}
           </h2>
 
           {/* Red underline */}
@@ -252,14 +241,14 @@ export default function PharmaCovigelence() {
                     marginBottom: "6px",
                   }}
                 >
-                  Name *
+                  {t("pharmacovigilance.name")}
                 </label>
                 <input
                   type="text"
                   name="reporterName"
                   value={formData.reporterName}
                   onChange={handleChange}
-                  placeholder="Your name"
+                  placeholder={t("pharmacovigilance.namePlaceholder")}
                   style={{
                     width: "100%",
                     padding: "10px 12px",
@@ -282,14 +271,14 @@ export default function PharmaCovigelence() {
                     marginBottom: "6px",
                   }}
                 >
-                  Email *
+                  {t("pharmacovigilance.email")}
                 </label>
                 <input
                   type="email"
                   name="reporterEmail"
                   value={formData.reporterEmail}
                   onChange={handleChange}
-                  placeholder="Your email"
+                  placeholder={t("pharmacovigilance.emailPlaceholder")}
                   style={{
                     width: "100%",
                     padding: "10px 12px",
@@ -320,14 +309,14 @@ export default function PharmaCovigelence() {
                     marginBottom: "6px",
                   }}
                 >
-                  Phone
+                  {t("pharmacovigilance.phone")}
                 </label>
                 <input
                   type="tel"
                   name="reporterPhone"
                   value={formData.reporterPhone}
                   onChange={handleChange}
-                  placeholder="Your phone number"
+                  placeholder={t("pharmacovigilance.phonePlaceholder")}
                   style={{
                     width: "100%",
                     padding: "10px 12px",
@@ -350,7 +339,7 @@ export default function PharmaCovigelence() {
                     marginBottom: "6px",
                   }}
                 >
-                  Report Type
+                  {t("pharmacovigilance.reportType")}
                 </label>
                 <select
                   name="reportType"
@@ -366,12 +355,12 @@ export default function PharmaCovigelence() {
                     boxSizing: "border-box",
                   }}
                 >
-                  <option value="">Select type</option>
-                  <option value="Adverse Reaction">Adverse Reaction</option>
-                  <option value="Side Effect">Side Effect</option>
-                  <option value="Drug Interaction">Drug Interaction</option>
-                  <option value="Product Quality">Product Quality</option>
-                  <option value="Other">Other</option>
+                  <option value="">{t("pharmacovigilance.selectType")}</option>
+                  <option value="Adverse Reaction">{t("pharmacovigilance.typeAdverseReaction")}</option>
+                  <option value="Side Effect">{t("pharmacovigilance.typeSideEffect")}</option>
+                  <option value="Drug Interaction">{t("pharmacovigilance.typeDrugInteraction")}</option>
+                  <option value="Product Quality">{t("pharmacovigilance.typeProductQuality")}</option>
+                  <option value="Other">{t("pharmacovigilance.typeOther")}</option>
                 </select>
               </div>
             </div>
@@ -386,14 +375,14 @@ export default function PharmaCovigelence() {
                   marginBottom: "6px",
                 }}
               >
-                Product Name
+                {t("pharmacovigilance.productName")}
               </label>
               <input
                 type="text"
                 name="productName"
                 value={formData.productName}
                 onChange={handleChange}
-                placeholder="Product name"
+                placeholder={t("pharmacovigilance.productNamePlaceholder")}
                 style={{
                   width: "100%",
                   padding: "10px 12px",
@@ -416,13 +405,13 @@ export default function PharmaCovigelence() {
                   marginBottom: "6px",
                 }}
               >
-                Report Details *
+                {t("pharmacovigilance.reportDetails")}
               </label>
               <textarea
                 name="reportDetails"
                 value={formData.reportDetails}
                 onChange={handleChange}
-                placeholder="Describe the adverse event or issue in detail..."
+                placeholder={t("pharmacovigilance.reportDetailsPlaceholder")}
                 rows={6}
                 style={{
                   width: "100%",
@@ -493,7 +482,7 @@ export default function PharmaCovigelence() {
                 onMouseOver={(e) => (e.target.style.background = "#5a6268")}
                 onMouseOut={(e) => (e.target.style.background = "#6c757d")}
               >
-                Cancel
+                {t("common.cancel")}
               </button>
               <button
                 type="submit"
@@ -516,7 +505,7 @@ export default function PharmaCovigelence() {
                   !isSubmitting && (e.target.style.background = "#c0151f")
                 }
               >
-                {isSubmitting ? "Submitting..." : "Submit Report"}
+                {isSubmitting ? t("common.submitting") : t("pharmacovigilance.submitReport")}
               </button>
             </div>
           </form>

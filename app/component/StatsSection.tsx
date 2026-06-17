@@ -5,6 +5,7 @@
 "use client"
 import React, { useEffect, useRef, useState } from "react";
 import { useResponsive } from "./useResponsive";
+import { useTranslation } from "../i18n/LanguageProvider";
 
 interface StatItemProps {
   target: number;
@@ -84,6 +85,7 @@ const StatItem = ({ target, suffix, label, index, totalItems, isMobile, isTablet
 
 const StatsSection = () => {
   const screenSize = useResponsive();
+  const { t } = useTranslation();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -93,9 +95,9 @@ const StatsSection = () => {
   if (!mounted) return null;
 
   const stats = [
-    { target: 2000, suffix: "+", label: "Number of staff" },
-    { target: 500, suffix: "+", label: "Number of Products" },
-    { target: 200, suffix: "+", label: "Number of Distributors" },
+    { target: 2000, suffix: "+", label: t("stats.staff") },
+    { target: 500, suffix: "+", label: t("stats.products") },
+    { target: 200, suffix: "+", label: t("stats.distributors") },
   ];
 
   const padding = screenSize.isMobile ? "40px 16px" : screenSize.isTablet ? "60px 40px" : "60px 80px";

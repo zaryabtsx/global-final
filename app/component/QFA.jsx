@@ -3,33 +3,15 @@
 import React, { useState } from 'react';
 import { IoIosArrowUp } from 'react-icons/io';
 import { useResponsive } from './useResponsive';
+import { useTranslation } from '../i18n/LanguageProvider';
 
-const ACCORDION = [
-  {
-    num: "01",
-    title: "Committed to Advancing Healthcare",
-    desc: "Global Pharmaceuticals is dedicated to the development and manufacturing of high-quality pharmaceutical products that meet both local and international standards.",
-  },
-  {
-    num: "02",
-    title: "Driven by Expertise and Dedication",
-    desc: "Our team of experienced professionals drives innovation and excellence in every product we manufacture.",
-  },
-  {
-    num: "03",
-    title: "Quality at the Core of Everything We Do",
-    desc: "Rigorous quality control processes ensure every product meets the highest standards of safety and efficacy.",
-  },
-  {
-    num: "04",
-    title: "Modern Facilities, Reliable Manufacturing",
-    desc: "State-of-the-art GMP-compliant manufacturing facilities ensure consistent, reliable production at scale.",
-  },
-];
+const NUMS = ["01", "02", "03", "04"];
 
 const QFA = () => {
+  const { tRaw } = useTranslation();
   const screenSize = useResponsive();
   const [activeAccordion, setActiveAccordion] = useState(0);
+  const items = tRaw("accordion.items");
 
   return (
     <div className="flex justify-center px-4 -mt-24 py-12">
@@ -39,9 +21,9 @@ const QFA = () => {
           margin: screenSize.isMobile ? '60px 0 100px' : '80px 0 120px',
         }}
       >
-        {ACCORDION.map((item, index) => (
+        {NUMS.map((num, index) => (
           <div
-            key={item.num}
+            key={num}
             onClick={() => setActiveAccordion(index)}
             className={`
               border-b border-[#e03b44] last:border-none cursor-pointer 
@@ -56,7 +38,7 @@ const QFA = () => {
                   className={`font-bold text-[#ffc9c9] transition-all duration-300
                     ${screenSize.isMobile ? 'text-2xl' : 'text-3xl sm:text-4xl'}`}
                 >
-                  {item.num}
+                  {num}
                 </span>
 
                 {/* Title */}
@@ -66,7 +48,7 @@ const QFA = () => {
                       ? 'text-base' 
                       : 'text-xl sm:text-2xl'}`}
                 >
-                  {item.title}
+                  {items[index].title}
                 </h3>
               </div>
 
@@ -94,10 +76,10 @@ const QFA = () => {
               <div 
                 className={`
                   text-[#f8f8f8] leading-relaxed
-                  ${screenSize.isMobile ? 'text-sm pl-9' : 'text-base pl-14 sm:pl-16'}
+                  ${screenSize.isMobile ? 'text-sm ps-9' : 'text-base ps-14 sm:ps-16'}
                 `}
               >
-                {item.desc}
+                {items[index].desc}
               </div>
             </div>
           </div>

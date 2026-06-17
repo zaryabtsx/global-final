@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslation } from "../i18n/LanguageProvider";
 
 export const PRODUCT_DATA = {
   "Pelton-C": {
@@ -160,6 +161,7 @@ const products: Product[] = [
 ];
 
 export default function App() {
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsToShow, setItemsToShow] = useState(5);
 
@@ -197,10 +199,10 @@ export default function App() {
         {/* Header Section */}
         <div className="text-center mb-16 relative">
           <h2 className="md:text-5xl text-3xl font-bold text-[#9d0b0f] mb-1 tracking-tight">
-            Our Products
+            {t("productCarousel.title")}
           </h2>
           <p className="text-[16px] md:text-2xl text-[#334155] font-normal tracking-tight">
-            Diverse Pharmaceutical Solutions
+            {t("productCarousel.subtitle")}
           </p>
           <div className="w-24 h-0.75 bg-[#8B1D1D] mx-auto mt-6" />
 
@@ -209,7 +211,7 @@ export default function App() {
               href="/products"
               className="text-[#8B1D1D] font-semibold text-sm hover:underline flex items-center gap-1 transition-all"
             >
-              View All <ChevronRight size={14} strokeWidth={3} />
+              {t("productCarousel.viewAll")} <ChevronRight size={14} strokeWidth={3} />
             </a>
           </div>
         </div>
@@ -258,7 +260,7 @@ export default function App() {
                       </div>
                       <div className="mt-auto pl-2">
                         <span className="text-[14px] uppercase tracking-[0.18em] text-gray-500 font-semibold group-hover:text-[#8B1D1D] transition-colors">
-                          Learn More
+                          {t("productCarousel.learnMore")}
                         </span>
                       </div>
                     </div>
@@ -291,7 +293,7 @@ export default function App() {
             href="#"
             className="text-[#8B1D1D] font-semibold text-sm hover:underline inline-flex items-center gap-1 transition-all"
           >
-            View All <ChevronRight size={14} strokeWidth={3} />
+            {t("productCarousel.viewAll")} <ChevronRight size={14} strokeWidth={3} />
           </a>
         </div>
       </div>

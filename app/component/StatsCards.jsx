@@ -1,19 +1,17 @@
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "../i18n/LanguageProvider";
 
-const cards = [
+const cardData = [
   {
     number: "1995",
-    label: "YEAR ESTABLISHED",
     style: { left: "8.7%", top: "14.9%" },
   },
   {
     number: "100%",
-    label: "CGMP  PROGRAM",
     style: { right: "1.6%", top: "30%" },
   },
   {
     number: "5+",
-    label: "PRODUCT CATALOG",
     style: { left: "10.8%", bottom: "16%" },
   },
 ];
@@ -45,8 +43,17 @@ function StatCard({ number, label, hasPlus, style, index, isVisible }) {
 }
 
 export default function StatsCards() {
+  const { t } = useTranslation();
   const containerRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+
+  const labels = [
+    t("manufacturing.statsCards.yearEstablished"),
+    t("manufacturing.statsCards.cgmpProgram"),
+    t("manufacturing.statsCards.productCatalog"),
+  ];
+
+  const cards = cardData.map((card, i) => ({ ...card, label: labels[i] }));
 
   useEffect(() => {
     const el = containerRef.current;

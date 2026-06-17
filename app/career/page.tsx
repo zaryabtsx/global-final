@@ -7,6 +7,7 @@ import Footer from "../component/Footer";
 import { AnimatedSection, AnimatedText } from "../component/AnimatedSection";
 import { Search, ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { useTranslation } from "../i18n/LanguageProvider";
 
 interface Job {
   id: number;
@@ -28,8 +29,10 @@ const FilterDropdown = ({ label, options, value, onChange }: {
   label: string; 
   options: string[]; 
   value: string; 
-  onChange: (val: string) => void 
-}) => (
+  onChange: (val: string) => void
+}) => {
+  const { t } = useTranslation();
+  return (
   <div className="flex flex-col gap-1.5 w-full text-black">
     <label className="text-[13px] font-bold uppercase tracking-wider text-gray-700">{label}</label>
     <div className="relative group">
@@ -39,7 +42,7 @@ const FilterDropdown = ({ label, options, value, onChange }: {
         onChange={(e) => onChange(e.target.value)}
         className="w-full appearance-none bg-white border border-gray-200 rounded-md py-3 px-4 pr-10 text-[16px] text-gray-700 focus:outline-none focus:ring-1 focus:border-red-800 transition-all cursor-pointer"
       >
-        <option value="">All</option>
+        <option value="">{t("common.all")}</option>
         {options.map((opt) => (
           <option key={opt} value={opt}>{opt}</option>
         ))}
@@ -47,9 +50,11 @@ const FilterDropdown = ({ label, options, value, onChange }: {
       <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none group-hover:text-gray-600 transition-colors" />
     </div>
   </div>
-);
+  );
+};
 
 export default function Career() {
+  const { t } = useTranslation();
   const [mounted, setMounted] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [filters, setFilters] = useState({
@@ -100,7 +105,7 @@ export default function Career() {
 
       setSubmitMessage({
         type: 'success',
-        message: '✓ Job search submitted successfully! Our team will review your request.',
+        message: t("career.searchSuccess"),
       });
       
       setSearchTerm('');
@@ -110,7 +115,7 @@ export default function Career() {
     } catch {
       setSubmitMessage({
         type: 'error',
-        message: 'Failed to submit. Please try again.',
+        message: t("career.searchFailed"),
       });
     } finally {
       setSubmitting(false);
@@ -121,7 +126,7 @@ export default function Career() {
     if (!applicationData.fullName || !applicationData.email) {
       setSubmitMessage({
         type: 'error',
-        message: 'Please fill in your name and email before applying.',
+        message: t("career.fillNameEmail"),
       });
       return;
     }
@@ -144,7 +149,7 @@ export default function Career() {
 
       setSubmitMessage({
         type: 'success',
-        message: '✓ Application submitted successfully! We will review your application soon.',
+        message: t("career.applySuccess"),
       });
 
       setApplicationData({ fullName: '', email: '', phone: '', experience: '', coverLetter: '' });
@@ -154,7 +159,7 @@ export default function Career() {
     } catch {
       setSubmitMessage({
         type: 'error',
-        message: 'Failed to submit application. Please try again.',
+        message: t("career.applyFailed"),
       });
     } finally {
       setSubmitting(false);
@@ -172,7 +177,7 @@ export default function Career() {
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl font-bold text-[#9D0B0F] mb-6"
           >
-            Career Portal
+            {t("career.heroTitle")}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -180,7 +185,7 @@ export default function Career() {
             transition={{ delay: 0.1 }}
             className="font-sans text-[18px] text-[#1F2937] max-w-xl"
           >
-            From a small marketing venture to one of Pakistan&rsquo;s fast-growing pharmaceutical manufacturers producing a wide range of medicines and healthcare products for patients across the country.
+            {t("career.heroText")}
           </motion.p>
         </div>
         <div className="w-full md:w-1/2 h-75 md:h-125 relative">
@@ -198,12 +203,12 @@ export default function Career() {
           <div className="mb-16">
             <AnimatedSection>
               <h2 className="text-5xl font-bold text-[#9D0B0F] mb-4">
-                Career Opportunities
+                {t("career.opportunitiesTitle")}
               </h2>
             </AnimatedSection>
             <AnimatedText delay={0.1}>
               <p className="text-[16px] md:text-[18px] text-gray-600 max-w-2xl">
-                Join our team and be part of a growing pharmaceutical company committed to excellence and innovation
+                {t("career.opportunitiesText")}
               </p>
             </AnimatedText>
           </div>
@@ -215,12 +220,12 @@ export default function Career() {
                 <form onSubmit={handleSubmitFilters} className="space-y-6">
                   {/* Job Search Input */}
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-[13px] font-bold text-gray-700 uppercase tracking-wider">Job Search</label>
+                    <label className="text-[13px] font-bold text-gray-700 uppercase tracking-wider">{t("career.jobSearch")}</label>
                     <div className="relative">
                       <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                       <input
                         type="text"
-                        placeholder="Search..."
+                        placeholder={t("career.searchPlaceholder")}
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                         className="w-full bg-white border border-gray-200 rounded-md py-3 pl-11 pr-4 text-[16px] text-gray-700 focus:outline-none focus:ring-1 focus:border-red-800 transition-all placeholder:text-gray-400"
@@ -230,7 +235,7 @@ export default function Career() {
 
                   {/* Dropdowns */}
                   <FilterDropdown 
-                    label="Job Title" 
+                    label={t("career.jobTitle")}
                     options={['Training Manager', 'Group Product Manager', 'Associate Manager Group Legal']}
                     value={filters.jobTitle}
                     onChange={(val) => handleFilterChange('jobTitle', val)}
@@ -238,13 +243,13 @@ export default function Career() {
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <FilterDropdown 
-                      label="Employment" 
+                      label={t("career.employment")}
                       options={['Permanent']}
                       value={filters.employment}
                       onChange={(val) => handleFilterChange('employment', val)}
                     />
                     <FilterDropdown 
-                      label="Company" 
+                      label={t("career.company")}
                       options={['Martin Dow']}
                       value={filters.company}
                       onChange={(val) => handleFilterChange('company', val)}
@@ -253,13 +258,13 @@ export default function Career() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <FilterDropdown 
-                      label="Department" 
+                      label={t("career.department")}
                       options={['Legal and IP', 'Marketing', 'Sales Training']}
                       value={filters.department}
                       onChange={(val) => handleFilterChange('department', val)}
                     />
                     <FilterDropdown 
-                      label="City" 
+                      label={t("career.city")}
                       options={['Karachi']}
                       value={filters.city}
                       onChange={(val) => handleFilterChange('city', val)}
@@ -273,7 +278,7 @@ export default function Career() {
                     whileTap={{ scale: 0.98 }}
                     className="w-full bg-[#9D0B0F] text-white text-[16px] font-bold py-3.5 rounded-md mt-4 shadow-sm hover:bg-[#7a1220] transition-all uppercase tracking-widest disabled:opacity-50"
                   >
-                    {submitting ? 'Submitting...' : 'Submit'}
+                    {submitting ? t("common.submitting") : t("common.submit")}
                   </motion.button>
 
                   {submitMessage && (
@@ -321,7 +326,7 @@ export default function Career() {
                         onClick={() => setSelectedJobForApplication(job.id)}
                         className="w-full bg-[#A9A9A9] text-black text-[16px] font-bold py-3 rounded-lg mt-8 transition-all"
                       >
-                        Apply
+                        {t("career.apply")}
                       </motion.button>
                     </motion.div>
                   ))}
@@ -344,7 +349,7 @@ export default function Career() {
                     onClick={(e) => e.stopPropagation()}
                   >
                     <h2 className="text-2xl font-bold text-[#911526] mb-6">
-                      Apply for: {MOCK_JOBS.find((j) => j.id === selectedJobForApplication)?.title}
+                      {t("career.applyFor")} {MOCK_JOBS.find((j) => j.id === selectedJobForApplication)?.title}
                     </h2>
 
                     <form
@@ -359,7 +364,7 @@ export default function Career() {
                     >
                       <div>
                         <label className="block text-[16px] font-semibold text-gray-800 mb-2" htmlFor="fullName">
-                          Full Name *
+                          {t("career.fullName")}
                         </label>
                         <input
                           id="fullName"
@@ -373,7 +378,7 @@ export default function Career() {
 
                       <div>
                         <label className="block text-[16px] font-semibold text-gray-800 mb-2" htmlFor="email">
-                          Email *
+                          {t("career.emailLabel")}
                         </label>
                         <input
                           id="email"
@@ -387,7 +392,7 @@ export default function Career() {
 
                       <div>
                         <label className="block text-[16px] font-semibold text-gray-800 mb-2" htmlFor="phone">
-                          Phone
+                          {t("career.phoneLabel")}
                         </label>
                         <input
                           id="phone"
@@ -399,23 +404,23 @@ export default function Career() {
                       </div>
 
                       <div>
-                        <label className="block text-[16px] font-semibold text-gray-800 mb-2">Years of Experience</label>
+                        <label className="block text-[16px] font-semibold text-gray-800 mb-2">{t("career.yearsExperience")}</label>
                         <input
                           type="text"
                           value={applicationData.experience}
                           onChange={(e) => setApplicationData({ ...applicationData, experience: e.target.value })}
                           className="w-full border border-gray-300 rounded-md px-4 py-3 text-[16px] focus:outline-none focus:ring-2 focus:ring-[#911526]"
-                          placeholder="e.g., 5 years"
+                          placeholder={t("career.experiencePlaceholder")}
                         />
                       </div>
 
                       <div>
-                        <label className="block text-[16px] font-semibold text-gray-800 mb-2">Cover Letter</label>
+                        <label className="block text-[16px] font-semibold text-gray-800 mb-2">{t("career.coverLetter")}</label>
                         <textarea
                           value={applicationData.coverLetter}
                           onChange={(e) => setApplicationData({ ...applicationData, coverLetter: e.target.value })}
                           className="w-full border border-gray-300 rounded-md px-4 py-3 text-[16px] focus:outline-none focus:ring-2 focus:ring-[#911526] min-h-28"
-                          placeholder="Tell us about yourself..."
+                          placeholder={t("career.coverLetterPlaceholder")}
                         />
                       </div>
 
@@ -427,7 +432,7 @@ export default function Career() {
                           whileTap={{ scale: 0.98 }}
                           className="flex-1 bg-[#911526] text-white font-bold py-3 text-[16px] rounded-lg hover:bg-[#7a1220] transition-all disabled:opacity-50"
                         >
-                          {submitting ? 'Submitting...' : 'Submit Application'}
+                          {submitting ? t("common.submitting") : t("career.submitApplication")}
                         </motion.button>
                         <motion.button
                           type="button"
@@ -436,7 +441,7 @@ export default function Career() {
                           whileTap={{ scale: 0.98 }}
                           className="flex-1 bg-gray-300 text-gray-800 font-bold py-3 text-[16px] rounded-lg hover:bg-gray-400 transition-all"
                         >
-                          Cancel
+                          {t("common.cancel")}
                         </motion.button>
                       </div>
 

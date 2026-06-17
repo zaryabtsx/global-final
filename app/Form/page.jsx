@@ -9,8 +9,10 @@ import ADRGuidelinesPage from "../component/Form2";
 import ADRFormPage3 from "../component/Form3";
 import Pharmacovigelence from "../component/Pharmacovigelence";
 import { sendADRFormEmail } from "../actions/sendEmail";
+import { useTranslation } from "../i18n/LanguageProvider";
 
 export default function Form() {
+  const { t } = useTranslation();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState("");
   const [submitError, setSubmitError] = useState("");
@@ -59,11 +61,11 @@ export default function Form() {
         // Auto-hide message after 5 seconds
         setTimeout(() => setSubmitMessage(""), 5000);
       } else {
-        setSubmitError(result.error || "Failed to submit form");
+        setSubmitError(result.error || t("form.failedSubmit"));
       }
     } catch (error) {
       console.error("Submission error:", error);
-      setSubmitError("An error occurred while submitting the form. Please try again.");
+      setSubmitError(t("form.errorOccurred"));
     } finally {
       setIsSubmitting(false);
     }
@@ -84,14 +86,14 @@ export default function Form() {
           {/* Success Message */}
           {submitMessage && (
             <div className="mb-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
-              <span className="font-semibold">✅ Success!</span> {submitMessage}
+              <span className="font-semibold">✅ {t("form.successLabel")}</span> {submitMessage}
             </div>
           )}
 
           {/* Error Message */}
           {submitError && (
             <div className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
-              <span className="font-semibold">❌ Error:</span> {submitError}
+              <span className="font-semibold">❌ {t("form.errorLabel")}</span> {submitError}
             </div>
           )}
 
@@ -104,7 +106,7 @@ export default function Form() {
                 : "bg-red-800 text-white hover:shadow-lg focus:ring-red-300 active:scale-95"
             }`}
           >
-            {isSubmitting ? "Submitting..." : "Submit Form"}
+            {isSubmitting ? t("common.submitting") : t("form.submitForm")}
           </button>
         </div>
       </form>

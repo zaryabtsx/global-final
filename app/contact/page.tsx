@@ -9,6 +9,7 @@ import { useState } from 'react';
 import Header from '../component/Header';
 import Footer from '../component/Footer';
 import { sendADRFormEmail } from '../actions/sendEmail';
+import { useTranslation } from "../i18n/LanguageProvider";
 
 const ContactInfoItem = ({ icon: Icon, title, content }: { icon: any; title: string; content: string[] }) => (
   <div className="flex gap-4">
@@ -41,6 +42,7 @@ const PartnerLogo = ({ name, subtitle, color, icon }: { name: string; subtitle: 
 );
 
 export default function App() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState("");
@@ -59,7 +61,7 @@ export default function App() {
 
     try {
       if (!formData.name || !formData.email || !formData.message) {
-        setSubmitError("Please fill in name, email, and message fields.");
+        setSubmitError(t("contact.fillFields"));
         setIsSubmitting(false);
         return;
       }
@@ -73,15 +75,15 @@ export default function App() {
       });
 
       if (result.success) {
-        setSubmitMessage(result.message || "Form submitted successfully!");
+        setSubmitMessage(result.message || t("contact.successDefault"));
         setFormData({ name: '', email: '', phone: '', message: '' });
         setTimeout(() => setSubmitMessage(""), 5000);
       } else {
-        setSubmitError(result.error || "Failed to send message");
+        setSubmitError(result.error || t("contact.failedToSend"));
       }
     } catch (error) {
       console.error("Submission error:", error);
-      setSubmitError("An error occurred while sending your message. Please try again.");
+      setSubmitError(t("contact.errorOccurred"));
     } finally {
       setIsSubmitting(false);
     }
@@ -101,57 +103,57 @@ export default function App() {
             className="bg-white p-8 md:p-12 rounded-2xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] border border-gray-50"
           >
             <div className="mb-8">
-              <h2 className="text-5xl font-bold text-gray-900 mb-3">Contact Us</h2>
+              <h2 className="text-5xl font-bold text-gray-900 mb-3">{t("contact.title")}</h2>
               <p className="text-[16px] text-gray-500 leading-relaxed">
-                You can put your feedback messages sooner we will get reach out to you.
+                {t("contact.subtitle")}
               </p>
             </div>
 
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="space-y-1.5">
-                <label className="text-[16px] font-bold text-gray-700 uppercase tracking-wider">Name</label>
+                <label className="text-[16px] font-bold text-gray-700 uppercase tracking-wider">{t("contact.name")}</label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="Enter your name"
+                  placeholder={t("contact.namePlaceholder")}
                   className="w-full bg-white border border-gray-200 rounded-md py-3 px-4 text-[16px] focus:outline-none focus:ring-1 focus:ring-red-800/10 focus:border-red-800 transition-all placeholder:text-gray-500 text-black"
                 />
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-[16px] font-bold text-gray-700 uppercase tracking-wider">E-mail</label>
+                <label className="text-[16px] font-bold text-gray-700 uppercase tracking-wider">{t("contact.email")}</label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="Enter your email"
+                  placeholder={t("contact.emailPlaceholder")}
                   className="w-full bg-white border border-gray-200 rounded-md py-3 px-4 text-[16px] focus:outline-none focus:ring-1 focus:ring-red-800/10 focus:border-red-800 transition-all placeholder:text-gray-400 text-black"
                 />
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-[16px] font-bold text-gray-700 uppercase tracking-wider">Phone</label>
+                <label className="text-[16px] font-bold text-gray-700 uppercase tracking-wider">{t("contact.phone")}</label>
                 <input
                   type="tel"
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  placeholder="Enter your phone"
+                  placeholder={t("contact.phonePlaceholder")}
                   className="w-full bg-white border border-gray-200 rounded-md py-3 px-4 text-[16px] focus:outline-none focus:ring-1 focus:ring-red-800/10 focus:border-red-800 transition-all placeholder:text-gray-400 text-black"
                 />
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-[16px] font-bold text-gray-700 uppercase tracking-wider">Message</label>
+                <label className="text-[16px] font-bold text-gray-700 uppercase tracking-wider">{t("contact.message")}</label>
                 <textarea
                   name="message"
                   rows={5}
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Put your message and your phone number. We will reach out to you."
+                  placeholder={t("contact.messagePlaceholder")}
                   className="w-full bg-white border border-gray-200 rounded-md py-3 px-4 text-[16px] focus:outline-none focus:ring-1 focus:ring-red-800/10 focus:border-red-800 transition-all placeholder:text-gray-400 resize-none text-black"
                 />
               </div>
@@ -181,7 +183,7 @@ export default function App() {
                     : "bg-[#911526] hover:bg-[#7a1220]"
                 }`}
               >
-                {isSubmitting ? "Sending..." : "Submit"}
+                {isSubmitting ? t("common.sending") : t("common.submit")}
               </motion.button>
             </form>
           </motion.div>
@@ -199,7 +201,7 @@ export default function App() {
               >
                 <ContactInfoItem 
                   icon={MapPin} 
-                  title="Head Office" 
+                  title={t("contact.headOffice")}
                   content={["Plot 22-23, Industrial triangle,", "Kahuta Road, Islamabad"]} 
                   // classsName="text-gray-700 text-[14px] leading-relaxed"
                 />
@@ -223,7 +225,7 @@ export default function App() {
               >
                 <ContactInfoItem 
                   icon={MapPin} 
-                  title="Factory" 
+                  title={t("contact.factory")}
                   content={["Plot 204-205, Industrial triangle,", "Kahuta Road, Islamabad"]} 
                 />
                 <ContactInfoItem 
@@ -247,7 +249,7 @@ export default function App() {
               className="space-y-8 pt-8 border-t border-gray-200"
             >
               <h3 className="text-2xl font-bold text-gray-800">
-                Our Trusted Group Companies and Strategic Partners
+                {t("contact.partnersHeading")}
               </h3>
               
               <div className="space-y-8">

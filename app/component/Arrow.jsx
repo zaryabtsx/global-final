@@ -5,6 +5,7 @@
  */
 
 import { motion } from "motion/react";
+import { useTranslation } from "../i18n/LanguageProvider";
 
 const TimelineText = ({
   year,
@@ -79,6 +80,8 @@ const Chevron = ({ x, delay }) => (
 );
 
 export default function Arrow() {
+  const { tRaw } = useTranslation();
+  const tl = tRaw("timeline.items");
   return (
     <div className="min-h-screen  bg-[#E6E6E6] -mt-10 flex items-center justify-center p-2 md:p-4 font-sans overflow-hidden">
       {/* Desktop Timeline - Hidden on Mobile */}
@@ -206,8 +209,8 @@ export default function Arrow() {
         {/* 1995 - Top Right */}
         <TimelineText
           year="1995"
-          title="Company Established"
-          description="Global Pharmaceutical was founded in August 1995 to provide high-quality, affordable medicines in Pakistan."
+          title={tl[0].title}
+          description={tl[0].description}
           align="right"
           delay={0.5}
           className="hidden md:block absolute top-[8%] left-[60%]"
@@ -216,8 +219,8 @@ export default function Arrow() {
         {/* 2002 - Top Left */}
         <TimelineText
           year="2002"
-          title="Market Development Phase"
-          description="Started by importing pharmaceutical products from Korea and Malaysia, building nationwide trust."
+          title={tl[1].title}
+          description={tl[1].description}
           align="left"
           delay={0.8}
           className="hidden md:block absolute top-[26%] left-[8%]"
@@ -226,8 +229,8 @@ export default function Arrow() {
         {/* 2008 - Middle Left */}
         <TimelineText
           year="2008"
-          title="ISO Certification Achieved"
-          description="Achieved ISO 9001:2008 certification, strengthening our commitment to global quality standards."
+          title={tl[2].title}
+          description={tl[2].description}
           align="left"
           delay={1.0}
           className="hidden md:block absolute top-[52%] left-[10%]"
@@ -236,8 +239,8 @@ export default function Arrow() {
         {/* 2009 - Bottom Center */}
         <TimelineText
           year="2009"
-          title="ISO Certification Achieved"
-          description="Established modern manufacturing facilities in compliance with cGMP guidelines, strengthening in-house production."
+          title={tl[3].title}
+          description={tl[3].description}
           align="right"
           delay={1.2}
           className="hidden md:block absolute bottom-[8%] left-[58%]"
@@ -246,8 +249,8 @@ export default function Arrow() {
         {/* 2012 - Middle Right */}
         <TimelineText
           year="2012"
-          title="Portfolio & Infrastructure Growth"
-          description="Expanded portfolio across CNS, Anti-Infectives, Gastroenterology, and other key segments while strengthening Quality Control and R&D."
+          title={tl[4].title}
+          description={tl[4].description}
           align="right"
           delay={1.8}
           className="hidden md:block absolute top-[40%] right-[0%]"
@@ -307,8 +310,8 @@ export default function Arrow() {
                   damping: 14
                 }}
               >
-                <h4 className="text-sm font-bold text-black uppercase tracking-tight mb-2">Company Established</h4>
-                <p className="text-xs text-black leading-relaxed">Global Pharmaceutical was founded in August 1995 to provide high-quality, affordable medicines in Pakistan.</p>
+                <h4 className="text-sm font-bold text-black uppercase tracking-tight mb-2">{tl[0].title}</h4>
+                <p className="text-xs text-black leading-relaxed">{tl[0].description}</p>
               </motion.div>
             </div>
           </motion.div>
@@ -363,8 +366,8 @@ export default function Arrow() {
                   damping: 14
                 }}
               >
-                <h4 className="text-sm font-bold text-black uppercase tracking-tight mb-2">Market Development Phase</h4>
-                <p className="text-xs text-black leading-relaxed">Started by importing pharmaceutical products from Korea and Malaysia, building nationwide trust.</p>
+                <h4 className="text-sm font-bold text-black uppercase tracking-tight mb-2">{tl[1].title}</h4>
+                <p className="text-xs text-black leading-relaxed">{tl[1].description}</p>
               </motion.div>
             </div>
           </motion.div>
@@ -419,8 +422,8 @@ export default function Arrow() {
                   damping: 14
                 }}
               >
-                <h4 className="text-sm font-bold text-black uppercase tracking-tight mb-2">ISO Certification Achieved</h4>
-                <p className="text-xs text-black leading-relaxed">Achieved ISO 9001:2008 certification, strengthening our commitment to global quality standards.</p>
+                <h4 className="text-sm font-bold text-black uppercase tracking-tight mb-2">{tl[2].title}</h4>
+                <p className="text-xs text-black leading-relaxed">{tl[2].description}</p>
               </motion.div>
             </div>
           </motion.div>
@@ -475,8 +478,8 @@ export default function Arrow() {
                   damping: 14
                 }}
               >
-                <h4 className="text-sm font-bold text-[#911526] uppercase tracking-tight mb-2">Modern Facilities</h4>
-                <p className="text-xs text-gray-500 leading-relaxed">Established modern manufacturing facilities in compliance with cGMP guidelines, strengthening in-house production.</p>
+                <h4 className="text-sm font-bold text-[#911526] uppercase tracking-tight mb-2">{tl[3].title}</h4>
+                <p className="text-xs text-gray-500 leading-relaxed">{tl[3].description}</p>
               </motion.div>
             </div>
           </motion.div>
@@ -531,8 +534,8 @@ export default function Arrow() {
                   damping: 14
                 }}
               >
-                <h4 className="text-sm font-bold text-[#911526] uppercase tracking-tight mb-2">Portfolio & Infrastructure Growth</h4>
-                <p className="text-xs text-gray-500 leading-relaxed">Expanded portfolio across CNS, Anti-Infectives, Gastroenterology, and other key segments while strengthening Quality Control and R&D.</p>
+                <h4 className="text-sm font-bold text-[#911526] uppercase tracking-tight mb-2">{tl[4].title}</h4>
+                <p className="text-xs text-gray-500 leading-relaxed">{tl[4].description}</p>
               </motion.div>
             </div>
           </motion.div>

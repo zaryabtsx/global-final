@@ -7,30 +7,27 @@ import Link from "next/link";
 import { CiSearch } from "react-icons/ci";
 import { FiMail, FiPhone, FiMenu, FiX } from "react-icons/fi";
 import { useResponsive, getResponsiveValue } from "./useResponsive";
+import { useTranslation } from "../i18n/LanguageProvider";
+import { LANGUAGES } from "../i18n/config";
 
 const NAV_LINKS = [
-  { label: "About us", href: "/about" },
-  { label: "Manufacturing Facilities", href: "/Manufacturing" },
-  { label: "Products", href: "/products" },
-  { label: "Pharmacovigilance", href: "/Form" },
-  { label: "News & Blog", href: "", disabled: true },
-  { label: "CSR", href: "/CRS" },
-  { label: "Careers", href: "/career" },
-  { label: "Contact us", href: "/contact" },
-];
-
-const LANGUAGES = [
-  { label: "English (US)", value: "en-US" },
-  { label: "Urdu", value: "ur" },
-  { label: "Arabic", value: "ar" },
-  { label: "French", value: "fr" },
+  { key: "nav.aboutUs", href: "/about" },
+  { key: "nav.manufacturing", href: "/Manufacturing" },
+  { key: "nav.products", href: "/products" },
+  { key: "nav.pharmacovigilance", href: "/Form" },
+  { key: "nav.newsBlog", href: "", disabled: true },
+  { key: "nav.csr", href: "/CRS" },
+  { key: "nav.careers", href: "/career" },
+  { key: "nav.contactUs", href: "/contact" },
 ];
 
 const Header = () => {
   const screenSize = useResponsive();
+  const { t, locale, setLocale } = useTranslation();
   const [mounted, setMounted] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState(LANGUAGES[0].value);
+  const selectedLanguage = locale;
+  const currentLang = LANGUAGES.find((l) => l.value === locale) || LANGUAGES[0];
 
   useEffect(() => {
     setMounted(true);
@@ -115,7 +112,7 @@ const Header = () => {
               <CiSearch size={18} />
               <input
                 type="search"
-                placeholder="search"
+                placeholder={t("nav.searchPlaceholder")}
                 style={{
                   border: "none",
                   background: "transparent",
@@ -138,12 +135,15 @@ const Header = () => {
                 gap: 6,
               }}
             >
-              <span className="text-lg">
-                <img src="/United-States.png" alt="" />
-              </span>
+              {currentLang.flag ? (
+                <span className="text-lg">
+                  <img src={currentLang.flag} alt="" />
+                </span>
+              ) : null}
               <select
                 value={selectedLanguage}
-                onChange={(e) => setSelectedLanguage(e.target.value)}
+                onChange={(e) => setLocale(e.target.value)}
+                aria-label={t("nav.language")}
                 style={{
                   border: "none",
                   background: "transparent",
@@ -200,7 +200,7 @@ const Header = () => {
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             {NAV_LINKS.map((link) => (
               <Link
-                key={link.label}
+                key={link.key}
                 href={link.href}
                 onClick={() => !link.disabled && setIsMobileMenuOpen(false)}
                 style={{
@@ -213,7 +213,7 @@ const Header = () => {
                   pointerEvents: link.disabled ? "none" : "auto",
                 }}
               >
-                {link.label}
+                {t(link.key)}
               </Link>
             ))}
           </div>
@@ -232,7 +232,7 @@ const Header = () => {
               <CiSearch size={20} color="#666" />
               <input
                 type="search"
-                placeholder="Search products..."
+                placeholder={t("nav.searchProductsPlaceholder")}
                 style={{
                   border: "none",
                   background: "transparent",
@@ -261,7 +261,7 @@ const Header = () => {
         >
           {NAV_LINKS.map((link) => (
             <Link
-              key={link.label}
+              key={link.key}
               href={link.href}
               style={{
                 color: link.disabled ? "#770010" : "#fff",
@@ -272,7 +272,7 @@ const Header = () => {
                 pointerEvents: link.disabled ? "none" : "auto",
               }}
             >
-              {link.label}
+              {t(link.key)}
             </Link>
           ))}
         </nav>

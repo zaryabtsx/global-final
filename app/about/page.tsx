@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { Check } from "lucide-react";
 import Header from "../component/Header";
 import Footer from "../component/Footer";
+import { useTranslation } from "../i18n/LanguageProvider";
 
 const SectionTitle = ({
   title,
@@ -25,6 +26,7 @@ const SectionTitle = ({
 );
 
 export default function App() {
+  const { t, tRaw } = useTranslation();
   return (
     <div className="min-h-screen bg-white font-sans overflow-x-hidden">
       <Header></Header>
@@ -37,7 +39,7 @@ export default function App() {
             animate={{ opacity: 1, y: 0 }}
             className="font-outfit text-5xl font-bold text-[#9D0B0F] mb-6"
           >
-            About Us
+            {t("about.heroTitle")}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -45,9 +47,7 @@ export default function App() {
             transition={{ delay: 0.1 }}
             className="font-outfit text-[18px] md:text-[18px] text-[#1F2937] max-w-xl"
           >
-            From a small marketing venture to one of Pakistan&#39;s fast-growing
-            pharmaceutical manufacturers producing a wide range of medicines and
-            healthcare products for patients across the country.
+            {t("about.heroText")}
           </motion.p>
         </div>
         <div className="w-full md:w-1/2 h-100 md:h-155 relative">
@@ -71,12 +71,12 @@ export default function App() {
             className="mt-16 md:mt-34"
           >
             <SectionTitle
-              title="Introduction"
-              subtitle="Global Pharmaceuticals"
+              title={t("about.introductionTitle")}
+              subtitle={t("about.introductionSubtitle")}
             />
             <div className=" text-gray-600 mt-2  leading-relaxed text-[18px]">
               <p>
-                Global Pharmaceuticals Pvt. Ltd. is a leading pharmaceutical manufacturer dedicated to improving health outcomes through quality-driven healthcare solutions. Backed by experienced professionals, advanced technologies, and a strong culture of compliance, we manufacture a diverse range of pharmaceutical products that meet the highest standards of safety, efficacy, and quality.
+                {t("about.introductionText")}
               </p>
             </div>
           </motion.div>
@@ -115,9 +115,9 @@ export default function App() {
             transition={{ duration: 0.6 }}
             className="mb-12"
           >
-            <SectionTitle title="Facility " subtitle="And Size" />
+            <SectionTitle title={t("about.facilityTitle")} subtitle={t("about.facilitySubtitle")} />
             <p className="text-gray-600 leading-relaxed text-[18px] max-w-4xl ">
-              Our state-of-the-art pharmaceutical manufacturing facility spans approximately 60,000 square feet and is equipped with advanced production, quality control, and warehousing infrastructure designed to meet international pharmaceutical manufacturing standards.
+              {t("about.facilityText")}
             </p>
           </motion.div>
 
@@ -127,24 +127,13 @@ export default function App() {
             transition={{ duration: 0.6 }}
             className="mb-12"
           >
-            <SectionTitle title="MANUFACTURING CAPABILITIES" subtitle="Global Pharmaceuticals’ manufacturing facility comprises:" />
+            <SectionTitle title={t("about.capabilitiesTitle")} subtitle={t("about.capabilitiesSubtitle")} />
 
           </motion.div>
 
 
           <div className="flex flex-col gap-6">
-            {[
-              "Dedicated non-sterile manufacturing sections for tablets, capsules, syrups, suspensions, creams, and ointments.",
-              "A dedicated sterile liquid injectable manufacturing section.",
-              "A dedicated cephalosporin manufacturing facility.",
-              "A dedicated penicillin manufacturing facility.",
-              "A dedicated carbapenem manufacturing facility.",
-              "A state-of-the-art QC laboratory featuring separate chemical and microbiological divisions. It is fully equipped with advanced analytical instrumentation—including HPLC, GC, and stability chambers—from world-class manufacturers",
-              "A Quality Assurance Department responsible for establishing, implementing, and maintaining a robust Quality Management System across all operations. The department ensures compliance with regulatory requirements and international quality standards throughout the manufacturing process.",
-              "Our dedicated Validation Department ensures that all processes, equipment, and systems consistently produce safe, effective, and high-quality pharmaceutical products in full compliance with cGMP and international regulatory guidelines.",
-              "Our R&D Department utilizes advanced technologies and scientific expertise to develop new pharmaceutical formulations and enhance existing ones, ensuring the highest standards of safety, quality, and efficacy.",
-              "Separate warehouses for raw materials, packaging materials, and finished products to ensure proper storage, handling, and inventory management. "
-            ].map((item, index) => (
+            {(tRaw("about.capabilities") as string[]).map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: -20 }}
@@ -175,10 +164,10 @@ export default function App() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl font-bold text-[#9D0B0F] mb-6 uppercase">
-                Our Vision
+                {t("about.visionTitle")}
               </h2>
               <p className="text-gray-600 leading-relaxed text-[18px]">
-                To be a globally recognized pharmaceutical company, delivering innovative, high-quality, and affordable healthcare solutions that improve lives and create lasting value for patients, healthcare professionals, and communities worldwide.
+                {t("about.visionText")}
               </p>
             </motion.div>
           </div>
@@ -215,10 +204,10 @@ export default function App() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl font-bold text-[#9D0B0F] mb-6 uppercase">
-                Our Mission
+                {t("about.missionTitle")}
               </h2>
               <p className="text-gray-600 leading-relaxed text-[18px]">
-                Our mission is to enhance the quality of life by providing safe, effective, and affordable pharmaceutical products through innovation, operational excellence, and an unwavering commitment to patient well-being.
+                {t("about.missionText")}
               </p>
             </motion.div>
           </div>

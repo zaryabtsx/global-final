@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useRef, useState } from "react";
+import { useTranslation } from "../i18n/LanguageProvider";
 
 const galleryItems = [
   {
@@ -85,6 +86,7 @@ const GalleryCard = ({ image, caption, animate, index }) => (
 );
 
 export default function Gallery() {
+  const { t } = useTranslation();
   const sectionRef = useRef(null);        // Fixed ref
   const [animate, setAnimate] = useState(false);
 
@@ -117,13 +119,13 @@ export default function Gallery() {
             className={`text-3xl md:text-4xl font-bold text-[#9d0b0f] transition-all duration-800 ease-out
               ${animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
-            Gallery
+            {t("gallery.title")}
           </h2>
-          <p 
+          <p
             className={`text-gray-600 mt-1 text-lg transition-all duration-800 ease-out delay-150
               ${animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
-            Moments From Our Foundation
+            {t("gallery.subtitle")}
           </p>
           <div className="w-10 h-1 bg-red-700 mx-auto mt-3 rounded" />
         </div>
