@@ -157,7 +157,7 @@ export default function App() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
 
-          
+
         >
           <SectionHeader
             title="Built On A Foundation"
@@ -181,10 +181,7 @@ export default function App() {
               transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
               className="hover:text-gray-800 text-[18px] transition-colors duration-300 text-start"
             >
-              Global Pharmaceuticals (Pvt.) Ltd. was established in August 1995
-              and is headquartered in Islamabad. The company began as a
-              marketing organization importing finished pharmaceutical products
-              from Korea and Malaysia for the local market.
+              Established in 1995 and entering pharmaceutical manufacturing in 1996, Global Pharmaceuticals has been at the forefront of Pakistan’s pharmaceutical industry for over three decades. Driven by a commitment to quality, innovation, and patient well-being, the company has continuously expanded its capabilities to meet evolving healthcare needs
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -193,10 +190,7 @@ export default function App() {
               transition={{ delay: 0.5, duration: 0.6, ease: "easeOut" }}
               className="hover:text-gray-800 text-[18px] transition-colors duration-300 text-start"
             >
-              With growing demand for quality medicines in Pakistan, the company
-              expanded its operations and began manufacturing its own
-              pharmaceutical products improving availability and affordability
-              for patients across the country.
+              In 2003, Global Pharmaceuticals further strengthened its foundation by establishing a state-of-the-art manufacturing facility in Islamabad, designed in accordance with international quality and regulatory standards. Today, backed by advanced manufacturing technologies, robust quality systems, and a highly skilled workforce, Global Pharmaceuticals is recognized as a trusted manufacturer of high-quality and affordable medicines, serving healthcare needs across Pakistan and an expanding network of international markets.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -205,10 +199,7 @@ export default function App() {
               transition={{ delay: 0.7, duration: 0.6, ease: "easeOut" }}
               className="hover:text-gray-800 text-[18px] transition-colors duration-300 text-start"
             >
-              Today, Global Pharmaceuticals employs many qualified professionals
-              and maintains a strong distribution network supplying medicines to
-              hospitals, pharmacies, and healthcare institutions throughout
-              Pakistan.
+              With a strong focus on excellence, compliance, and continuous improvement, we remain dedicated to delivering safe, effective, and accessible healthcare solutions that improve lives and contribute to healthier communities worldwide.
             </motion.p>
           </motion.div>
 
@@ -317,7 +308,7 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4, duration: 0.6 }}
-                className="text-[18px]" 
+                className="text-[18px]"
               >
                 The company continues to contribute significantly to improving
                 healthcare and patient well-being across Pakistan driven by

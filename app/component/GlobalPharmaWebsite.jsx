@@ -333,6 +333,20 @@ export default function GlobalPharmaWebsite() {
           </div>
         </AnimatedSection>
 
+        <div className="flex justify-center items-center text-center">
+          <p
+            style={{
+              color: "#4b5563",
+              fontSize: screenSize.isMobile ? 15 : 18,
+              marginTop: 20,
+              lineHeight: 1.75,
+              marginBottom: 30,
+            }}
+          >
+            Global Pharmaceuticals is expanding its international footprint through strategic partnerships. Driven by a commitment to quality and regulatory compliance, we continue to grow as a trusted partner in new global markets.
+          </p>
+        </div>
+
         <Arrow></Arrow>
       </section>
 
@@ -350,7 +364,7 @@ export default function GlobalPharmaWebsite() {
         <AnimatedSection>
           <div style={{ textAlign: "center", marginBottom: 48 }}>
             <h2 className="md:text-5xl text-3xl font-bold text-[#9d0b0f] text-center">
-              Trusted Business Partners
+              Trusted Contract Manufacturing Partners
             </h2>
             <div
               style={{
@@ -379,17 +393,15 @@ export default function GlobalPharmaWebsite() {
               margin: "0 auto 48px",
             }}
           >
-            At Global Pharmaceuticals, we take pride in being a trusted contract
-            manufacturing partner for leading national and multinational
-            pharmaceutical companies. With state-of-the-art facilities,
-            cutting-edge technology, and a team of highly skilled professionals,
-            we ensure that every product manufactured under our roof meets the
-            highest standards of quality, safety, and compliance. Our strong
-            commitment to excellence, regulatory adherence, and timely delivery
-            makes us the preferred choice for companies seeking reliable and
-            efficient contract manufacturing solutions. We value long-term
-            partnerships built on trust, transparency, and a shared vision to
-            deliver quality healthcare to patients nationwide.
+            At Global Pharmaceuticals, our commitment to excellence has earned the trust of numerous national and multinational companies. We take pride in being a reliable contract manufacturing partner, delivering products that consistently meet the highest standards of quality, safety, and regulatory compliance.
+            With state-of-the-art manufacturing facilities, advanced technologies, and a highly experienced workforce, we ensure that every product manufactured under our roof adheres to stringent international quality standards.
+            Our commitment to quality, transparency, regulatory compliance, and timely delivery has made us a preferred partner for organizations seeking dependable and efficient contract manufacturing solutions. We believe in building long-term partnerships founded on trust, integrity, and a shared commitment to improving healthcare outcomes.
+            <br />
+
+            For further information, please contact:
+            <a href="mailto:rida.fatima@globalpharmaceuticalspk.com" style={{ color: "#9d0b0f", textDecoration: "underline" }}>
+              rida.fatima@globalpharmaceuticalspk.com
+            </a>
           </p>
         </AnimatedText>
 
@@ -583,15 +595,12 @@ export default function GlobalPharmaWebsite() {
                 // textAlign: "justify"
               }}
             >
-              Global Pharmaceuticals Pvt. Ltd. proudly supports the Jamila
-              Sultana Foundation (JSF), a leading organization dedicated to the
-              treatment and prevention of thalassemia in Pakistan. JSF currently
-              provides quality care to over 1,326 patients from across the
-              country, including remote regions. As one of Pakistan’s
-              fastest-growing humanitarian health projects, it operates without
-              reliance on government or private funding. With a clear vision to
-              combat thalassemia as a national cause, JSF works with
-              stakeholders to protect the health of future generations.
+              As part of our Corporate Social Responsibility initiatives, Global Pharmaceuticals proudly supports the Jamila Sultana Foundation (JSF), a leading organization dedicated to the treatment and prevention of thalassemia in Pakistan.
+
+              JSF currently provides quality care and support to more than 1,326 patients across the country and continues to play a vital role in raising awareness, promoting prevention, and improving the lives of individuals affected by thalassemia.
+
+              With a clear vision to combat thalassemia as a national healthcare challenge, JSF remains committed to protecting the health and well-being of future generations while providing comprehensive support to patients and their families.
+
             </p>
             <div className="flex justify-center">
               <button
@@ -645,6 +654,23 @@ export default function GlobalPharmaWebsite() {
               }}
             />
           </div>
+
+          <div className="flex justify-center items-center text-center">
+            <p
+              style={{
+                color: "#4b5563",
+                fontSize: screenSize.isMobile ? 15 : 18,
+                marginTop: 20,
+                lineHeight: 1.75,
+                marginBottom: 30,
+              }}
+            >
+              Established in 1995 as a marketing firm, Global Pharmaceuticals has evolved into a respected manufacturer. Operating from a state-of-the-art facility in Islamabad, the company now provides high-quality, innovative healthcare products to both domestic and international markets.
+
+            </p>
+          </div>
+
+
         </AnimatedSection>
         <ScaleInOnScroll delay={0.3}>
           <div className="flex justify-center  mt-9">

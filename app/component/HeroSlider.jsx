@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { useResponsive } from "./useResponsive";
 
 const slides = [
-  {
+  /*{
      eyebrow: "",
     title: (
       <>
@@ -19,17 +19,17 @@ const slides = [
     desc: "Our state-of-the-art R&D labs drive continuous innovation, developing breakthrough formulations that address critical unmet medical needs globally.",
     // partnerImg: "./Partners.png",
     image: "./Homepage-01.webp",
-  },
+  },*/
   {
     eyebrow: "",
     title: (
       <>
-        Trusted Pharmaceutical
-        <br />
-        Manufacturing <span className="text-[36px] text-black">Since 1995</span>
+        Building a Healthier Future Through
+
+        Manufacturing <span className="text-[36px] text-black">Innovation, Quality & Trust</span>
       </>
     ),
-    desc: "Delivering safe, effective, and affordable medicines through GMP-compliant facilities, strong quality systems, and decades of industry expertise.",
+    desc: "Global Pharmaceuticals Pvt. Ltd. is a leading pharmaceutical company dedicated to advancing healthcare through innovation, quality, and trust. With over three decades of excellence, we offer a diverse portfolio of medicines, including tablets, capsules, syrups, suspensions, creams, ointments, lotions, and injectable products. Through world-class manufacturing, stringent quality standards, and a patient-centric approach, we remain committed to delivering safe, effective, and affordable healthcare solutions across Pakistan and international markets.",
     partnerImg: "./Partners.png",
     image: "./Homepage-02.webp",
   },
@@ -76,8 +76,8 @@ export default function HeroSlider() {
         padding: screenSize.isMobile
           ? "40px 20px"
           : screenSize.isTablet
-          ? "60px 40px"
-          : "0 0 0 60px",
+            ? "60px 40px"
+            : "0 0 0 60px",
         minHeight: screenSize.isMobile ? "auto" : 480,
       }}
     >
@@ -138,8 +138,8 @@ export default function HeroSlider() {
           height: screenSize.isMobile
             ? 260
             : screenSize.isTablet
-            ? 400
-            : 560,
+              ? 400
+              : 560,
           overflow: "hidden",
           position: "relative",
         }}

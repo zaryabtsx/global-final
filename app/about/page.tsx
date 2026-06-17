@@ -76,17 +76,7 @@ export default function App() {
             />
             <div className=" text-gray-600 mt-2  leading-relaxed text-[18px]">
               <p>
-                Global pharmaceuticals is one of the largest growing nationwide
-                company in Pharma industry. It has been working in Pakistan for
-                the last three decades and has a dedicated team of experienced
-                professionals working not only to meet the expectations of the
-                customers but consistently deliver beyond expectations.
-              </p>
-              <p>
-                Being ISO 9001: 2015, ISO 14001:2015 and ISO 45001: 2018
-                certified company, our products range consists of tablets,
-                capsules, suspensions, syrups, creams and ointments and
-                injectables (LVPs/ SVPs/ Dry Powder).
+                Global Pharmaceuticals Pvt. Ltd. is a leading pharmaceutical manufacturer dedicated to improving health outcomes through quality-driven healthcare solutions. Backed by experienced professionals, advanced technologies, and a strong culture of compliance, we manufacture a diverse range of pharmaceutical products that meet the highest standards of safety, efficacy, and quality.
               </p>
             </div>
           </motion.div>
@@ -97,7 +87,7 @@ export default function App() {
             className="relative overflow-hidden h-auto lg:h-screen w-full lg:w-335 flex items-center justify-center"
           >
             <img
-            className="w-full h-54 md:h-64 lg:h-80 object-contain md:mr-150"
+              className="w-full h-54 md:h-64 lg:h-80 object-contain md:mr-150"
               src="/intro-about-us.png"
               alt="Global Pharmaceuticals Building"
               referrerPolicy="no-referrer"
@@ -108,15 +98,15 @@ export default function App() {
 
       {/* Facility Location Section */}
       <section className="relative py-20 px-4 bg-white -mt-32 -md:m-221 m-6  overflow-hidden">
-       <img
-  src="/about-3d.webp"
-  alt="3D background"
-  className="pointer-events-none absolute inset-0 h-full w-full object-cover 
+        <img
+          src="/about-3d.webp"
+          alt="3D background"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover 
              opacity-100 
              md:scale-100 
              scale-110 
              sm:scale-105"
-/>
+        />
         <div className="absolute inset-0 bg-white/80" />
         <div className="relative max-w-7xl mx-auto">
           <motion.div
@@ -125,29 +115,35 @@ export default function App() {
             transition={{ duration: 0.6 }}
             className="mb-12"
           >
-            <SectionTitle title="Facility Location" subtitle="And Size" />
+            <SectionTitle title="Facility " subtitle="And Size" />
             <p className="text-gray-600 leading-relaxed text-[18px] max-w-4xl ">
-              Global Pharmaceuticals (Pvt.) Ltd. is situated in Industrial
-              Triangle Kahuta Road Islamabad, an environment favorable for
-              manufacturing process and minimum risk of causing any
-              contamination of material or product, the location of the Plant
-              complies with the GMP requirements. The size of plot 204 and 205
-              is 2 (100x300) ft² = 60000 square feet, whereas the GMP
-              requirement is that the Plot area should not be less than 2000
-              square yards.
+              Our state-of-the-art pharmaceutical manufacturing facility spans approximately 60,000 square feet and is equipped with advanced production, quality control, and warehousing infrastructure designed to meet international pharmaceutical manufacturing standards.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-12"
+          >
+            <SectionTitle title="MANUFACTURING CAPABILITIES" subtitle="Global Pharmaceuticals’ manufacturing facility comprises:" />
+
+          </motion.div>
+
+
+          <div className="flex flex-col gap-6">
             {[
-              "Dedicated Non-sterile section where Tablets, capsules, suspensions, syrups and creams/ ointments are manufactured.",
-              "Dedicated Liquid injectables section for sterile liquid injections are manufactured.",
-              "Dedicated section for cephalosporins",
-              "Dedicated section for Penicillin",
-              "Dedicated section for Carbapenem",
-              "A state-of-the-art Quality Control department having separate sections for chemical and microbiological analyses.",
-              "Separate R&D and Validation Departments",
-              "Separate Warehouses for Raw materials, Packing Materials and Finished Goods.",
+              "Dedicated non-sterile manufacturing sections for tablets, capsules, syrups, suspensions, creams, and ointments.",
+              "A dedicated sterile liquid injectable manufacturing section.",
+              "A dedicated cephalosporin manufacturing facility.",
+              "A dedicated penicillin manufacturing facility.",
+              "A dedicated carbapenem manufacturing facility.",
+              "A state-of-the-art QC laboratory featuring separate chemical and microbiological divisions. It is fully equipped with advanced analytical instrumentation—including HPLC, GC, and stability chambers—from world-class manufacturers",
+              "A Quality Assurance Department responsible for establishing, implementing, and maintaining a robust Quality Management System across all operations. The department ensures compliance with regulatory requirements and international quality standards throughout the manufacturing process.",
+              "Our dedicated Validation Department ensures that all processes, equipment, and systems consistently produce safe, effective, and high-quality pharmaceutical products in full compliance with cGMP and international regulatory guidelines.",
+              "Our R&D Department utilizes advanced technologies and scientific expertise to develop new pharmaceutical formulations and enhance existing ones, ensuring the highest standards of safety, quality, and efficacy.",
+              "Separate warehouses for raw materials, packaging materials, and finished products to ensure proper storage, handling, and inventory management. "
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -182,10 +178,7 @@ export default function App() {
                 Our Vision
               </h2>
               <p className="text-gray-600 leading-relaxed text-[18px]">
-                Be the leader in the Pharmaceutical market of Pakistan by
-                exploring and developing the products to bridge the gap of the
-                increasing demand of Pharma products and the needs of the
-                existing and potential customers.
+                To be a globally recognized pharmaceutical company, delivering innovative, high-quality, and affordable healthcare solutions that improve lives and create lasting value for patients, healthcare professionals, and communities worldwide.
               </p>
             </motion.div>
           </div>
@@ -225,10 +218,7 @@ export default function App() {
                 Our Mission
               </h2>
               <p className="text-gray-600 leading-relaxed text-[18px]">
-                Inspired by our improving commitment &ldquo;Caring people to Live
-                Healthier Lives&#34; the health and quality of life in Pakistan and
-                around the globe. We are dedicated to provide quality care
-                products with economy.
+                Our mission is to enhance the quality of life by providing safe, effective, and affordable pharmaceutical products through innovation, operational excellence, and an unwavering commitment to patient well-being.
               </p>
             </motion.div>
           </div>
@@ -236,7 +226,7 @@ export default function App() {
       </section>
 
       {/* History Section */}
- 
+
       {/* Footer Branding */}
 
       <Footer></Footer>
