@@ -665,8 +665,7 @@ export default function GlobalPharmaWebsite() {
                 marginBottom: 30,
               }}
             >
-              Established in 1995 as a marketing firm, Global Pharmaceuticals has evolved into a respected manufacturer. Operating from a state-of-the-art facility in Islamabad, the company now provides high-quality, innovative healthcare products to both domestic and international markets.
-
+              Global Pharmaceuticals continues to strengthen its international presence through strategic partnerships and expanding market access. Our commitment to quality, regulatory compliance, and customer satisfaction has positioned us as a trusted pharmaceutical partner in multiple international markets, with ongoing expansion into new regions.
             </p>
           </div>
 
