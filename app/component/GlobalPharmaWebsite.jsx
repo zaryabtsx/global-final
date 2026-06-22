@@ -573,7 +573,8 @@ export default function GlobalPharmaWebsite() {
           <AnimatedText delay={0.3}>
             <p
               style={{
-                textAlign: "center",
+                textAlign: "justify",
+                textJustify: "inter-word",
                 fontSize: screenSize.isMobile
                   ? 14
                   : screenSize.isTablet
@@ -583,7 +584,6 @@ export default function GlobalPharmaWebsite() {
                 lineHeight: 1.7,
                 maxWidth: 900,
                 margin: "0 auto",
-                // textAlign: "justify"
               }}
             >
               As part of our Corporate Social Responsibility initiatives, Global Pharmaceuticals proudly supports the Jamila Sultana Foundation (JSF), a leading organization dedicated to the treatment and prevention of thalassemia in Pakistan.
@@ -654,6 +654,12 @@ export default function GlobalPharmaWebsite() {
                 marginTop: 20,
                 lineHeight: 1.75,
                 marginBottom: 30,
+                maxWidth: 1100,
+                width: "100%",
+                margin: "20px auto 30px",
+                textAlign: "justify",
+                textJustify: "inter-word",
+                boxSizing: "border-box",
               }}
             >
               Global Pharmaceuticals continues to strengthen its international presence through strategic partnerships and expanding market access. Our commitment to quality, regulatory compliance, and customer satisfaction has positioned us as a trusted pharmaceutical partner in multiple international markets, with ongoing expansion into new regions.

@@ -121,7 +121,7 @@ export default function App() {
             className="mb-12"
           >
             <SectionTitle title="Facility " subtitle="And Size" />
-            <p className="text-gray-600 leading-relaxed text-[18px] max-w-4xl ">
+            <p className="text-gray-600 leading-relaxed text-[18px] max-w-4xl text-justify">
               Our state-of-the-art pharmaceutical manufacturing facility spans approximately 60,000 square feet and is equipped with advanced production, quality control, and warehousing infrastructure designed to meet international pharmaceutical manufacturing standards.
             </p>
           </motion.div>
@@ -182,7 +182,7 @@ export default function App() {
               <h2 className="text-3xl font-bold text-[#9D0B0F] mb-6 uppercase">
                 Our Vision
               </h2>
-              <p className="text-gray-600 leading-relaxed text-[18px]">
+              <p className="text-gray-600 leading-relaxed text-[18px] text-justify">
                 To be a globally recognized pharmaceutical company, delivering innovative, high-quality, and affordable healthcare solutions that improve lives and create lasting value for patients, healthcare professionals, and communities worldwide.
               </p>
             </motion.div>
@@ -222,7 +222,7 @@ export default function App() {
               <h2 className="text-3xl font-bold text-[#9D0B0F] mb-6 uppercase">
                 Our Mission
               </h2>
-              <p className="text-gray-600 leading-relaxed text-[18px]">
+              <p className="text-gray-600 leading-relaxed text-[18px] text-justify">
                 Our mission is to enhance the quality of life by providing safe, effective, and affordable pharmaceutical products through innovation, operational excellence, and an unwavering commitment to patient well-being.
               </p>
             </motion.div>

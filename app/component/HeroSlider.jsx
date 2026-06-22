@@ -87,6 +87,7 @@ export default function HeroSlider() {
         style={{
           flex: 1,
           maxWidth: screenSize.isMobile ? "100%" : 560,
+          paddingTop: screenSize.isMobile ? 28 : screenSize.isTablet ? 36 : 48,
           paddingBottom: screenSize.isMobile ? 80 : 64,
           transition: "opacity 0.4s ease",
         }}
@@ -114,6 +115,8 @@ export default function HeroSlider() {
             fontSize: screenSize.isMobile ? 15 : 18,
             marginTop: 20,
             lineHeight: 1.75,
+            textAlign: "justify",
+            textJustify: "inter-word",
           }}
         >
           {slide.desc}
