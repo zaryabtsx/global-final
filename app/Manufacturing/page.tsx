@@ -26,7 +26,7 @@ const SectionHeader = ({
   <div className="text-left md:text-center space-y-2 mb-8 md:mb-12">
     <h2 className="text-2xl md:text-3xl font-bold text-[#9D0B0F] leading-tight">{title}</h2>
     {subtitle && (
-      <p className="text-sm md:text-lg text-gray-500 font-medium">{subtitle}</p>
+      <span className="section-subtitle text-sm md:text-lg text-gray-500 font-medium">{subtitle}</span>
     )}
     <div className="w-12 md:w-16 h-1 bg-[#9D0B0F] ml-0 md:mx-auto mt-2 md:mt-4 rounded-full" />
   </div>

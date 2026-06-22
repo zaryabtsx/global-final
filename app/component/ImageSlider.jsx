@@ -155,7 +155,8 @@ const ImageSlider = () => {
     >
       <div className="max-w-7xl mx-auto px-4 md:px-12 mb-12">
        <h2 className="md:text-5xl text-3xl font-bold text-[#9d0b0f] align-center  text-center">Our Gallery</h2>
-            <p
+            <span
+              className="section-subtitle"
               style={{
                 fontSize: screenSize.isMobile
                   ? 20
@@ -164,11 +165,10 @@ const ImageSlider = () => {
                     : 22,
                 color: "#1f2937",
                 fontWeight: 300,
-                textAlign:"center"
               }}
             >
               Explore more about us 
-            </p>
+            </span>
       </div>
       <div className="max-w-[100%] mx-auto px-4 md:px-12 relative h-[220px] md:h-[320px]">
         {/* Static Navigation Arrows (Desktop) */}

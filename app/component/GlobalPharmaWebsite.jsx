@@ -308,7 +308,8 @@ export default function GlobalPharmaWebsite() {
             <h2 className="text-3xl md:text-5xl font-bold text-[#9d0b0f]">
               Our Journey
             </h2>
-            <p
+            <span
+              className="section-subtitle"
               style={{
                 fontSize: screenSize.isMobile
                   ? 14
@@ -320,7 +321,7 @@ export default function GlobalPharmaWebsite() {
               }}
             >
               of Growth, Innovation and Trust
-            </p>
+            </span>
             <div
               style={{
                 width: 130,
@@ -530,12 +531,11 @@ export default function GlobalPharmaWebsite() {
         {/* Content - put on top of overlay */}
         <div style={{ position: "relative", zIndex: 2 }}>
           <AnimatedSection>
-            <div style={{ textAlign: "center", marginBottom: 40 }}>
+            <div style={{ textAlign: "center", marginBottom: 40, width: "100%" }}>
               <h2
                 className="md:text-5xl text-3xl font-bold text-[#ffffff] text-center"
                 style={{
-                  // fontSize: "2rem",
-                  color: "#ffffff", // Changed to white for better visibility
+                  color: "#ffffff",
                   fontWeight: 700,
                   margin: 0,
                   textShadow: "0 2px 8px rgba(0,0,0,0.8)",
@@ -543,26 +543,29 @@ export default function GlobalPharmaWebsite() {
               >
                 CSR
               </h2>
-              <p
-                className="md:text-2xl text-[16px]"
+              <span
+                className="block md:text-2xl text-[16px]"
                 style={{
+                  display: "block",
                   fontSize: screenSize.isMobile
                     ? 20
                     : screenSize.isTablet
                       ? 28
                       : 36,
-                  color: "#f0f0f0", // Light color
+                  color: "#f0f0f0",
                   fontWeight: 300,
-                  margin: 0,
+                  marginTop: 14,
+                  textAlign: "center",
+                  width: "100%",
                 }}
               >
                 Jamila Sultana Foundation
-              </p>
+              </span>
               <div
                 style={{
                   width: 130,
                   height: 4,
-                  background: "#ffffff", // Changed to white
+                  background: "#ffffff",
                   borderRadius: 60,
                   margin: "18px auto 0",
                 }}
@@ -621,7 +624,8 @@ export default function GlobalPharmaWebsite() {
             <h2 className="md:text-5xl text-3xl font-bold text-[#9d0b0f]">
               Growing Presence
             </h2>
-            <p
+            <span
+              className="section-subtitle"
               style={{
                 fontSize: screenSize.isMobile
                   ? 20
@@ -634,7 +638,7 @@ export default function GlobalPharmaWebsite() {
               }}
             >
               in Global Markets
-            </p>
+            </span>
             <div
               style={{
                 width: 130,

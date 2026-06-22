@@ -37,6 +37,26 @@ body {
   }
 }
 
+@layer utilities {
+  .heading-subtitle {
+    display: block;
+    width: 100%;
+    margin-top: 14px;
+    text-align: center !important;
+    text-justify: auto !important;
+  }
+}
+
+p.heading-subtitle {
+  text-align: center !important;
+}
+
+.section-subtitle {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
 .productsPage {
   padding: 80px 40px;
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;

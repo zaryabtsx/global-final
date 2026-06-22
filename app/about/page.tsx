@@ -18,7 +18,7 @@ const SectionTitle = ({
       {title}
     </h2>
     {subtitle && (
-      <p className="text-[#1F2937] font-medium text-lg mt-1">{subtitle}</p>
+      <span className="section-subtitle text-[#1F2937] font-medium text-lg mt-1">{subtitle}</span>
     )}
     <div className="w-12 h-1 bg-[#9D0B0F] mt-3 rounded-full" />
   </div>

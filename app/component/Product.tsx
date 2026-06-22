@@ -199,9 +199,9 @@ export default function App() {
           <h2 className="md:text-5xl text-3xl font-bold text-[#9d0b0f] mb-1 tracking-tight">
             Our Products
           </h2>
-          <p className="text-[16px] md:text-2xl text-[#334155] font-normal tracking-tight">
+          <span className="section-subtitle text-[16px] md:text-2xl text-[#334155] font-normal tracking-tight">
             Diverse Pharmaceutical Solutions
-          </p>
+          </span>
           <div className="w-24 h-0.75 bg-[#8B1D1D] mx-auto mt-6" />
 
           <div className="absolute right-0 bottom-0 hidden sm:block">
