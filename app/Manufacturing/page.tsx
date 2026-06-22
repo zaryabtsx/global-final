@@ -298,10 +298,10 @@ export default function App() {
                 transition={{ delay: 0.2, duration: 0.6 }}
                 className="text-[18px]"
               >
-                All products at Global Pharmaceuticals are manufactured under
-                strict quality control systems and current Good Manufacturing
-                Practices (cGMP) to ensure safety, effectiveness, and
-                reliability.
+                Global Pharmaceuticals operates a robust and well-defined Quality
+                Management System (QMS) designed to ensure that every stage of
+                pharmaceutical manufacturing meets the highest standards of
+                quality, safety, and compliance.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
@@ -310,10 +310,23 @@ export default function App() {
                 transition={{ delay: 0.4, duration: 0.6 }}
                 className="text-[18px]"
               >
-                The company continues to contribute significantly to improving
-                healthcare and patient well-being across Pakistan driven by
-                modern manufacturing facilities, a skilled workforce, and an
-                unwavering commitment to quality.
+                Our QMS is aligned with WHO guidelines, cGMP requirements, and
+                customer-specific expectations. The system is continuously
+                strengthened through innovation, regulatory compliance, risk
+                management, and ongoing process improvement initiatives.
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6, duration: 0.6 }}
+                className="text-[18px]"
+              >
+                The Quality Control Department functions independently and is
+                fully empowered to make decisions on all quality-related
+                matters. Every product released by Global Pharmaceuticals must
+                meet strict standards for safety, efficacy, consistency, and
+                regulatory compliance.
               </motion.p>
             </div>
           </motion.div>

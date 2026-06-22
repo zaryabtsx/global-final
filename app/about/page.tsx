@@ -43,11 +43,16 @@ export default function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-outfit text-[18px] md:text-[18px] text-[#1F2937] max-w-xl"
+            className="font-outfit text-[18px] md:text-[18px] text-[#1F2937] max-w-xl text-justify"
           >
-            From a small marketing venture to one of Pakistan&#39;s fast-growing
-            pharmaceutical manufacturers producing a wide range of medicines and
-            healthcare products for patients across the country.
+            Established in 1995, Global Pharmaceuticals has been delivering quality
+            healthcare solutions for over three decades. With a state-of-the-art
+            manufacturing facility in Islamabad and adherence to international
+            quality standards, we produce safe, effective, and affordable
+            medicines. Our commitment to innovation, excellence, and patient
+            well-being has earned us the trust of healthcare professionals across
+            Pakistan and international markets. We remain dedicated to improving
+            lives through accessible healthcare solutions.
           </motion.p>
         </div>
         <div className="w-full md:w-1/2 h-100 md:h-155 relative">
@@ -74,7 +79,7 @@ export default function App() {
               title="Introduction"
               subtitle="Global Pharmaceuticals"
             />
-            <div className=" text-gray-600 mt-2  leading-relaxed text-[18px]">
+            <div className="text-gray-600 mt-2 leading-relaxed text-[18px] text-justify">
               <p>
                 Global Pharmaceuticals Pvt. Ltd. is a leading pharmaceutical manufacturer dedicated to improving health outcomes through quality-driven healthcare solutions. Backed by experienced professionals, advanced technologies, and a strong culture of compliance, we manufacture a diverse range of pharmaceutical products that meet the highest standards of safety, efficacy, and quality.
               </p>

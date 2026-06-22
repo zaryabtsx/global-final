@@ -290,12 +290,17 @@ export default function Products() {
             transition={{ delay: 0.1 }}
             className="font-sans text-[18px] text-[#1F2937] max-w-xl"
           >
-            From a small marketing venture to one of Pakistan&apos;s fast-growing pharmaceutical manufacturers producing a wide range of medicines and healthcare products for patients across the country.
+            With an annual production capacity exceeding 120 million units, Global
+            Pharmaceuticals offers a comprehensive portfolio of pharmaceutical
+            products across a broad range of therapeutic categories. Our
+            diversified portfolio enables us to meet evolving healthcare needs
+            while maintaining the highest standards of quality, safety, and
+            efficacy.
           </motion.p>
         </div>
         <div className="w-full md:w-1/2 h-75 md:h-125 relative">
           <img
-            src="/14.jpg.jpeg"
+            src="/14.jpg"
             alt="Pharmaceutical Production"
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"

@@ -175,7 +175,7 @@ export default function GlobalPharmaWebsite() {
               }}
             >
               <img
-                src="./Partners.png"
+                src="/partners.png"
                 alt=""
                 style={{ maxWidth: "100%", height: "auto" }}
               />
@@ -209,7 +209,7 @@ export default function GlobalPharmaWebsite() {
              
 
               <img
-                src="./home-page.jpg"
+                src="/home-page.jpg"
                 style={{
                   width: "100%",
                   background: "transparent",
@@ -301,7 +301,7 @@ export default function GlobalPharmaWebsite() {
           <div
             style={{
               textAlign: "center",
-              marginBottom: 40,
+              marginBottom: 16,
               background: "transparent",
             }}
           >
@@ -332,20 +332,6 @@ export default function GlobalPharmaWebsite() {
             />
           </div>
         </AnimatedSection>
-
-        <div className="flex justify-center items-center text-center">
-          <p
-            style={{
-              color: "#4b5563",
-              fontSize: screenSize.isMobile ? 15 : 18,
-              marginTop: 20,
-              lineHeight: 1.75,
-              marginBottom: 30,
-            }}
-          >
-            Global Pharmaceuticals is expanding its international footprint through strategic partnerships. Driven by a commitment to quality and regulatory compliance, we continue to grow as a trusted partner in new global markets.
-          </p>
-        </div>
 
         <Arrow></Arrow>
       </section>
@@ -381,7 +367,8 @@ export default function GlobalPharmaWebsite() {
         <AnimatedText delay={0.3}>
           <p
             style={{
-              textAlign: "center",
+              textAlign: "justify",
+              textJustify: "inter-word",
               fontSize: screenSize.isMobile
                 ? 14
                 : screenSize.isTablet
@@ -390,18 +377,22 @@ export default function GlobalPharmaWebsite() {
               color: "#1f2937",
               lineHeight: 1.7,
               maxWidth: 1100,
+              width: "100%",
               margin: "0 auto 48px",
+              boxSizing: "border-box",
             }}
           >
             At Global Pharmaceuticals, our commitment to excellence has earned the trust of numerous national and multinational companies. We take pride in being a reliable contract manufacturing partner, delivering products that consistently meet the highest standards of quality, safety, and regulatory compliance.
             With state-of-the-art manufacturing facilities, advanced technologies, and a highly experienced workforce, we ensure that every product manufactured under our roof adheres to stringent international quality standards.
             Our commitment to quality, transparency, regulatory compliance, and timely delivery has made us a preferred partner for organizations seeking dependable and efficient contract manufacturing solutions. We believe in building long-term partnerships founded on trust, integrity, and a shared commitment to improving healthcare outcomes.
             <br />
-
+            <br />
+            <span style={{ display: "block", textAlign: "center" }}>
             For further information, please contact:
             <a href="mailto:rida.fatima@globalpharmaceuticalspk.com" style={{ color: "#9d0b0f", textDecoration: "underline" }}>
               rida.fatima@globalpharmaceuticalspk.com
             </a>
+            </span>
           </p>
         </AnimatedText>
 
@@ -509,7 +500,7 @@ export default function GlobalPharmaWebsite() {
       {/* CSR */}
       <section
         style={{
-          backgroundImage: "url(./crs.png)", // ← Fixed: no space before url
+          backgroundImage: "url(/crs.png)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
