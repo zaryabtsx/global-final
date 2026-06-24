@@ -170,12 +170,12 @@ const Page = () => {
             >
               {t("crs.impactTitle")}
             </h2>
-            <p
-              className={`text-gray-600 mt-2 text-m md:text-lg px-2 transition-all duration-800 ease-out
+            <span
+              className={`section-subtitle text-gray-600 mt-2 text-m md:text-lg px-2 transition-all duration-800 ease-out
                 ${impactAnimate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
             >
               {t("crs.impactSubtitle")}
-            </p>
+            </span>
             <div className="w-10 h-1 bg-[#9d0b0f] mx-auto mt-3 rounded" />
           </div>
 

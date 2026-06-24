@@ -60,7 +60,7 @@ const en = {
     growingPresence: "Growing Presence",
     growingPresenceSubtitle: "in Global Markets",
     growingPresenceText:
-      "Established in 1995 as a marketing firm, Global Pharmaceuticals has evolved into a respected manufacturer. Operating from a state-of-the-art facility in Islamabad, the company now provides high-quality, innovative healthcare products to both domestic and international markets.",
+      "Global Pharmaceuticals continues to strengthen its international presence through strategic partnerships and expanding market access. Our commitment to quality, regulatory compliance, and customer satisfaction has positioned us as a trusted pharmaceutical partner in multiple international markets, with ongoing expansion into new regions.",
   },
 
   hero: {
@@ -130,7 +130,7 @@ const en = {
   about: {
     heroTitle: "About Us",
     heroText:
-      "From a small marketing venture to one of Pakistan's fast-growing pharmaceutical manufacturers producing a wide range of medicines and healthcare products for patients across the country.",
+      "Established in 1995, Global Pharmaceuticals has been delivering quality healthcare solutions for over three decades. With a state-of-the-art manufacturing facility in Islamabad and adherence to international quality standards, we produce safe, effective, and affordable medicines. Our commitment to innovation, excellence, and patient well-being has earned us the trust of healthcare professionals across Pakistan and international markets. We remain dedicated to improving lives through accessible healthcare solutions.",
     introductionTitle: "Introduction",
     introductionSubtitle: "Global Pharmaceuticals",
     introductionText:
@@ -208,9 +208,11 @@ const en = {
     ],
     qualityTitle: "Quality At Every Stage",
     qualityP1:
-      "All products at Global Pharmaceuticals are manufactured under strict quality control systems and current Good Manufacturing Practices (cGMP) to ensure safety, effectiveness, and reliability.",
+      "Global Pharmaceuticals operates a robust and well-defined Quality Management System (QMS) designed to ensure that every stage of pharmaceutical manufacturing meets the highest standards of quality, safety, and compliance.",
     qualityP2:
-      "The company continues to contribute significantly to improving healthcare and patient well-being across Pakistan driven by modern manufacturing facilities, a skilled workforce, and an unwavering commitment to quality.",
+      "Our QMS is aligned with WHO guidelines, cGMP requirements, and customer-specific expectations. The system is continuously strengthened through innovation, regulatory compliance, risk management, and ongoing process improvement initiatives.",
+    qualityP3:
+      "The Quality Control Department functions independently and is fully empowered to make decisions on all quality-related matters. Every product released by Global Pharmaceuticals must meet strict standards for safety, efficacy, consistency, and regulatory compliance.",
     statsCards: {
       yearEstablished: "YEAR ESTABLISHED",
       cgmpProgram: "CGMP  PROGRAM",
@@ -305,7 +307,7 @@ const en = {
   products: {
     heroTitle: "Products",
     heroText:
-      "From a small marketing venture to one of Pakistan's fast-growing pharmaceutical manufacturers producing a wide range of medicines and healthcare products for patients across the country.",
+      "With an annual production capacity exceeding 120 million units, Global Pharmaceuticals offers a comprehensive portfolio of pharmaceutical products across a broad range of therapeutic categories. Our diversified portfolio enables us to meet evolving healthcare needs while maintaining the highest standards of quality, safety, and efficacy.",
     allProducts: "All Products",
     allProductsSubtitle: "Explore Our Range Of High-Quality Products Designed To Meet Diverse Healthcare Needs.",
     allCategories: "All Categories",

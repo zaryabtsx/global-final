@@ -19,7 +19,7 @@ const SectionTitle = ({
       {title}
     </h2>
     {subtitle && (
-      <p className="text-[#1F2937] font-medium text-lg mt-1">{subtitle}</p>
+      <span className="section-subtitle text-[#1F2937] font-medium text-lg mt-1">{subtitle}</span>
     )}
     <div className="w-12 h-1 bg-[#9D0B0F] mt-3 rounded-full" />
   </div>
@@ -45,7 +45,7 @@ export default function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-outfit text-[18px] md:text-[18px] text-[#1F2937] max-w-xl"
+            className="font-outfit text-[18px] md:text-[18px] text-[#1F2937] max-w-xl text-justify"
           >
             {t("about.heroText")}
           </motion.p>
@@ -74,7 +74,7 @@ export default function App() {
               title={t("about.introductionTitle")}
               subtitle={t("about.introductionSubtitle")}
             />
-            <div className=" text-gray-600 mt-2  leading-relaxed text-[18px]">
+            <div className="text-gray-600 mt-2 leading-relaxed text-[18px] text-justify">
               <p>
                 {t("about.introductionText")}
               </p>
@@ -116,7 +116,7 @@ export default function App() {
             className="mb-12"
           >
             <SectionTitle title={t("about.facilityTitle")} subtitle={t("about.facilitySubtitle")} />
-            <p className="text-gray-600 leading-relaxed text-[18px] max-w-4xl ">
+            <p className="text-gray-600 leading-relaxed text-[18px] max-w-4xl text-justify">
               {t("about.facilityText")}
             </p>
           </motion.div>
@@ -166,7 +166,7 @@ export default function App() {
               <h2 className="text-3xl font-bold text-[#9D0B0F] mb-6 uppercase">
                 {t("about.visionTitle")}
               </h2>
-              <p className="text-gray-600 leading-relaxed text-[18px]">
+              <p className="text-gray-600 leading-relaxed text-[18px] text-justify">
                 {t("about.visionText")}
               </p>
             </motion.div>
@@ -206,7 +206,7 @@ export default function App() {
               <h2 className="text-3xl font-bold text-[#9D0B0F] mb-6 uppercase">
                 {t("about.missionTitle")}
               </h2>
-              <p className="text-gray-600 leading-relaxed text-[18px]">
+              <p className="text-gray-600 leading-relaxed text-[18px] text-justify">
                 {t("about.missionText")}
               </p>
             </motion.div>

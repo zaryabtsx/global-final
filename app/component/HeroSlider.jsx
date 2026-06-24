@@ -18,8 +18,8 @@ const slides = [
     ),
    
     desc: "Our state-of-the-art R&D labs drive continuous innovation, developing breakthrough formulations that address critical unmet medical needs globally.",
-    // partnerImg: "./Partners.png",
-    image: "./Homepage-01.webp",
+    // partnerImg: "/partners.png",
+    image: "/Homepage-01.webp",
   },*/
   {
     eyebrow: "",
@@ -31,8 +31,8 @@ const slides = [
       </>
     ),
     desc: "Global Pharmaceuticals Pvt. Ltd. is a leading pharmaceutical company dedicated to advancing healthcare through innovation, quality, and trust. With over three decades of excellence, we offer a diverse portfolio of medicines, including tablets, capsules, syrups, suspensions, creams, ointments, lotions, and injectable products. Through world-class manufacturing, stringent quality standards, and a patient-centric approach, we remain committed to delivering safe, effective, and affordable healthcare solutions across Pakistan and international markets.",
-    partnerImg: "./Partners.png",
-    image: "./Homepage-02.webp",
+    partnerImg: "/partners.png",
+    image: "/Homepage-02.webp",
   },
 ];
 
@@ -89,6 +89,7 @@ export default function HeroSlider() {
         style={{
           flex: 1,
           maxWidth: screenSize.isMobile ? "100%" : 560,
+          paddingTop: screenSize.isMobile ? 28 : screenSize.isTablet ? 36 : 48,
           paddingBottom: screenSize.isMobile ? 80 : 64,
           transition: "opacity 0.4s ease",
         }}
@@ -116,6 +117,8 @@ export default function HeroSlider() {
             fontSize: screenSize.isMobile ? 15 : 18,
             marginTop: 20,
             lineHeight: 1.75,
+            textAlign: "justify",
+            textJustify: "inter-word",
           }}
         >
           {t("hero.desc")}
@@ -162,7 +165,7 @@ export default function HeroSlider() {
       </div>
 
       {/* Nav — centered bottom */}
-      <div
+      {/* <div
         style={{
           position: "absolute",
           bottom: 24,
@@ -174,7 +177,7 @@ export default function HeroSlider() {
           zIndex: 10,
         }}
       >
-        {/* <button
+        <button
           onClick={() => goTo(current - 1)}
           style={{
             width: 38,
@@ -192,7 +195,7 @@ export default function HeroSlider() {
           }}
         >
           ‹
-        </button> */}
+        </button>
 
         {slides.map((_, i) => (
           <button
@@ -212,7 +215,7 @@ export default function HeroSlider() {
           />
         ))}
 
-        {/* <button
+        <button
           onClick={() => goTo(current + 1)}
           style={{
             width: 38,
@@ -230,8 +233,8 @@ export default function HeroSlider() {
           }}
         >
           ›
-        </button> */}
-      </div>
+        </button>
+      </div> */}
     </section>
   );
 }

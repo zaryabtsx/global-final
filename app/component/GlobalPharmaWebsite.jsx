@@ -177,7 +177,7 @@ export default function GlobalPharmaWebsite() {
               }}
             >
               <img
-                src="./Partners.png"
+                src="/partners.png"
                 alt=""
                 style={{ maxWidth: "100%", height: "auto" }}
               />
@@ -211,7 +211,7 @@ export default function GlobalPharmaWebsite() {
              
 
               <img
-                src="./home-page.jpg"
+                src="/home-page.jpg"
                 style={{
                   width: "100%",
                   background: "transparent",
@@ -303,14 +303,15 @@ export default function GlobalPharmaWebsite() {
           <div
             style={{
               textAlign: "center",
-              marginBottom: 40,
+              marginBottom: 16,
               background: "transparent",
             }}
           >
             <h2 className="text-3xl md:text-5xl font-bold text-[#9d0b0f]">
               {t("home.ourJourney")}
             </h2>
-            <p
+            <span
+              className="section-subtitle"
               style={{
                 fontSize: screenSize.isMobile
                   ? 14
@@ -322,7 +323,7 @@ export default function GlobalPharmaWebsite() {
               }}
             >
               {t("home.ourJourneySubtitle")}
-            </p>
+            </span>
             <div
               style={{
                 width: 130,
@@ -334,20 +335,6 @@ export default function GlobalPharmaWebsite() {
             />
           </div>
         </AnimatedSection>
-
-        <div className="flex justify-center items-center text-center">
-          <p
-            style={{
-              color: "#4b5563",
-              fontSize: screenSize.isMobile ? 15 : 18,
-              marginTop: 20,
-              lineHeight: 1.75,
-              marginBottom: 30,
-            }}
-          >
-            {t("home.ourJourneyText")}
-          </p>
-        </div>
 
         <Arrow></Arrow>
       </section>
@@ -383,7 +370,8 @@ export default function GlobalPharmaWebsite() {
         <AnimatedText delay={0.3}>
           <p
             style={{
-              textAlign: "center",
+              textAlign: "justify",
+              textJustify: "inter-word",
               fontSize: screenSize.isMobile
                 ? 14
                 : screenSize.isTablet
@@ -392,16 +380,20 @@ export default function GlobalPharmaWebsite() {
               color: "#1f2937",
               lineHeight: 1.7,
               maxWidth: 1100,
+              width: "100%",
               margin: "0 auto 48px",
+              boxSizing: "border-box",
             }}
           >
             {t("home.trustedPartnersText")}
             <br />
-
+            <br />
+            <span style={{ display: "block", textAlign: "center" }}>
             {t("home.contactForInfo")}
             <a href="mailto:rida.fatima@globalpharmaceuticalspk.com" style={{ color: "#9d0b0f", textDecoration: "underline" }}>
               rida.fatima@globalpharmaceuticalspk.com
             </a>
+            </span>
           </p>
         </AnimatedText>
 
@@ -509,7 +501,7 @@ export default function GlobalPharmaWebsite() {
       {/* CSR */}
       <section
         style={{
-          backgroundImage: "url(./crs.png)", // ← Fixed: no space before url
+          backgroundImage: "url(/crs.png)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -539,12 +531,11 @@ export default function GlobalPharmaWebsite() {
         {/* Content - put on top of overlay */}
         <div style={{ position: "relative", zIndex: 2 }}>
           <AnimatedSection>
-            <div style={{ textAlign: "center", marginBottom: 40 }}>
+            <div style={{ textAlign: "center", marginBottom: 40, width: "100%" }}>
               <h2
                 className="md:text-5xl text-3xl font-bold text-[#ffffff] text-center"
                 style={{
-                  // fontSize: "2rem",
-                  color: "#ffffff", // Changed to white for better visibility
+                  color: "#ffffff",
                   fontWeight: 700,
                   margin: 0,
                   textShadow: "0 2px 8px rgba(0,0,0,0.8)",
@@ -552,26 +543,29 @@ export default function GlobalPharmaWebsite() {
               >
                 {t("home.csrTitle")}
               </h2>
-              <p
-                className="md:text-2xl text-[16px]"
+              <span
+                className="block md:text-2xl text-[16px]"
                 style={{
+                  display: "block",
                   fontSize: screenSize.isMobile
                     ? 20
                     : screenSize.isTablet
                       ? 28
                       : 36,
-                  color: "#f0f0f0", // Light color
+                  color: "#f0f0f0",
                   fontWeight: 300,
-                  margin: 0,
+                  marginTop: 14,
+                  textAlign: "center",
+                  width: "100%",
                 }}
               >
                 {t("home.csrSubtitle")}
-              </p>
+              </span>
               <div
                 style={{
                   width: 130,
                   height: 4,
-                  background: "#ffffff", // Changed to white
+                  background: "#ffffff",
                   borderRadius: 60,
                   margin: "18px auto 0",
                 }}
@@ -582,7 +576,8 @@ export default function GlobalPharmaWebsite() {
           <AnimatedText delay={0.3}>
             <p
               style={{
-                textAlign: "center",
+                textAlign: "justify",
+                textJustify: "inter-word",
                 fontSize: screenSize.isMobile
                   ? 14
                   : screenSize.isTablet
@@ -592,7 +587,6 @@ export default function GlobalPharmaWebsite() {
                 lineHeight: 1.7,
                 maxWidth: 900,
                 margin: "0 auto",
-                // textAlign: "justify"
               }}
             >
               {t("home.csrText")}
@@ -625,7 +619,8 @@ export default function GlobalPharmaWebsite() {
             <h2 className="md:text-5xl text-3xl font-bold text-[#9d0b0f]">
               {t("home.growingPresence")}
             </h2>
-            <p
+            <span
+              className="section-subtitle"
               style={{
                 fontSize: screenSize.isMobile
                   ? 20
@@ -638,7 +633,7 @@ export default function GlobalPharmaWebsite() {
               }}
             >
               {t("home.growingPresenceSubtitle")}
-            </p>
+            </span>
             <div
               style={{
                 width: 130,
@@ -658,6 +653,12 @@ export default function GlobalPharmaWebsite() {
                 marginTop: 20,
                 lineHeight: 1.75,
                 marginBottom: 30,
+                maxWidth: 1100,
+                width: "100%",
+                margin: "20px auto 30px",
+                textAlign: "justify",
+                textJustify: "inter-word",
+                boxSizing: "border-box",
               }}
             >
               {t("home.growingPresenceText")}

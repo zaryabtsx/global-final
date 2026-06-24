@@ -297,7 +297,7 @@ export default function Products() {
         </div>
         <div className="w-full md:w-1/2 h-75 md:h-125 relative">
           <img
-            src="/14.jpg.jpeg"
+            src="/14.jpg"
             alt="Pharmaceutical Production"
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"

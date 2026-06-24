@@ -102,12 +102,12 @@ export default function WhatWeOffer() {
           >
             {t("whatWeOffer.title")}
           </h2>
-          <p
-            className={`text-gray-600 mt-1 text-lg transition-all duration-800 ease-out delay-150
+          <span
+            className={`section-subtitle text-gray-600 mt-1 text-lg transition-all duration-800 ease-out delay-150
               ${animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
             {t("whatWeOffer.subtitle")}
-          </p>
+          </span>
           <div className="w-10 h-1 bg-red-700 mx-auto mt-3 rounded" />
         </div>
 
