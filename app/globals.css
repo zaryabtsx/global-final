@@ -60,7 +60,7 @@ p.heading-subtitle {
 .section-subtitle-left {
   display: block;
   width: 100%;
-  text-align: left;
+  text-align: start;
 }
 
 .productsPage {
