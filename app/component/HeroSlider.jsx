@@ -2,7 +2,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState, useEffect, useRef } from "react";
 import { useResponsive } from "./useResponsive";
-import { useTranslation } from "../i18n/LanguageProvider";
 
 const slides = [
   /*{
@@ -37,7 +36,6 @@ const slides = [
 ];
 
 export default function HeroSlider() {
-  const { t } = useTranslation();
   const screenSize = useResponsive();
   const [mounted, setMounted] = useState(false);
   const [current, setCurrent] = useState(0);
@@ -108,7 +106,7 @@ export default function HeroSlider() {
         </p>
 
         <h1 className="text-4xl font-bold leading-tight text-[#9d0b0f]">
-          {t("hero.title")} <span className="text-[36px] text-black">{t("hero.titleAccent")}</span>
+          {slide.title}
         </h1>
 
         <p
@@ -121,7 +119,7 @@ export default function HeroSlider() {
             textJustify: "inter-word",
           }}
         >
-          {t("hero.desc")}
+          {slide.desc}
         </p>
 
         {/* Partner image */}
@@ -158,7 +156,7 @@ export default function HeroSlider() {
             height: "100%",
             objectFit: "cover",
             objectPosition: "left center",
-            marginInlineStart: screenSize.isMobile ? 0 : 40,
+            marginLeft: screenSize.isMobile ? 0 : 40,
             transition: "opacity 0.5s ease",
           }}
         />

@@ -15,7 +15,6 @@ import StatsSection from "./StatsSection";
 import { useResponsive } from "./useResponsive";
 import QFA from "./QFA";
 import HeroSlider from "./HeroSlider";
-import { useTranslation } from "../i18n/LanguageProvider";
 // import { IoIosArrowUp } from "react-icons/io";
 import {
   AnimatedSection,
@@ -73,7 +72,6 @@ const PARTNERS = [
 // ];
 
 export default function GlobalPharmaWebsite() {
-  const { t } = useTranslation();
   const screenSize = useResponsive();
   const [mounted, setMounted] = useState(false);
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -218,7 +216,7 @@ export default function GlobalPharmaWebsite() {
                   height: "100%",
                   objectFit: "cover",
                   objectPosition: "left center",
-                  marginInlineStart: screenSize.isMobile ? "0px" : "40px",
+                  marginLeft: screenSize.isMobile ? "0px" : "40px",
                 }}
                 alt=""
               />
@@ -308,7 +306,7 @@ export default function GlobalPharmaWebsite() {
             }}
           >
             <h2 className="text-3xl md:text-5xl font-bold text-[#9d0b0f]">
-              {t("home.ourJourney")}
+              Our Journey
             </h2>
             <span
               className="section-subtitle"
@@ -322,7 +320,7 @@ export default function GlobalPharmaWebsite() {
                 fontWeight: 300,
               }}
             >
-              {t("home.ourJourneySubtitle")}
+              of Growth, Innovation and Trust
             </span>
             <div
               style={{
@@ -353,7 +351,7 @@ export default function GlobalPharmaWebsite() {
         <AnimatedSection>
           <div style={{ textAlign: "center", marginBottom: 48 }}>
             <h2 className="md:text-5xl text-3xl font-bold text-[#9d0b0f] text-center">
-              {t("home.trustedPartnersTitle")}
+              Trusted Contract Manufacturing Partners
             </h2>
             <div
               style={{
@@ -385,11 +383,13 @@ export default function GlobalPharmaWebsite() {
               boxSizing: "border-box",
             }}
           >
-            {t("home.trustedPartnersText")}
+            At Global Pharmaceuticals, our commitment to excellence has earned the trust of numerous national and multinational companies. We take pride in being a reliable contract manufacturing partner, delivering products that consistently meet the highest standards of quality, safety, and regulatory compliance.
+            With state-of-the-art manufacturing facilities, advanced technologies, and a highly experienced workforce, we ensure that every product manufactured under our roof adheres to stringent international quality standards.
+            Our commitment to quality, transparency, regulatory compliance, and timely delivery has made us a preferred partner for organizations seeking dependable and efficient contract manufacturing solutions. We believe in building long-term partnerships founded on trust, integrity, and a shared commitment to improving healthcare outcomes.
             <br />
             <br />
             <span style={{ display: "block", textAlign: "center" }}>
-            {t("home.contactForInfo")}
+            For further information, please contact:
             <a href="mailto:rida.fatima@globalpharmaceuticalspk.com" style={{ color: "#9d0b0f", textDecoration: "underline" }}>
               rida.fatima@globalpharmaceuticalspk.com
             </a>
@@ -541,7 +541,7 @@ export default function GlobalPharmaWebsite() {
                   textShadow: "0 2px 8px rgba(0,0,0,0.8)",
                 }}
               >
-                {t("home.csrTitle")}
+                CSR
               </h2>
               <span
                 className="block md:text-2xl text-[16px]"
@@ -559,7 +559,7 @@ export default function GlobalPharmaWebsite() {
                   width: "100%",
                 }}
               >
-                {t("home.csrSubtitle")}
+                Jamila Sultana Foundation
               </span>
               <div
                 style={{
@@ -589,14 +589,19 @@ export default function GlobalPharmaWebsite() {
                 margin: "0 auto",
               }}
             >
-              {t("home.csrText")}
+              As part of our Corporate Social Responsibility initiatives, Global Pharmaceuticals proudly supports the Jamila Sultana Foundation (JSF), a leading organization dedicated to the treatment and prevention of thalassemia in Pakistan.
+
+              JSF currently provides quality care and support to more than 1,326 patients across the country and continues to play a vital role in raising awareness, promoting prevention, and improving the lives of individuals affected by thalassemia.
+
+              With a clear vision to combat thalassemia as a national healthcare challenge, JSF remains committed to protecting the health and well-being of future generations while providing comprehensive support to patients and their families.
+
             </p>
             <div className="flex justify-center">
               <button
                 onClick={() => router.push("/CRS")}
                 className="mt-8 px-6 py-3 bg-[#9d0b0f] text-white rounded-md text-sm font-medium hover:bg-[#7a080a] transition-colors duration-300"
               >
-                {t("common.learnMore")}
+                Learn More
               </button>
             </div>
           </AnimatedText>
@@ -617,7 +622,7 @@ export default function GlobalPharmaWebsite() {
         <AnimatedSection>
           <div style={{ textAlign: "center", marginBottom: 60 }}>
             <h2 className="md:text-5xl text-3xl font-bold text-[#9d0b0f]">
-              {t("home.growingPresence")}
+              Growing Presence
             </h2>
             <span
               className="section-subtitle"
@@ -632,7 +637,7 @@ export default function GlobalPharmaWebsite() {
                 marginTop: 14,
               }}
             >
-              {t("home.growingPresenceSubtitle")}
+              in Global Markets
             </span>
             <div
               style={{
@@ -661,7 +666,7 @@ export default function GlobalPharmaWebsite() {
                 boxSizing: "border-box",
               }}
             >
-              {t("home.growingPresenceText")}
+              Global Pharmaceuticals continues to strengthen its international presence through strategic partnerships and expanding market access. Our commitment to quality, regulatory compliance, and customer satisfaction has positioned us as a trusted pharmaceutical partner in multiple international markets, with ongoing expansion into new regions.
             </p>
           </div>
 

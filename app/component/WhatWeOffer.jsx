@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useRef, useState } from "react";
-import { useTranslation } from "../i18n/LanguageProvider";
 
 const services = [
   {
@@ -66,8 +65,6 @@ const ServiceCard = ({ title, description, image, alt, animate, index }) => (
 );
 
 export default function WhatWeOffer() {
-  const { t, tRaw } = useTranslation();
-  const items = tRaw("whatWeOffer.items");
   const sectionRef = useRef(null);           // Fixed: Removed strict HTMLElement type
   const [animate, setAnimate] = useState(false);
 
@@ -100,13 +97,13 @@ export default function WhatWeOffer() {
             className={`text-3xl md:text-4xl font-bold text-[#9d0b0f] transition-all duration-800 ease-out
               ${animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
-            {t("whatWeOffer.title")}
+            What We Offer
           </h2>
-          <span
+          <span 
             className={`section-subtitle text-gray-600 mt-1 text-lg transition-all duration-800 ease-out delay-150
               ${animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
-            {t("whatWeOffer.subtitle")}
+            Comprehensive Care, All Under One Roof
           </span>
           <div className="w-10 h-1 bg-red-700 mx-auto mt-3 rounded" />
         </div>
@@ -114,11 +111,9 @@ export default function WhatWeOffer() {
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <ServiceCard
-              key={service.id}
-              {...service}
-              title={items[index].title}
-              description={items[index].description}
+            <ServiceCard 
+              key={service.id} 
+              {...service} 
               animate={animate}
               index={index}
             />

@@ -25,17 +25,6 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
-/* Urdu / RTL: switch to the Nastaliq webfont and give it a little more
-   line-height so the script renders comfortably. */
-html[dir="rtl"] body {
-  font-family: var(--font-urdu), var(--font-sans), Arial, Helvetica, sans-serif;
-  line-height: 1.9;
-}
-
-html[dir="rtl"] .productsPage {
-  font-family: var(--font-urdu), var(--font-sans), Arial, Helvetica, sans-serif;
-}
-
 @layer base {
   p,
   span {
@@ -66,6 +55,12 @@ p.heading-subtitle {
   display: block;
   width: 100%;
   text-align: center;
+}
+
+.section-subtitle-left {
+  display: block;
+  width: 100%;
+  text-align: left;
 }
 
 .productsPage {

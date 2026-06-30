@@ -6,7 +6,36 @@ import Header from "../component/Header";
 import Footer from "../component/Footer";
 import WhatWeOffer from "../component/WhatWeOffer";
 import Gallery from "../component/Gallery";
-import { useTranslation } from "../i18n/LanguageProvider";
+
+const steps = [
+  {
+    id: 1,
+    title: "Register as a Donor",
+    description: "Sign up at the Foundation or through one of our community drives.",
+  },
+  {
+    id: 2,
+    title: "Attend a Donation Drive",
+    description: "JSF organizes regular drives with a focus on awareness and volunteer engagement.",
+  },
+  {
+    id: 3,
+    title: "Blood is Screened & Stored",
+    description: "All donations are rigorously screened in our 24/7 blood bank for patient safety.",
+  },
+  {
+    id: 4,
+    title: "Patients Receive Timely Transfusions",
+    description: "Your donation reaches patients who depend on regular transfusions to survive.",
+  },
+];
+
+const stats = [
+  { id: 1, target: 1350, suffix: "+", label: "Registered Patients" },
+  { id: 2, target: 40, prefix: "30–", suffix: "", label: "Transfusions Daily", static: true },
+  { id: 3, target: null, display: "24/7", label: "Blood Bank Access", static: true },
+  { id: 4, target: 21, suffix: "", label: "Years of Service" },
+];
 
 function useCountUp(target: number | null, duration: number = 1500, start: boolean = false) {
   const [count, setCount] = useState(0);
@@ -48,19 +77,9 @@ function StatItem({ stat, animate }: { stat: any, animate: boolean }) {
 }
 
 const Page = () => {
-  const { t, tRaw } = useTranslation();
   const impactRef = useRef<HTMLElement>(null);
   const [impactAnimate, setImpactAnimate] = useState(false);
   const [loadAnimate, setLoadAnimate] = useState(false);
-
-  const stepsT = tRaw<{ title: string; description: string }[]>("crs.steps");
-
-  const stats = [
-    { id: 1, target: 1350, suffix: "+", label: t("crs.statRegisteredPatients") },
-    { id: 2, target: 40, prefix: "30–", suffix: "", label: t("crs.statTransfusionsDaily"), static: true },
-    { id: 3, target: null, display: "24/7", label: t("crs.statBloodBankAccess"), static: true },
-    { id: 4, target: 21, suffix: "", label: t("crs.statYearsOfService") },
-  ];
 
   // Animate Hero & Who We Are on page load
   useEffect(() => {
@@ -99,16 +118,18 @@ const Page = () => {
         <div className="flex flex-col md:flex-row items-stretch min-h-56 md:min-h-[220px]">
           <div className="flex-1 md:flex-0 md:basis-[42%] bg-gray-100 px-6 py-10 md:px-9 md:py-10 flex flex-col justify-center gap-3">
             <h1 
-              className={`font-outfit text-3xl md:text-5xl font-bold text-[#9d0b0f] leading-tight ps-10 transition-all duration-800 ease-out
+              className={`font-outfit text-3xl md:text-5xl font-bold text-[#9d0b0f] leading-tight pl-10 transition-all duration-800 ease-out
                 ${loadAnimate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
             >
-              {t("crs.heroTitle")}
+              A Pledge to Lifelong Support for Thalassemia Patients
             </h1>
-            <p
-              className={`text-sm md:text-lg text-gray-600 leading-relaxed ps-10 transition-all duration-800 ease-out
+            <p 
+              className={`text-sm md:text-lg text-gray-600 leading-relaxed pl-10 transition-all duration-800 ease-out
                 ${loadAnimate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
             >
-              {t("crs.heroText")}
+              Comprehensive, free-of-charge thalassemia care for everyone
+              regardless of location or financial status. Funded entirely by
+              Global Pharmaceuticals.
             </p>
           </div>
 
@@ -116,7 +137,7 @@ const Page = () => {
             <img
               src="/crs-hero-image.png"
               alt="Thalassemia Care"
-              className="ps-10 h-full object-cover object-center"
+              className="pl-10 h-full object-cover object-center"
             />
           </div>
         </div>
@@ -125,26 +146,32 @@ const Page = () => {
         <div className="flex flex-col md:flex-row items-start px-6 py-12 md:px-10 md:py-12 gap-6 md:gap-12 bg-white">
           <div className="flex-1">
             <h2 
-              className={`font-outfit text-3xl md:text-4xl font-bold text-[#9d0b0f] mb-2 ps-10 transition-all duration-800 ease-out
+              className={`font-outfit text-3xl md:text-4xl font-bold text-[#9d0b0f] mb-2 pl-10 transition-all duration-800 ease-out
                 ${loadAnimate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
             >
-              {t("crs.whoWeAreTitle")}
+              Who We Are
             </h2>
-            <p
-              className={`text-base md:text-lg text-gray-700 font-semibold mb-4 ps-10 transition-all duration-800 ease-out
+            <p 
+              className={`text-base md:text-lg text-gray-700 font-semibold mb-4 pl-10 transition-all duration-800 ease-out
                 ${loadAnimate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
             >
-              {t("crs.whoWeAreSubtitle")}
+              Self-Funded. Independent. Fully Committed.
             </p>
-            <div className="w-12 h-1 bg-[#9d0b0f] mb-6 ms-10" />
-            <p
-              className={`text-sm md:text-lg text-gray-700 ps-10 leading-relaxed md:leading-loose text-justify transition-all duration-800 ease-out
+            <div className="w-12 h-1 bg-[#9d0b0f] mb-6 ml-10" />
+            <p 
+              className={`text-sm md:text-lg text-gray-700 pl-10 leading-relaxed md:leading-loose text-justify transition-all duration-800 ease-out
                 ${loadAnimate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
             >
-              {t("crs.whoWeAreP1")}
+              Jamila Sultana Foundation is a flagship initiative of Global
+              Pharmaceuticals, entirely funded by the organization&apos;s CEO. This
+              self-sufficient model ensures consistent, equitable, and
+              high-quality care without relying on external agencies.
               <br />
               <br />
-              {t("crs.whoWeAreP2")}
+              Patient registration remains perpetually open serving both local
+              and remote communities with equal dedication. From initial
+              screening to long-term disease management, all services are
+              provided under one roof.
             </p>
           </div>
 
@@ -168,13 +195,13 @@ const Page = () => {
               className={`text-3xl md:text-4xl font-bold text-[#9d0b0f] transition-all duration-800 ease-out
                 ${impactAnimate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
             >
-              {t("crs.impactTitle")}
+              Our Impact
             </h2>
-            <span
+            <span 
               className={`section-subtitle text-gray-600 mt-2 text-m md:text-lg px-2 transition-all duration-800 ease-out
                 ${impactAnimate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
             >
-              {t("crs.impactSubtitle")}
+              Numbers That Reflect Real Lives Changed
             </span>
             <div className="w-10 h-1 bg-[#9d0b0f] mx-auto mt-3 rounded" />
           </div>
@@ -200,15 +227,15 @@ const Page = () => {
       {/* Steps Section - Scroll Animation */}
       <section className="flex flex-col md:flex-row min-h-auto md:min-h-[260px]">
         <div className="flex-1 bg-white py-10 md:py-20 px-6 md:px-20 flex flex-col justify-center gap-6">
-          {stepsT.map((step, index) => (
-            <div
-              key={index}
+          {steps.map((step, index) => (
+            <div 
+              key={step.id} 
               className={`flex items-start gap-3 md:gap-4 transition-all duration-800 ease-out
                 ${impactAnimate ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
               style={{ transitionDelay: `${index * 120}ms` }}
             >
               <div className="flex-shrink-0 w-10 h-10 rounded-full bg-red-700 text-white text-lg font-bold flex items-center justify-center mt-0.5">
-                {index + 1}
+                {step.id}
               </div>
               <div>
                 <h4 className="font-bold text-gray-900 text-xs md:text-lg">
@@ -225,16 +252,17 @@ const Page = () => {
             className={`text-white text-2xl md:text-3xl font-extrabold leading-tight mb-4 transition-all duration-800 ease-out
               ${impactAnimate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           >
-            {t("crs.becomeDonorTitle")}
+            Become A Blood <br /> Donor Today
           </h2>
-          <p
+          <p 
             className={`text-white text-xs md:text-sm leading-relaxed mb-6 md:mb-8 max-w-xs transition-all duration-800 ease-out
               ${impactAnimate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           >
-            {t("crs.becomeDonorText")}
+            Every Unit Of Blood You Donate Can Sustain The Life Of A Thalassemia
+            Patient For Weeks. Together We Keep The Supply Going.
           </p>
           <button className="bg-white text-red-700 font-semibold text-xs md:text-sm px-6 md:px-8 py-2 md:py-3 rounded hover:bg-gray-100 transition-colors">
-            {t("crs.donateBlood")}
+            Donate Blood
           </button>
         </div>
       </section>

@@ -6,7 +6,6 @@ import { motion } from "motion/react";
 import Header from "../component/Header";
 import Footer from "../component/Footer";
 import StatsCards from "../component/StatsCards";
-import { useTranslation } from "../i18n/LanguageProvider";
 
 const CheckItem = ({ text }: { text: string }) => (
   <div className="flex items-center gap-2">
@@ -67,8 +66,6 @@ const ProductionCard = ({
 );
 
 export default function App() {
-  const { t, tRaw } = useTranslation();
-  const prod = tRaw("manufacturing.production");
   return (
     <div className="min-h-screen bg-white font-sans text-[#1F2937] ">
       <Header></Header>
@@ -92,7 +89,7 @@ export default function App() {
                 transition={{ delay: 0.2, duration: 0.8 }}
                 className="text-5xl"
               >
-                {t("manufacturing.titleLine1")}
+                Manufacturing
               </motion.span>
               <br />
               <motion.span
@@ -101,7 +98,7 @@ export default function App() {
                 transition={{ delay: 0.5, duration: 0.8 }}
                 className="text-5xl"
               >
-                {t("manufacturing.titleLine2")}
+                Facilities
               </motion.span>
             </motion.h1>
             <motion.p
@@ -110,7 +107,10 @@ export default function App() {
               transition={{ delay: 0.8, duration: 0.6 }}
               className="text-lg text-[#1F2937] leading-relaxed max-w-md"
             >
-              {t("manufacturing.heroText")}
+              From a small marketing venture to one of Pakistan&apos;s
+              fast-growing pharmaceutical manufacturers producing a wide range
+              of medicines and healthcare products for patients across the
+              country.
             </motion.p>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 lg:gap-6 pt-4 pr-4 md:pr-9">
               <motion.div
@@ -118,7 +118,7 @@ export default function App() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1, duration: 0.5 }}
               >
-                <CheckItem text={t("manufacturing.cgmpCertified")} />
+                <CheckItem text="CGMP CERTIFIED" />
               </motion.div>
 
               <motion.div
@@ -126,7 +126,7 @@ export default function App() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1.2, duration: 0.5 }}
               >
-                <CheckItem text={t("manufacturing.sterileManufacturing")} />
+                <CheckItem text="STERILE MANUFACTURING" />
               </motion.div>
 
               <motion.div
@@ -134,7 +134,7 @@ export default function App() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1.4, duration: 0.5 }}
               >
-                <CheckItem text={t("manufacturing.nationwideDistribution")} />
+                <CheckItem text="NATIONWIDE DISTRIBUTION" />
               </motion.div>
             </div>
           </motion.div>
@@ -160,8 +160,8 @@ export default function App() {
 
         >
           <SectionHeader
-            title={t("manufacturing.foundationTitle")}
-            subtitle={t("manufacturing.foundationSubtitle")}
+            title="Built On A Foundation"
+            subtitle="Of Trust & Quality"
           />
         </motion.div>
 
@@ -181,7 +181,7 @@ export default function App() {
               transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
               className="hover:text-gray-800 text-[18px] transition-colors duration-300 text-start"
             >
-              {t("manufacturing.foundationP1")}
+              Established in 1995 and entering pharmaceutical manufacturing in 1996, Global Pharmaceuticals has been at the forefront of Pakistan’s pharmaceutical industry for over three decades. Driven by a commitment to quality, innovation, and patient well-being, the company has continuously expanded its capabilities to meet evolving healthcare needs
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -190,7 +190,7 @@ export default function App() {
               transition={{ delay: 0.5, duration: 0.6, ease: "easeOut" }}
               className="hover:text-gray-800 text-[18px] transition-colors duration-300 text-start"
             >
-              {t("manufacturing.foundationP2")}
+              In 2003, Global Pharmaceuticals further strengthened its foundation by establishing a state-of-the-art manufacturing facility in Islamabad, designed in accordance with international quality and regulatory standards. Today, backed by advanced manufacturing technologies, robust quality systems, and a highly skilled workforce, Global Pharmaceuticals is recognized as a trusted manufacturer of high-quality and affordable medicines, serving healthcare needs across Pakistan and an expanding network of international markets.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -199,7 +199,7 @@ export default function App() {
               transition={{ delay: 0.7, duration: 0.6, ease: "easeOut" }}
               className="hover:text-gray-800 text-[18px] transition-colors duration-300 text-start"
             >
-              {t("manufacturing.foundationP3")}
+              With a strong focus on excellence, compliance, and continuous improvement, we remain dedicated to delivering safe, effective, and accessible healthcare solutions that improve lives and contribute to healthier communities worldwide.
             </motion.p>
           </motion.div>
 
@@ -235,35 +235,35 @@ export default function App() {
       <section className="py-12 md:py-16 lg:py-24 bg-gray-50 px-4 md:px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
           <SectionHeader
-            title={t("manufacturing.productionTitle")}
-            subtitle={t("manufacturing.productionSubtitle")}
+            title="Production Sections"
+            subtitle="CGMP Compliant Manufacturing"
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             <ProductionCard
               image="/m-section1.png"
-              title={prod[0].title}
-              description={prod[0].desc}
+              title="Non-Sterile Section"
+              description="Produces tablets, capsules and syrups under controlled processes for quality and accuracy."
             />
             <ProductionCard
               image="/m-section2.png"
-              title={prod[1].title}
-              description={prod[1].desc}
+              title="Liquid Injectable Section"
+              description="Produces sterile injectable medicines in controlled environments to ensure safety."
             />
             <ProductionCard
               image="/m-section3.png"
-              title={prod[2].title}
-              description={prod[2].desc}
+              title="Carbapenem Injectable Section"
+              description="Produces high-potency antibiotics under strict contamination control."
             />
             <ProductionCard
               image="/m-section4.png"
-              title={prod[3].title}
-              description={prod[3].desc}
+              title="Penicillin Injectable Section"
+              description="Produces penicillin antibiotics in isolated facilities to prevent cross-contamination."
             />
             <ProductionCard
               image="/m-section5.png"
-              title={prod[4].title}
-              description={prod[4].desc}
+              title="Cephalosporin Injectable Section"
+              description="Produces cephalosporins in dedicated sterile facility to prevent cross-contamination."
             />
           </div>
         </div>
@@ -286,7 +286,7 @@ export default function App() {
                 transition={{ duration: 0.6 }}
                 className="text-2xl md:text-3xl font-bold text-[#9D0B0F]"
               >
-                {t("manufacturing.qualityTitle")}
+                Quality At Every Stage
               </motion.h2>
               <div className="w-12 md:w-16 h-1 bg-[#9D0B0F] rounded-full" />
             </div>
@@ -298,7 +298,10 @@ export default function App() {
                 transition={{ delay: 0.2, duration: 0.6 }}
                 className="text-[18px]"
               >
-                {t("manufacturing.qualityP1")}
+                Global Pharmaceuticals operates a robust and well-defined Quality
+                Management System (QMS) designed to ensure that every stage of
+                pharmaceutical manufacturing meets the highest standards of
+                quality, safety, and compliance.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
@@ -307,7 +310,10 @@ export default function App() {
                 transition={{ delay: 0.4, duration: 0.6 }}
                 className="text-[18px]"
               >
-                {t("manufacturing.qualityP2")}
+                Our QMS is aligned with WHO guidelines, cGMP requirements, and
+                customer-specific expectations. The system is continuously
+                strengthened through innovation, regulatory compliance, risk
+                management, and ongoing process improvement initiatives.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
@@ -316,7 +322,11 @@ export default function App() {
                 transition={{ delay: 0.6, duration: 0.6 }}
                 className="text-[18px]"
               >
-                {t("manufacturing.qualityP3")}
+                The Quality Control Department functions independently and is
+                fully empowered to make decisions on all quality-related
+                matters. Every product released by Global Pharmaceuticals must
+                meet strict standards for safety, efficacy, consistency, and
+                regulatory compliance.
               </motion.p>
             </div>
           </motion.div>
