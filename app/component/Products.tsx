@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import Header from './Header';
 import Footer from './Footer';
 import { useRouter } from 'next/navigation';
+import { useTranslation } from '../i18n/LanguageProvider';
 
 interface Product {
   name: string;
@@ -207,6 +208,7 @@ export const ALL_PRODUCTS: Product[] = [
 const CATEGORIES_LIST = [...new Set(ALL_PRODUCTS.map(p => p.category))];
 
 export default function Products() {
+  const { t } = useTranslation();
   const [selectedLetter, setSelectedLetter] = useState('A');
   const [searchQuery, setSearchQuery] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('');
@@ -282,7 +284,7 @@ export default function Products() {
             animate={{ opacity: 1, y: 0 }}
             className="font-outfit text-5xl font-bold text-[#9D0B0F] mb-6"
           >
-            Products
+            {t("products.heroTitle")}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -290,12 +292,7 @@ export default function Products() {
             transition={{ delay: 0.1 }}
             className="font-sans text-[18px] text-[#1F2937] max-w-xl"
           >
-            With an annual production capacity exceeding 120 million units, Global
-            Pharmaceuticals offers a comprehensive portfolio of pharmaceutical
-            products across a broad range of therapeutic categories. Our
-            diversified portfolio enables us to meet evolving healthcare needs
-            while maintaining the highest standards of quality, safety, and
-            efficacy.
+            {t("products.heroText")}
           </motion.p>
         </div>
         <div className="w-full md:w-1/2 h-75 md:h-125 relative">
@@ -313,9 +310,9 @@ export default function Products() {
 
         {/* Left Sidebar */}
         <aside className="w-full lg:w-1/4">
-          <h2 className="font-outfit text-[40px] font-bold text-[#9D0B0F] mb-2">All Products</h2>
+          <h2 className="font-outfit text-[40px] font-bold text-[#9D0B0F] mb-2">{t("products.allProducts")}</h2>
           <p className="font-outfit text-[16px] text-black/60 mb-6 leading-relaxed">
-            Explore Our Range Of High-Quality Products Designed To Meet Diverse Healthcare Needs.
+            {t("products.allProductsSubtitle")}
           </p>
           <div className="w-12 h-1 bg-[#9D0B0F] mb-6" />
 
@@ -323,14 +320,14 @@ export default function Products() {
           <nav className="space-y-1">
             <button
               onClick={() => setCategoryFilter('')}
-              className={`w-full flex items-center justify-between px-3 py-2.5 rounded-md text-sm transition-all text-left ${
+              className={`w-full flex items-center justify-between px-3 py-2.5 rounded-md text-sm transition-all text-start ${
                 categoryFilter === ''
                   ? 'bg-[#9D0B0F] text-white font-medium'
                   : 'text-gray-600 hover:bg-gray-100'
               }`}
             >
-              <span>All Categories</span>
-              <span className={`text-sm px-2 py-0.5 rounded-full shrink-0 ml-2 ${
+              <span>{t("products.allCategories")}</span>
+              <span className={`text-sm px-2 py-0.5 rounded-full shrink-0 ms-2 ${
                 categoryFilter === ''
                   ? 'bg-white/20 text-white'
                   : 'bg-gray-100 text-gray-500'
@@ -343,7 +340,7 @@ export default function Products() {
               <button
                 key={cat}
                 onClick={() => setCategoryFilter(cat === categoryFilter ? '' : cat)}
-                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-md text-lg transition-all text-left ${
+                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-md text-lg transition-all text-start ${
                   categoryFilter === cat
                     ? 'bg-[#9D0B0F] text-white font-medium'
                     : 'text-gray-600 hover:bg-gray-100'
@@ -355,7 +352,7 @@ export default function Products() {
 
             {availableCategories.length === 0 && (
               <p className="text-lg text-gray-400 px-3 py-2">
-                No categories for &ldquo;{selectedLetter}&rdquo;
+                {t("products.noCategoriesFor")} &ldquo;{selectedLetter}&rdquo;
               </p>
             )}
           </nav>
@@ -405,12 +402,12 @@ export default function Products() {
             <div className="relative w-full md:w-64">
               <input
                 type="text"
-                placeholder="Search by name or generic..."
+                placeholder={t("products.searchPlaceholder")}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 bg-gray-50 border-none rounded-md text-sm focus:ring-2 focus:ring-red-800/20 transition-all outline-none"
+                className="w-full ps-10 pe-4 py-2 bg-gray-50 border-none rounded-md text-sm focus:ring-2 focus:ring-red-800/20 transition-all outline-none"
               />
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
+              <Search className="absolute start-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
             </div>
           </div>
 
@@ -418,8 +415,8 @@ export default function Products() {
           <div className="space-y-12">
             {!hasResults ? (
               <div className="text-center py-16">
-                <p className="text-gray-400 text-lg">No products found for &ldquo;{selectedLetter}&rdquo;</p>
-                <p className="text-gray-300 text-sm mt-2">Try a different letter or search term</p>
+                <p className="text-gray-400 text-lg">{t("products.noProductsFor")} &ldquo;{selectedLetter}&rdquo;</p>
+                <p className="text-gray-300 text-sm mt-2">{t("products.tryDifferent")}</p>
               </div>
             ) : (
               <div className="space-y-2">
@@ -458,7 +455,7 @@ export default function Products() {
                         </div>
                         <p className="text-lg text-gray-400 mt-0.5 truncate">{product.generic}</p>
                       </div>
-                      <ChevronRight size={14} className="text-gray-300 group-hover:text-[#9D0B0F] transition-colors ml-3 shrink-0" />
+                      <ChevronRight size={14} className="text-gray-300 group-hover:text-[#9D0B0F] transition-colors ms-3 shrink-0" />
                     </div>
                   </motion.div>
                 ))}

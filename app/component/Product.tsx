@@ -1,10 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/set-state-in-effect */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
+
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslation } from "../i18n/LanguageProvider";
 
 export const PRODUCT_DATA = {
   "Pelton-C": {
@@ -160,6 +163,7 @@ const products: Product[] = [
 ];
 
 export default function App() {
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsToShow, setItemsToShow] = useState(5);
 
@@ -197,19 +201,19 @@ export default function App() {
         {/* Header Section */}
         <div className="text-center mb-16 relative">
           <h2 className="md:text-5xl text-3xl font-bold text-[#9d0b0f] mb-1 tracking-tight">
-            Our Products
+            {t("productCarousel.title")}
           </h2>
           <span className="section-subtitle text-[16px] md:text-2xl text-[#334155] font-normal tracking-tight">
-            Diverse Pharmaceutical Solutions
+            {t("productCarousel.subtitle")}
           </span>
           <div className="w-24 h-0.75 bg-[#8B1D1D] mx-auto mt-6" />
 
-          <div className="absolute right-0 bottom-0 hidden sm:block">
+          <div className="absolute end-0 bottom-0 hidden sm:block">
             <a
               href="/products"
               className="text-[#8B1D1D] font-semibold text-sm hover:underline flex items-center gap-1 transition-all"
             >
-              View All <ChevronRight size={14} strokeWidth={3} />
+              {t("productCarousel.viewAll")} <ChevronRight size={14} strokeWidth={3} />
             </a>
           </div>
         </div>
@@ -238,12 +242,8 @@ export default function App() {
                     className="block h-full"
                   >
                     <div className="bg-white rounded-md p-3 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border-2 border-red-700 flex flex-col h-full group cursor-pointer hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300 relative">
-                      {/* TOP 10 Badge */}
-                      <div className="absolute -top-13 right-40 -left-10 z-10">
-                       <img src="/bandge.png" alt="" />
-                      </div>
                       <h3
-                        className={`text-3xl font-bold mb-2 pt-4 pl-2 ${product.color} tracking-tight`}
+                        className={`text-3xl font-bold mb-2 pt-4 ps-2 ${product.color} tracking-tight`}
                       >
                         {product.name}
                       </h3>
@@ -256,9 +256,9 @@ export default function App() {
                           referrerPolicy="no-referrer"
                         />
                       </div>
-                      <div className="mt-auto pl-2">
+                      <div className="mt-auto ps-2">
                         <span className="text-[14px] uppercase tracking-[0.18em] text-gray-500 font-semibold group-hover:text-[#8B1D1D] transition-colors">
-                          Learn More
+                          {t("productCarousel.learnMore")}
                         </span>
                       </div>
                     </div>
@@ -271,14 +271,14 @@ export default function App() {
           {/* Navigation Buttons */}
           <button
             onClick={prev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-6 w-10 h-10 md:w-14 md:h-14 bg-black text-white rounded-full flex items-center justify-center shadow-xl hover:bg-gray-800 transition-all z-20 focus:outline-none"
+            className="absolute start-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-6 w-10 h-10 md:w-14 md:h-14 bg-black text-white rounded-full flex items-center justify-center shadow-xl hover:bg-gray-800 transition-all z-20 focus:outline-none"
             aria-label="Previous product"
           >
             <ChevronLeft size={20} className="md:w-7 md:h-7" strokeWidth={2.5} />
           </button>
           <button
             onClick={next}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-6 w-10 h-10 md:w-14 md:h-14 bg-black text-white rounded-full flex items-center justify-center shadow-xl hover:bg-gray-800 transition-all z-20 focus:outline-none"
+            className="absolute end-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-6 w-10 h-10 md:w-14 md:h-14 bg-black text-white rounded-full flex items-center justify-center shadow-xl hover:bg-gray-800 transition-all z-20 focus:outline-none"
             aria-label="Next product"
           >
             <ChevronRight size={20} className="md:w-7 md:h-7" strokeWidth={2.5} />
@@ -291,7 +291,7 @@ export default function App() {
             href="#"
             className="text-[#8B1D1D] font-semibold text-sm hover:underline inline-flex items-center gap-1 transition-all"
           >
-            View All <ChevronRight size={14} strokeWidth={3} />
+            {t("productCarousel.viewAll")} <ChevronRight size={14} strokeWidth={3} />
           </a>
         </div>
       </div>

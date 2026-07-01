@@ -25,6 +25,17 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
+html[lang="ur"] body {
+  font-family: var(--font-urdu), var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4 {
+  letter-spacing: 0;
+}
+
 @layer base {
   p,
   span {

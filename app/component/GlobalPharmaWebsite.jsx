@@ -4,6 +4,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useTranslation } from "../i18n/LanguageProvider";
 import ProductCarousel from "./Product";
 import ImageSlider from "./ImageSlider";
 import Header from "./Header";
@@ -72,6 +74,8 @@ const PARTNERS = [
 // ];
 
 export default function GlobalPharmaWebsite() {
+  const { t } = useTranslation();
+  const router = useRouter();
   const screenSize = useResponsive();
   const [mounted, setMounted] = useState(false);
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -87,7 +91,6 @@ export default function GlobalPharmaWebsite() {
   return (
     <div
       style={{
-        fontFamily: "'Outfit', sans-serif",
         background: "#fff",
         overflowX: "hidden",
         position: "relative",
@@ -306,7 +309,7 @@ export default function GlobalPharmaWebsite() {
             }}
           >
             <h2 className="text-3xl md:text-5xl font-bold text-[#9d0b0f]">
-              Our Journey
+              {t("home.ourJourney")}
             </h2>
             <span
               className="section-subtitle"
@@ -320,7 +323,7 @@ export default function GlobalPharmaWebsite() {
                 fontWeight: 300,
               }}
             >
-              of Growth, Innovation and Trust
+              {t("home.ourJourneySubtitle")}
             </span>
             <div
               style={{
@@ -351,7 +354,7 @@ export default function GlobalPharmaWebsite() {
         <AnimatedSection>
           <div style={{ textAlign: "center", marginBottom: 48 }}>
             <h2 className="md:text-5xl text-3xl font-bold text-[#9d0b0f] text-center">
-              Trusted Contract Manufacturing Partners
+              {t("home.trustedPartnersTitle")}
             </h2>
             <div
               style={{
@@ -383,13 +386,11 @@ export default function GlobalPharmaWebsite() {
               boxSizing: "border-box",
             }}
           >
-            At Global Pharmaceuticals, our commitment to excellence has earned the trust of numerous national and multinational companies. We take pride in being a reliable contract manufacturing partner, delivering products that consistently meet the highest standards of quality, safety, and regulatory compliance.
-            With state-of-the-art manufacturing facilities, advanced technologies, and a highly experienced workforce, we ensure that every product manufactured under our roof adheres to stringent international quality standards.
-            Our commitment to quality, transparency, regulatory compliance, and timely delivery has made us a preferred partner for organizations seeking dependable and efficient contract manufacturing solutions. We believe in building long-term partnerships founded on trust, integrity, and a shared commitment to improving healthcare outcomes.
+            {t("home.trustedPartnersText")}
             <br />
             <br />
             <span style={{ display: "block", textAlign: "center" }}>
-            For further information, please contact:
+            {t("home.contactForInfo")}{" "}
             <a href="mailto:rida.fatima@globalpharmaceuticalspk.com" style={{ color: "#9d0b0f", textDecoration: "underline" }}>
               rida.fatima@globalpharmaceuticalspk.com
             </a>
@@ -415,22 +416,22 @@ export default function GlobalPharmaWebsite() {
                   padding: "20px 16px",
                   textAlign: "center",
                   fontSize: 16,
-                  fontWeight: 500,
+                  fontWeight: 700,
                   color: "#1f2937",
-                  // boxShadow: "0 1px 4px rgba(0,0,0,0.06)",
+                  border: "1px solid #9d0b0f",
                   cursor: "pointer",
                   transition: "all 0.2s ease",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = "#9d0b0f";
                   e.currentTarget.style.color = "#fff";
-                  // e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.12)";
+                  e.currentTarget.style.borderColor = "#9d0b0f";
                   e.currentTarget.style.transform = "translateY(-4px)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "#ffff";
-                  e.currentTarget.style.color = "#000000";
-                  // e.currentTarget.style.boxShadow = "0 1px 4px rgba(0,0,0,0.06)";
+                  e.currentTarget.style.background = "#fff";
+                  e.currentTarget.style.color = "#1f2937";
+                  e.currentTarget.style.borderColor = "#9d0b0f";
                   e.currentTarget.style.transform = "translateY(0)";
                 }}
               >
@@ -541,7 +542,7 @@ export default function GlobalPharmaWebsite() {
                   textShadow: "0 2px 8px rgba(0,0,0,0.8)",
                 }}
               >
-                CSR
+                {t("home.csrTitle")}
               </h2>
               <span
                 className="block md:text-2xl text-[16px]"
@@ -559,7 +560,7 @@ export default function GlobalPharmaWebsite() {
                   width: "100%",
                 }}
               >
-                Jamila Sultana Foundation
+                {t("home.csrSubtitle")}
               </span>
               <div
                 style={{
@@ -589,19 +590,14 @@ export default function GlobalPharmaWebsite() {
                 margin: "0 auto",
               }}
             >
-              As part of our Corporate Social Responsibility initiatives, Global Pharmaceuticals proudly supports the Jamila Sultana Foundation (JSF), a leading organization dedicated to the treatment and prevention of thalassemia in Pakistan.
-
-              JSF currently provides quality care and support to more than 1,326 patients across the country and continues to play a vital role in raising awareness, promoting prevention, and improving the lives of individuals affected by thalassemia.
-
-              With a clear vision to combat thalassemia as a national healthcare challenge, JSF remains committed to protecting the health and well-being of future generations while providing comprehensive support to patients and their families.
-
+              {t("home.csrText")}
             </p>
             <div className="flex justify-center">
               <button
                 onClick={() => router.push("/CRS")}
                 className="mt-8 px-6 py-3 bg-[#9d0b0f] text-white rounded-md text-sm font-medium hover:bg-[#7a080a] transition-colors duration-300"
               >
-                Learn More
+                {t("common.learnMore")}
               </button>
             </div>
           </AnimatedText>
@@ -622,7 +618,7 @@ export default function GlobalPharmaWebsite() {
         <AnimatedSection>
           <div style={{ textAlign: "center", marginBottom: 60 }}>
             <h2 className="md:text-5xl text-3xl font-bold text-[#9d0b0f]">
-              Growing Presence
+              {t("home.growingPresence")}
             </h2>
             <span
               className="section-subtitle"
@@ -637,7 +633,7 @@ export default function GlobalPharmaWebsite() {
                 marginTop: 14,
               }}
             >
-              in Global Markets
+              {t("home.growingPresenceSubtitle")}
             </span>
             <div
               style={{
@@ -666,7 +662,7 @@ export default function GlobalPharmaWebsite() {
                 boxSizing: "border-box",
               }}
             >
-              Global Pharmaceuticals continues to strengthen its international presence through strategic partnerships and expanding market access. Our commitment to quality, regulatory compliance, and customer satisfaction has positioned us as a trusted pharmaceutical partner in multiple international markets, with ongoing expansion into new regions.
+              {t("home.growingPresenceText")}
             </p>
           </div>
 

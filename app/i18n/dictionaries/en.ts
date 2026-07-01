@@ -323,6 +323,11 @@ const en = {
       "From a small marketing venture to one of Pakistan's fast-growing pharmaceutical manufacturers producing a wide range of medicines and healthcare products for patients across the country.",
   },
 
+  imageSlider: {
+    title: "Our Gallery",
+    subtitle: "Explore more about us",
+  },
+
   pharmacovigilance: {
     title: "Pharmacovigilance",
     bodyText:

@@ -1,10 +1,14 @@
 /* eslint-disable react-hooks/set-state-in-effect */
+"use client";
+
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useResponsive } from './useResponsive';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence, useAnimation } from 'motion/react';
+import { useTranslation } from '../i18n/LanguageProvider';
 
 const ImageSlider = () => {
+  const { t } = useTranslation();
   const screenSize = useResponsive();
   const [mounted, setMounted] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -154,7 +158,7 @@ const ImageSlider = () => {
       onMouseLeave={() => setIsPaused(false)}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-12 mb-12">
-       <h2 className="md:text-5xl text-3xl font-bold text-[#9d0b0f] align-center  text-center">Our Gallery</h2>
+       <h2 className="md:text-5xl text-3xl font-bold text-[#9d0b0f] align-center text-center">{t("imageSlider.title")}</h2>
             <span
               className="section-subtitle"
               style={{
@@ -167,14 +171,14 @@ const ImageSlider = () => {
                 fontWeight: 300,
               }}
             >
-              Explore more about us 
+              {t("imageSlider.subtitle")}
             </span>
       </div>
       <div className="max-w-[100%] mx-auto px-4 md:px-12 relative h-[220px] md:h-[320px]">
         {/* Static Navigation Arrows (Desktop) */}
         {!screenSize.isMobile && (
           <>
-            <div className="absolute left-4 top-0 bottom-0 flex items-center justify-center z-30 pointer-events-none">
+            <div className="absolute start-4 top-0 bottom-0 flex items-center justify-center z-30 pointer-events-none">
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
@@ -184,7 +188,7 @@ const ImageSlider = () => {
                 <ArrowLeft size={24} strokeWidth={2.5} />
               </motion.button>
             </div>
-            <div className="absolute right-4 top-0 bottom-0 flex items-center justify-center z-30 pointer-events-none">
+            <div className="absolute end-4 top-0 bottom-0 flex items-center justify-center z-30 pointer-events-none">
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}

@@ -1,45 +1,33 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 /* eslint-disable @next/next/no-img-element */
+"use client";
+
 import { useState, useEffect, useRef } from "react";
 import { useResponsive } from "./useResponsive";
-
-const slides = [
-  /*{
-     eyebrow: "",
-    title: (
-      <>
-       
-        <span className="text-[36px] text-black">Our</span>{" "}
-         CEO
-        <br />
-        
-      </>
-    ),
-   
-    desc: "Our state-of-the-art R&D labs drive continuous innovation, developing breakthrough formulations that address critical unmet medical needs globally.",
-    // partnerImg: "/partners.png",
-    image: "/Homepage-01.webp",
-  },*/
-  {
-    eyebrow: "",
-    title: (
-      <>
-        Building a Healthier Future Through
-
-        Manufacturing <span className="text-[36px] text-black">Innovation, Quality & Trust</span>
-      </>
-    ),
-    desc: "Global Pharmaceuticals Pvt. Ltd. is a leading pharmaceutical company dedicated to advancing healthcare through innovation, quality, and trust. With over three decades of excellence, we offer a diverse portfolio of medicines, including tablets, capsules, syrups, suspensions, creams, ointments, lotions, and injectable products. Through world-class manufacturing, stringent quality standards, and a patient-centric approach, we remain committed to delivering safe, effective, and affordable healthcare solutions across Pakistan and international markets.",
-    partnerImg: "/partners.png",
-    image: "/Homepage-02.webp",
-  },
-];
+import { useTranslation } from "../i18n/LanguageProvider";
 
 export default function HeroSlider() {
+  const { t } = useTranslation();
   const screenSize = useResponsive();
   const [mounted, setMounted] = useState(false);
   const [current, setCurrent] = useState(0);
   const timerRef = useRef(null);
+
+  const slides = [
+    {
+      eyebrow: "",
+      title: (
+        <>
+          {t("hero.title")}
+          <br />
+          <span className="text-[36px] text-black">{t("hero.titleAccent")}</span>
+        </>
+      ),
+      desc: t("hero.desc"),
+      partnerImg: "/partners.png",
+      image: "/Homepage-02.webp",
+    },
+  ];
 
   const goTo = (idx) => {
     setCurrent((idx + slides.length) % slides.length);
@@ -73,11 +61,8 @@ export default function HeroSlider() {
         alignItems: "center",
         position: "relative",
         overflow: "hidden",
-        padding: screenSize.isMobile
-          ? "40px 20px"
-          : screenSize.isTablet
-            ? "60px 40px"
-            : "0 0 0 60px",
+        paddingBlock: screenSize.isMobile ? "40px" : screenSize.isTablet ? "60px" : "0",
+        paddingInline: screenSize.isMobile ? "20px" : screenSize.isTablet ? "40px" : "60px 0",
         minHeight: screenSize.isMobile ? "auto" : 480,
       }}
     >
@@ -122,7 +107,6 @@ export default function HeroSlider() {
           {slide.desc}
         </p>
 
-        {/* Partner image */}
         {slide.partnerImg && (
           <div style={{ marginTop: 24 }}>
             <img
@@ -155,84 +139,12 @@ export default function HeroSlider() {
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            objectPosition: "left center",
-            marginLeft: screenSize.isMobile ? 0 : 40,
+            objectPosition: "center",
+            marginInlineStart: screenSize.isMobile ? 0 : 40,
             transition: "opacity 0.5s ease",
           }}
         />
       </div>
-
-      {/* Nav — centered bottom */}
-      {/* <div
-        style={{
-          position: "absolute",
-          bottom: 24,
-          left: "50%",
-          transform: "translateX(-50%)",
-          display: "flex",
-          alignItems: "center",
-          gap: 14,
-          zIndex: 10,
-        }}
-      >
-        <button
-          onClick={() => goTo(current - 1)}
-          style={{
-            width: 38,
-            height: 38,
-            borderRadius: "50%",
-            border: "1.5px solid #9d0b0f",
-            background: "white",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "black",
-            cursor: "pointer",
-            fontSize: 20,
-            lineHeight: 1,
-          }}
-        >
-          ‹
-        </button>
-
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => goTo(i)}
-            style={{
-              width: 10,
-              height: 10,
-              borderRadius: "50%",
-              background: i === current ? "#9d0b0f" : "#d1d5db",
-              border: "none",
-              padding: 0,
-              cursor: "pointer",
-              transform: i === current ? "scale(1.4)" : "scale(1)",
-              transition: "all 0.3s",
-            }}
-          />
-        ))}
-
-        <button
-          onClick={() => goTo(current + 1)}
-          style={{
-            width: 38,
-            height: 38,
-            borderRadius: "50%",
-            border: "1.5px solid #9d0b0f",
-            background: "white",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "black",
-            cursor: "pointer",
-            fontSize: 20,
-            lineHeight: 1,
-          }}
-        >
-          ›
-        </button>
-      </div> */}
     </section>
   );
 }
