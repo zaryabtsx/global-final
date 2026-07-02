@@ -40,14 +40,14 @@ const FilterDropdown = ({ label, options, value, onChange }: {
         aria-label={label}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full appearance-none bg-white border border-gray-200 rounded-md py-3 px-4 pr-10 text-[16px] text-gray-700 focus:outline-none focus:ring-1 focus:border-red-800 transition-all cursor-pointer"
+        className="w-full appearance-none bg-white border border-gray-200 rounded-md py-3 px-4 pe-10 text-[16px] text-gray-700 focus:outline-none focus:ring-1 focus:border-red-800 transition-all cursor-pointer"
       >
         <option value="">{t("common.all")}</option>
         {options.map((opt) => (
           <option key={opt} value={opt}>{opt}</option>
         ))}
       </select>
-      <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none group-hover:text-gray-600 transition-colors" />
+      <ChevronDown className="absolute end-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none group-hover:text-gray-600 transition-colors" />
     </div>
   </div>
   );
@@ -222,13 +222,13 @@ export default function Career() {
                   <div className="flex flex-col gap-1.5">
                     <label className="text-[13px] font-bold text-gray-700 uppercase tracking-wider">{t("career.jobSearch")}</label>
                     <div className="relative">
-                      <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                      <Search className="absolute start-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                       <input
                         type="text"
                         placeholder={t("career.searchPlaceholder")}
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full bg-white border border-gray-200 rounded-md py-3 pl-11 pr-4 text-[16px] text-gray-700 focus:outline-none focus:ring-1 focus:border-red-800 transition-all placeholder:text-gray-400"
+                        className="w-full bg-white border border-gray-200 rounded-md py-3 ps-11 pe-4 text-[16px] text-gray-700 focus:outline-none focus:ring-1 focus:border-red-800 transition-all placeholder:text-gray-400"
                       />
                     </div>
                   </div>
