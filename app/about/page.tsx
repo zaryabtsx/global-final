@@ -87,7 +87,7 @@ export default function App() {
             className="relative overflow-hidden h-auto lg:h-screen w-full lg:w-335 flex items-center justify-center"
           >
             <img
-              className="w-full h-54 md:h-64 lg:h-80 object-contain md:mr-150"
+              className="w-full h-54 md:h-64 lg:h-80 object-contain md:me-150"
               src="/intro-about-us.png"
               alt="Global Pharmaceuticals Building"
               referrerPolicy="no-referrer"
@@ -197,7 +197,7 @@ export default function App() {
               referrerPolicy="no-referrer"
             />
           </motion.div>
-          <div className="bg-white p-12 flex flex-col justify-center border-y lg:border-y-0 lg:border-l border-gray-100">
+          <div className="bg-white p-12 flex flex-col justify-center border-y lg:border-y-0 lg:border-s border-gray-100">
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}

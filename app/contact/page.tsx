@@ -275,7 +275,7 @@ export default function App() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="font-semibold text-[17px] leading-tight text-green-900">
-                        Vision Pharmaceuticals (Pvt) Ltd.
+                        Vision Pharmaceuticals (Pvt) Ltd
                       </p>
                     </div>
                   </div>

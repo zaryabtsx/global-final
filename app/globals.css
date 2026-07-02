@@ -34,6 +34,9 @@ html[dir="rtl"] h2,
 html[dir="rtl"] h3,
 html[dir="rtl"] h4 {
   letter-spacing: 0;
+  /* Noto Nastaliq Urdu glyphs stack diagonally and need extra vertical
+     room; the Latin `leading-tight`/`leading-none` utilities overlap lines. */
+  line-height: 1.9;
 }
 
 @layer base {
