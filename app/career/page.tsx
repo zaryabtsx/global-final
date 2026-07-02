@@ -175,7 +175,7 @@ export default function Career() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl font-bold text-[#9D0B0F] mb-6"
+            className="text-5xl font-bold text-[#9D0B0F] mb-6 ur-hero-heading"
           >
             {t("career.heroTitle")}
           </motion.h1>

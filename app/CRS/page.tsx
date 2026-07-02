@@ -120,7 +120,7 @@ const Page = () => {
           <div className="flex flex-col md:flex-row items-start px-6 py-12 md:px-10 md:py-12 gap-6 md:gap-12 bg-white">
             <div className="flex-1">
               <h2
-                className={`font-outfit text-3xl md:text-4xl font-bold text-[#9d0b0f] mb-2 ps-10 transition-all duration-800 ease-out
+                className={`font-outfit text-3xl md:text-4xl font-bold text-[#9d0b0f] mb-2 ur-subsection-heading ps-10 transition-all duration-800 ease-out
                 ${loadAnimate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
               >
                 {t("crs.whoWeAreTitle")}

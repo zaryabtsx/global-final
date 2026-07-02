@@ -157,11 +157,13 @@ const ImageSlider = () => {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-12 mb-12">
-       <h2 className="md:text-5xl text-3xl font-bold text-[#9d0b0f] align-center text-center">{t("imageSlider.title")}</h2>
-            <span
-              className="section-subtitle"
-              style={{
+      <div className="max-w-7xl mx-auto px-4 md:px-12 mb-12 text-center">
+        <h2 className="md:text-5xl text-3xl font-bold text-[#9d0b0f] align-center text-center ur-section-heading">
+          {t("imageSlider.title")}
+        </h2>
+        <span
+          className="section-subtitle"
+          style={{
                 fontSize: screenSize.isMobile
                   ? 20
                   : screenSize.isTablet

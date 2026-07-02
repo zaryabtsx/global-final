@@ -241,7 +241,7 @@ export default function App() {
                     href={`/detailedproduct/${encodeURIComponent(product.name)}`}
                     className="block h-full"
                   >
-                    <div className="bg-white rounded-md p-3 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border-2 border-red-700 flex flex-col h-full group cursor-pointer hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300 relative">
+                    <div className="bg-white rounded-md p-3 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border-[3px] border-red-700 flex flex-col h-full group cursor-pointer hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300 relative">
                       <h3
                         className={`text-3xl font-bold mb-2 pt-4 ps-2 ${product.color} tracking-tight`}
                       >

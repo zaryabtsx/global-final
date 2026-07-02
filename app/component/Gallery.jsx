@@ -118,7 +118,7 @@ export default function Gallery() {
         {/* Header */}
         <div className="text-center mb-10">
           <h2 
-            className={`text-3xl md:text-4xl font-bold text-[#9d0b0f] transition-all duration-800 ease-out
+            className={`text-3xl md:text-4xl font-bold text-[#9d0b0f] ur-section-heading transition-all duration-800 ease-out
               ${animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
             {t("gallery.title")}

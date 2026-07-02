@@ -74,6 +74,61 @@ p.heading-subtitle {
   text-align: start;
 }
 
+/* Urdu-only spacing — English keeps original tighter layout */
+html[lang="ur"] .ur-section-heading {
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+}
+
+@media (min-width: 768px) {
+  html[lang="ur"] .ur-section-heading {
+    margin-bottom: 1rem;
+  }
+}
+
+html[lang="ur"] .ur-subsection-heading {
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+}
+
+@media (min-width: 768px) {
+  html[lang="ur"] .ur-subsection-heading {
+    margin-bottom: 1rem;
+  }
+}
+
+html[lang="ur"] .ur-hero-heading {
+  margin-bottom: 2rem;
+  line-height: 1.25;
+}
+
+@media (min-width: 768px) {
+  html[lang="ur"] .ur-hero-heading {
+    margin-bottom: 2.5rem;
+  }
+}
+
+html[lang="ur"] .ur-stat-number {
+  line-height: 1.1;
+}
+
+html[lang="ur"] .ur-stat-label {
+  margin-top: 12px;
+  line-height: 1.4;
+}
+
+@media (min-width: 768px) {
+  html[lang="ur"] .ur-stat-label {
+    margin-top: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  html[lang="ur"] .ur-stat-label {
+    margin-top: 18px;
+  }
+}
+
 .productsPage {
   padding: 80px 40px;
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;

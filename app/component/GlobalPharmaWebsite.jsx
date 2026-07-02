@@ -308,7 +308,7 @@ export default function GlobalPharmaWebsite() {
               background: "transparent",
             }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-[#9d0b0f]">
+            <h2 className="text-3xl md:text-5xl font-bold text-[#9d0b0f] ur-section-heading">
               {t("home.ourJourney")}
             </h2>
             <span

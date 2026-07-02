@@ -65,6 +65,7 @@ const StatItem = ({ target, suffix, label, index, totalItems, isMobile, isTablet
       }}
     >
       <div
+        className="ur-stat-number"
         style={{
           fontSize: isMobile ? 40 : isTablet ? 56 : 72,
           fontWeight: 700,
@@ -76,7 +77,14 @@ const StatItem = ({ target, suffix, label, index, totalItems, isMobile, isTablet
         {count}
         {suffix}
       </div>
-      <div style={{ fontSize: isMobile ? 14 : isTablet ? 16 : 20, color: "#030308", marginTop: 8 }}>
+      <div
+        className="ur-stat-label"
+        style={{
+          fontSize: isMobile ? 14 : isTablet ? 16 : 20,
+          color: "#030308",
+          marginTop: 8,
+        }}
+      >
         {label}
       </div>
     </div>
