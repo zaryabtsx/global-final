@@ -193,7 +193,9 @@ export default function Career() {
             src="/career.webp"
             alt="Pharmaceutical Production"
             fill
-            className="w-full h-full object-cover"
+            priority
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover"
           />
         </div>
       </section>

@@ -89,7 +89,7 @@ export default function Arrow() {
         {/* Central Graphic */}
         <div className="absolute top-1/2 left-1/2 bg-[#E6E6E6] -translate-x-1/2 -translate-y-1/2 w-40 h-40 md:w-60 md:h-60 lg:w-80 lg:h-80 border-8 md:border-16 border-red-800 flex items-center justify-center  shadow-sm">
           <div className="relative w-full h-full flex bg-[#E6E6E6]  items-center justify-center text-gray-400">
-            <img src="/arrow-logo.svg" alt="" width={250} background={["#FEF2F2"]} />
+            <img src="/arrow-logo.svg" alt="" className="w-[70%] h-[70%] object-contain" />
           </div>
         </div>
 
@@ -223,7 +223,7 @@ export default function Arrow() {
           description={tl[1].description}
           align="left"
           delay={0.8}
-          className="hidden md:block absolute top-[26%] left-[8%]"
+          className="hidden md:block absolute top-[27%] left-[1%] max-w-[22%]"
         />
 
         {/* 2008 - Middle Left */}
@@ -253,7 +253,7 @@ export default function Arrow() {
           description={tl[4].description}
           align="right"
           delay={1.8}
-          className="hidden md:block absolute top-[40%] right-[0%]"
+          className="hidden md:block absolute top-[36%] left-[80%] max-w-[19%]"
         />
       </div>
 

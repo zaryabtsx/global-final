@@ -304,9 +304,6 @@ export default function ProductDetail({ productName = "Pelton-C", onBack }) {
 
   if (!screenSize) return null;
 
-  console.log("Current Product:", productName);
-  console.log("Product Data:", product);
-
   const handleBack = () => {
     if (typeof onBack === "function") {
       onBack();
