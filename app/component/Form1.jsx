@@ -1,718 +1,389 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useState, useEffect } from "react";
-import { useResponsive } from "./useResponsive";
-import { Field } from 'formik'; // ← remove this if unused
+import React from "react";
+import {
+  FONT,
+  ADR_YELLOW,
+  adrPageStyle,
+  adrTextareaStyle,
+  adrInputStyle,
+  LineField,
+  CheckOption,
+  RadioOption,
+  DrugTable,
+  DeviceTable,
+  SectionTitle,
+  ItemLabel,
+  PlainText,
+} from "./adrFormShared";
+
 export default function ADRForm() {
-  const screenSize = useResponsive();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
-
-  const scale = screenSize.isMobile ? 0.75 : screenSize.isTablet ? 0.85 : 1;
-  const pagePadding = screenSize.isMobile
-    ? "10px 12px"
-    : screenSize.isTablet
-      ? "16px 16px"
-      : "18px 22px";
-
-  const s = {
-    page: {
-      background: "#fff",
-      fontFamily: "'Times New Roman', Times, serif",
-      fontSize: `${16 * scale}px`,
-      color: "#000",
-      padding: pagePadding,
-      maxWidth: "1000px",
-      margin: "0 auto",
-      border: "1px solid #000",
-      transform: `scale(${scale})`,
-      transformOrigin: "top left",
-      width: `${100 / scale}%`,
-    },
-    headerRow: {
-      display: "flex",
-      alignItems: "flex-start",
-      justifyContent: "space-between",
-      borderBottom: "1.5px solid #000",
-      paddingBottom: "4px",
-      marginBottom: "6px",
-      gap: "12px",
-    },
-    logo: {
-      width: "60px",
-      height: "60px",
-      // border: "1px solid #555",
-      // borderRadius: "50%",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      fontSize: "16px",
-      textAlign: "center",
-      flexShrink: 0,
-      padding: "4px",
-      color: "#333",
-    },
-    titleBlock: { flex: 3, textAlign: "center", minWidth: "260px" },
-    mainTitle: {
-      fontSize: "24px",
-      fontWeight: "bold",
-      letterSpacing: "1.5px",
-      lineHeight: 1.1,
-    },
-    subtitle: {
-      fontSize: "11px",
-      fontStyle: "italic",
-      marginTop: "22px",
-    },
-    subHeaderRow: {
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      marginBottom: "4px",
-      gap: "12px",
-      fontSize: "10px",
-      textTransform: "none",
-    },
-    tagLineLeft: {
-      // flex: 1,
-      textAlign: "left",
-      lineHeight: 1.2,
-      marginLeft: "74px",
-      fontSize: "16px",
-      letterSpacing: "0.05em",
-width:"100%"
-    },
-    tagLineRight: {
-      flex: 1,
-      textAlign: "right",
-      lineHeight: 1.2,
-      paddingRight: "75px",
-      fontSize: "12px",
-      letterSpacing: "0.09em",
-    },
-    certBox: {
-      border: "1px solid #000",
-      padding: "8px 10px",
-      fontSize: "11px",
-      textAlign: "left",
-      minWidth: "180px",
-      display: "flex",
-      flexDirection: "column",
-      gap: "6px",
-    },
-    certTitle: {
-      fontStyle: "italic",
-      fontWeight: "bold",
-      fontSize: "11px",
-      lineHeight: 1.1,
-      textAlign: "left",
-    },
-    reportRow: {
-      display: "flex",
-      alignItems: "center",
-      gap: "6px",
-      fontSize: "11px",
-    },
-    reportInput: {
-      border: "none",
-      borderBottom: "1px solid #000",
-      outline: "none",
-      width: "140px",
-      fontSize: "11px",
-      background: "transparent",
-      padding: "0 1px",
-      height: "16px",
-    },
-    emailRow: {
-      fontSize: "11px",
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      margin: "2px 0 8px 0",
-      gap: "12px",
-    },
-    sectionHeader: {
-      background: "#000",
-      color: "#fff",
-      fontWeight: "bold",
-      fontSize: "16px",
-      padding: "1px 5px",
-      marginBottom: "3px",
-      marginTop: "5px",
-      letterSpacing: "0.3px",
-    },
-    row: {
-      display: "flex",
-      gap: "4px",
-      marginBottom: "3px",
-      alignItems: "flex-end",
-      flexWrap: "wrap",
-    },
-    field: { display: "flex", flexDirection: "column", gap: "1px" },
-    label: { fontSize: "16px", whiteSpace: "nowrap" },
-    input: {
-      border: "none",
-      borderBottom: "0.8px solid #000",
-      outline: "none",
-      fontSize: "16px",
-      background: "transparent",
-      minWidth: "60px",
-      padding: "0 1px",
-      height: "16px",
-    },
-    textarea: {
-      border: "0.8px solid #000",
-      outline: "none",
-      fontSize: "16px",
-      background: "transparent",
-      width: "100%",
-      resize: "none",
-      padding: "2px",
-      fontFamily: "inherit",
-    },
-    checkbox: {
-      width: "10px",
-      height: "10px",
-      marginRight: "3px",
-      cursor: "pointer",
-    },
-    checkRow: {
-      display: "flex",
-      alignItems: "center",
-      fontSize: "16px",
-      marginBottom: "2px",
-    },
-    table: { width: "100%", borderCollapse: "collapse", fontSize: "16px" },
-    th: {
-      border: "0.8px solid #000",
-      background: "#e8e8e8",
-      padding: "2px 3px",
-      fontWeight: "bold",
-      fontSize: "16px",
-      textAlign: "center",
-    },
-    td: {
-      border: "0.8px solid #000",
-      padding: "2px 3px",
-    },
-    tdInput: {
-      border: "none",
-      outline: "none",
-      width: "100%",
-      fontSize: "16px",
-      background: "transparent",
-      fontFamily: "inherit",
-      padding: 0,
-      height: "16px",
-    },
-    twoCol: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px" },
-    boxSection: {
-      border: "0.8px solid #000",
-      padding: "4px 6px",
-      marginBottom: "3px",
-    },
-    subLabel: {
-      fontSize: "12px",
-      fontWeight: "bold",
-      textDecoration: "underline",
-      marginBottom: "2px",
-    },
-    noteText: { fontSize: "12px", fontStyle: "italic", color: "#333" },
-    signatureRow: {
-      display: "flex",
-      gap: "10px",
-      marginTop: "4px",
-      alignItems: "flex-end",
-    },
-  };
-
-  function Field({ label, name, width = 80, style = {} }) {
-    return (
-      <div style={{ ...s.field, ...style }}>
-        {label && <span style={s.label}>{label}</span>}
-        <input name={name} style={{ ...s.input, width }} />
-      </div>
-    );
-  }
-
-  function CheckItem({ label, name, value }) {
-    const [checked, setChecked] = useState(false);
-    return (
-      <label style={s.checkRow}>
-        <input
-          type="checkbox"
-          name={name}
-          value={value || label}
-          style={s.checkbox}
-          checked={checked}
-          onChange={(e) => setChecked(e.target.checked)}
-        />
-        {label}
-      </label>
-    );
-  }
-  const FField  = ({ label, name, width, style }) => (
-  <label style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 14, whiteSpace: "nowrap", ...style }}>
-    {label}
-    <input
-      name={name}
-      style={{
-        width,
-        border: "none",
-        borderBottom: "1px solid black",
-        outline: "none",
-        background: "transparent",
-        fontSize: 14,
-      }}
-    />
-  </label>
-);
-// Rename your local one to avoid the clash
-const FormField = ({ label, name, width }) => (
-  <label style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 14, whiteSpace: "nowrap" }}>
-    {label}
-    <input
-      name={name}
-      style={{
-        width,
-        border: "none",
-        borderBottom: "1px solid black",
-        outline: "none",
-        background: "transparent",
-        fontSize: 14,
-      }}
-    />
-  </label>
-);
-  function TableInput({ name, style = {} }) {
-    return <input name={name} style={{ ...s.tdInput, ...style }} />;
-  }
-
   return (
-    <div style={s.page}>
-      {/* ── HEADER ── */}
-      <div style={s.headerRow}>
-        <div style={s.logo}>
-          <img src="/clip.png" alt="Logo" />
-        </div>
-        <div style={s.titleBlock}>
-          <div style={s.mainTitle}>
+    <div style={adrPageStyle}>
+      {/* Header matching PDF: title stack, then email left + logo square left + large office box right */}
+      <div style={{ position: "relative", marginBottom: 12 }}>
+        {/* Yellow square with black border in the top-left */}
+        <div
+          style={{
+            position: "absolute",
+            left: 0,
+            top: 0,
+            width: 62,
+            height: 62,
+            border: "1.5px solid #000",
+            background: ADR_YELLOW,
+            boxSizing: "border-box",
+          }}
+        />
+
+        <div style={{ textAlign: "center", padding: "0 80px" }}>
+          <div
+            style={{
+              fontSize: `${FONT.title}px`,
+              fontWeight: 700,
+              letterSpacing: 0.5,
+              lineHeight: 1.08,
+              textTransform: "uppercase",
+            }}
+          >
             SUSPECTED ADVERSE DRUG REACTION REPORTING FORM
           </div>
-          <div style={s.subHeaderRow}>
-           <span style={s.tagLineLeft}>
-  This form is for voluntary reporting of adverse drug reactions{"   "}
-  caused by therapeutic goods marketed in Pakistan.
-</span>
-            <span style={s.tagLineRight}>
-              
-            </span>
+          <div
+            style={{
+              fontSize: `${FONT.subtitle}px`,
+              marginTop: 6,
+              lineHeight: 1.3,
+              fontWeight: 400,
+            }}
+          >
+            This form is for voluntary reporting of adverse drug reactions caused by therapeutic goods marketed in
+            Pakistan.
           </div>
-          <div style={s.subtitle}>For Healthcare Professionals</div>
-        </div>
-        {/* <div style={s.certBox}>
-          <div style={s.certTitle}>ForOfficeUseOnly</div>
-          <div style={s.reportRow}>
-            <span>ReportNo.</span>
-            <input style={s.reportInput} />
-          </div>
-        </div> */}
-      </div>
-
-      {/* email row */}
-      <div style={s.emailRow}>
-        <span>Email: registry@globalpharmaceuticals.com</span>
-        {/* <span>Fax/Tel: <input style={{ ...s.input, width: "100px", fontSize: "11px" }} /></span> */}
-        <div style={s.certBox}>
-          <div style={s.certTitle}>ForOfficeUseOnly</div>
-          <div style={s.reportRow}>
-            <span>ReportNo.</span>
-            <input style={s.reportInput} />
+          <div
+            style={{
+              fontSize: `${FONT.base}px`,
+              fontStyle: "italic",
+              fontWeight: 700,
+              marginTop: 6,
+            }}
+          >
+            For Healthcare Professionals
           </div>
         </div>
-      </div>
 
-      {/* ── A. PATIENT DETAILS ── */}
-      <div style={s.sectionHeader}>A. PATIENT DETAILS</div>
-  <div style={{ ...s.row, alignItems: "center", gap: 12 }}>
-  <FormField label="Patient Name/Initials:" name="patientName" width={120} />
-  <FormField label="Identification No./Medical Hospital ID:" name="patientId" width={120} />
-  <FormField label="Age:" name="patientAge" width={40} />
-  <FormField label="Weight(kg):" name="patientWeight" width={50} />
-</div>
-      <div style={s.row}>
-        <div style={s.field}>
-          <span style={s.label}>Sex:</span>
-          <div style={{ display: "flex", gap: "8px" }}>
-            <label style={s.checkRow}>
-              <input
-                type="radio"
-                name="patientSex"
-                value="Male"
-                style={s.checkbox}
-              />{" "}
-              Male
-            </label>
-            <label style={s.checkRow}>
-              <input
-                type="radio"
-                name="patientSex"
-                value="Female"
-                style={s.checkbox}
-              />{" "}
-              Female
-            </label>
-            <span style={{ fontSize: "9px" }}>
-              — pregnant or on oral contraceptives?
-            </span>
-            <label style={s.checkRow}>
-              <input
-                type="radio"
-                name="pregnant"
-                value="Yes"
-                style={s.checkbox}
-              />{" "}
-              Yes
-            </label>
-            <label style={s.checkRow}>
-              <input
-                type="radio"
-                name="pregnant"
-                value="No"
-                style={s.checkbox}
-              />{" "}
-              No
-            </label>
-          </div>
-        </div>
-      </div>
-
-      {/* ── B. SUSPECTED DRUG TABLE ── */}
-      <div style={s.sectionHeader}>
-        B. SUSPECTED DRUG(S)/VACCINE(S) / ALTERNATIVE MEDICINE (Tick applicable
-        column)
-      </div>
-      <table style={s.table}>
-        <thead>
-          <tr>
-            <th style={s.th}>Drug Name (Brand/Generic)</th>
-            <th style={s.th}>Manufacturer</th>
-            <th style={s.th}>Batch/Lot No.</th>
-            <th style={s.th}>Route of Administration</th>
-            <th style={s.th}>Start Date</th>
-            <th style={s.th}>Stop Date</th>
-            <th style={s.th}>Prescribe/Given For</th>
-          </tr>
-        </thead>
-        <tbody>
-          {[1, 2, 3].map((r) => (
-            <tr key={r}>
-              <td style={s.td}>
-                <TableInput name={`drugName_${r}`} />
-              </td>
-              <td style={s.td}>
-                <TableInput name={`manufacturer_${r}`} />
-              </td>
-              <td style={s.td}>
-                <TableInput name={`batchLot_${r}`} />
-              </td>
-              <td style={s.td}>
-                <TableInput name={`adminRoute_${r}`} />
-              </td>
-              <td style={s.td}>
-                <TableInput name={`startDate_${r}`} />
-              </td>
-              <td style={s.td}>
-                <TableInput name={`stopDate_${r}`} />
-              </td>
-              <td style={s.td}>
-                <TableInput name={`prescribed_${r}`} />
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
-      {/* ── C. SUSPECTED REACTION(S) ── */}
-      <div style={s.sectionHeader}>
-        C. SUSPECTED REACTION(S) (Include relevant test/laboratory results if
-        available)
-      </div>
-      <div style={s.twoCol}>
-        {/* Left col */}
-        <div>
-          <div style={s.subLabel}>
-            1. Describe the Reaction(s) (use medical terminology)
-          </div>
-          <textarea
-            name="reactionDescription"
-            style={{ ...s.textarea, height: "44px" }}
-          />
-          <div style={{ ...s.row, marginTop: "4px" }}>
-            <Field
-              label="Date of onset of reaction:"
-              name="reactionOnset"
-              width={90}
-            />
-            <Field
-              label="Date of recovery:"
-              name="reactionRecovery"
-              width={90}
-            />
+        <div
+          style={{
+            display: "flex",
+            alignItems: "flex-end",
+            justifyContent: "space-between",
+            marginTop: 14,
+            gap: 16,
+          }}
+        >
+          <div
+            style={{
+              fontSize: `${FONT.base}px`,
+              fontWeight: 700,
+              paddingBottom: 4,
+              alignSelf: "flex-end",
+            }}
+          >
+            Email: <span style={{ fontWeight: 700 }}>regulatory@globalpharmaceuticalspk.com</span>
           </div>
 
-          <div style={{ marginTop: "4px" }}>
-            <div style={s.subLabel}>
-              3. Other relevant history (e.g., diagnosis, allergies, Smoking,
-              Alcohol, Renal/Liver Problems and any Existing Medical Problems)
+          <div
+            style={{
+              border: "1.5px solid #000",
+              padding: "10px 14px 12px",
+              width: 260,
+              minHeight: 74,
+              flexShrink: 0,
+              fontSize: `${FONT.base}px`,
+              background: ADR_YELLOW,
+              boxSizing: "border-box",
+            }}
+          >
+            <div
+              style={{
+                fontStyle: "italic",
+                fontWeight: 700,
+                lineHeight: 1.25,
+                fontSize: `${FONT.base}px`,
+              }}
+            >
+              For Office Use Only
             </div>
-            <textarea
-              name="medicalHistory"
-              style={{ ...s.textarea, height: "40px" }}
-            />
-          </div>
-
-          <div style={{ marginTop: "4px" }}>
-            <div style={s.subLabel}>
-              4. Relevant test/Laboratory data with Dates (include relevant
-              results)
-            </div>
-            <textarea
-              name="labData"
-              style={{ ...s.textarea, height: "36px" }}
-            />
-          </div>
-        </div>
-
-        {/* Right col */}
-        <div>
-          <div style={s.subLabel}>
-            2. Describe the outcome (Check all that apply)
-          </div>
-          <CheckItem
-            label="Patient recovered without treatment"
-            name="outcome"
-            value="recovered_without_treatment"
-          />
-          <CheckItem
-            label="Patient recovered with treatment"
-            name="outcome"
-            value="recovered_with_treatment"
-          />
-          <CheckItem
-            label="Patient recovering"
-            name="outcome"
-            value="recovering"
-          />
-          <CheckItem
-            label="Patient not recovered"
-            name="outcome"
-            value="not_recovered"
-          />
-          <CheckItem
-            label="Fatal (date of death:___________)"
-            name="outcome"
-            value="fatal"
-          />
-          <CheckItem
-            label="Reaction caused or prolonged hospitalisation"
-            name="outcome"
-            value="hospitalisation"
-          />
-          <CheckItem
-            label="Reaction resulted in permanent disability"
-            name="outcome"
-            value="disability"
-          />
-          <CheckItem
-            label="Congenital anomaly/birth defect"
-            name="outcome"
-            value="congenital_anomaly"
-          />
-          <CheckItem
-            label="Life threatening"
-            name="outcome"
-            value="life_threatening"
-          />
-          <CheckItem
-            label="Other (specify below):"
-            name="outcome"
-            value="other"
-          />
-          <textarea
-            name="outcomeOther"
-            style={{ ...s.textarea, height: "22px", marginTop: "2px" }}
-          />
-
-          <div style={{ marginTop: "6px" }}>
-            <div style={s.subLabel}>5. Abate </div>
-            <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
-              {["Positive", "Negative", "Unknown", "N/A"].map((opt) => (
-                <label key={opt} style={s.checkRow}>
-                  <input
-                    type="radio"
-                    name="dechallenge"
-                    value={opt}
-                    style={s.checkbox}
-                  />{" "}
-                  {opt}
-                </label>
-              ))}
-            </div>
-            <div style={s.subLabel}>6. Reappearing</div>
-            <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
-              {["Positive", "Negative", "Unknown", "N/A"].map((opt) => (
-                <label key={opt} style={s.checkRow}>
-                  <input
-                    type="radio"
-                    name="rechallenge"
-                    value={opt}
-                    style={s.checkbox}
-                  />{" "}
-                  {opt}
-                </label>
-              ))}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "baseline",
+                gap: 8,
+                marginTop: 10,
+              }}
+            >
+              <span style={{ whiteSpace: "nowrap", fontWeight: 700 }}>Report No.</span>
+              <span
+                style={{
+                  flex: 1,
+                  borderBottom: "1.5px solid #000",
+                  minHeight: 18,
+                  display: "inline-block",
+                }}
+              >
+                <input
+                  name="reportNo"
+                  readOnly
+                  style={{
+                    ...adrInputStyle,
+                    width: "100%",
+                    borderBottom: "none",
+                    background: "transparent",
+                    height: 18,
+                  }}
+                />
+              </span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* ── D. OTHER CONCOMITANT DRUGS ── */}
-      <div style={s.sectionHeader}>
-        D. OTHER CONCOMITANT DRUG(S)/VACCINE(S)/ALTERNATIVE MEDICINE
-      </div>
-      <table style={s.table}>
-        <thead>
-          <tr>
-            <th style={s.th}>Medicine</th>
-            <th style={s.th}>Route/Dose</th>
-            <th style={s.th}>Indication</th>
-            <th style={s.th}>Route of Administration</th>
-            <th style={s.th}>Start Date</th>
-            <th style={s.th}>Stop Date</th>
-            <th style={s.th}>Prescribe/Given For</th>
-          </tr>
-        </thead>
-        <tbody>
-          {[1, 2].map((r) => (
-            <tr key={r}>
-              <td style={s.td}>
-                <TableInput name={`concomitantMedicine_${r}`} />
-              </td>
-              <td style={s.td}>
-                <TableInput name={`concomitantRoute_${r}`} />
-              </td>
-              <td style={s.td}>
-                <TableInput name={`concomitantIndication_${r}`} />
-              </td>
-              <td style={s.td}>
-                <TableInput name={`concomitantAdmin_${r}`} />
-              </td>
-              <td style={s.td}>
-                <TableInput name={`concomitantStart_${r}`} />
-              </td>
-              <td style={s.td}>
-                <TableInput name={`concomitantStop_${r}`} />
-              </td>
-              <td style={s.td}>
-                <TableInput name={`concomitantPrescribed_${r}`} />
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
-      {/* ── E. SUSPECTED MEDICAL ADVICE ── */}
-      <div style={s.sectionHeader}>
-        E. SUSPECTED MEDICAL ADVICE (Fill this data where Homeopathic / Herbal
-        only)
-      </div>
-      <table style={s.table}>
-        <thead>
-          <tr>
-            <th style={s.th}>Caution/Concern/Description</th>
-            <th style={s.th}>Lot/Batch</th>
-            <th style={s.th}>Manufacturer</th>
-            <th style={s.th}>Route</th>
-            <th style={s.th}>Identification/Type</th>
-            <th style={s.th}>Serial No.</th>
-            <th style={s.th}>ID number</th>
-            <th style={s.th}> Implanted date</th>
-            <th style={s.th}>Explanted date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            {Array(9)
-              .fill(0)
-              .map((_, i) => (
-                <td key={i} style={s.td}>
-                  <TableInput
-                    name={`herbal_${["description", "batch", "manufacturer", "route", "identification", "serial", "id_number", "id_date","id_date"][i]}`}
-                  />
-                </td>
-              ))}
-          </tr>
-        </tbody>
-      </table>
-
-      {/* ── F. REPORTER DETAILS ── */}
-      <div style={s.sectionHeader}>F. REPORTER DETAILS</div>
-<div style={s.twoCol}>
-  <div>
-    <div style={s.row}>
-      <FormField label="Name:" name="reporterName" width={160} style={{ flex: 1 }} />
-    </div>
-    <div style={s.row}>
-      <FormField label="Profession/Speciality:" name="reporterProfession" width={160} style={{ flex: 1 }} />
-    </div>
-    <div style={s.row}>
-      <FormField label="Institution/Hospital:" name="reporterInstitution" width={160} style={{ flex: 1 }} />
-    </div>
-    <div style={s.row}>
-      <FormField label="How do you wish to be contacted? Phone/Fax/Email:" name="reporterContact" width={160} style={{ flex: 1 }} />
-    </div>
-  </div>
-  <div>
-    <div style={s.row}>
-      <FormField label="Professional Address:" name="reporterAddress" width={160} style={{ flex: 1 }} />
-    </div>
-    <div style={s.row}>
-      <FormField label="" name="reporterAddressLine2" width={160} style={{ flex: 1 }} />
-    </div>
-    <div style={s.row}>
-      <FormField label="Email:" name="reporterEmail" width={160} style={{ flex: 1 }} />
-    </div>
-    <div style={s.row}>
-      <FormField label="Location/City:" name="reporterCity" width={100} />
-      <FormField label="Country:" name="reporterCountry" width={80} />
-    </div>
-  </div>
-</div>
-
-      {/* Signature row */}
-      <div style={s.signatureRow}>
-        <Field label="Signature:" name="reporterSignature" width={140} />
-        <Field label="Date:" name="reporterDate" width={100} />
-      </div>
-
-      {/* Footer note */}
+      {/* A. PATIENT DETAILS */}
+      <SectionTitle>A. PATIENT DETAILS</SectionTitle>
       <div
         style={{
-          ...s.noteText,
-          marginTop: "6px",
-          borderTop: "0.8px solid #000",
-          paddingTop: "4px",
+          display: "flex",
+          alignItems: "baseline",
+          flexWrap: "wrap",
+          gap: "4px 8px",
+          marginBottom: 6,
+          fontSize: `${FONT.base}px`,
         }}
       >
-        The information provided is confidential and will only be used for the
-        purpose of reporting to the Country Licensing Authority.
+        <span style={{ fontWeight: 700 }}>Patient’s Initials or Name:</span>
+        <input name="patientName" style={{ ...adrInputStyle, width: 220, flex: "1 1 180px" }} />
+        <span style={{ fontWeight: 700 }}>Identification Number (Medical/Hospital Ref):</span>
+        <input name="patientId" style={{ ...adrInputStyle, width: 220, flex: "1 1 180px" }} />
+      </div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "baseline",
+          flexWrap: "wrap",
+          gap: "4px 8px",
+          marginBottom: 8,
+          fontSize: `${FONT.base}px`,
+        }}
+      >
+        <span style={{ fontWeight: 700 }}>Sex: Male / Female:</span>
+        <input name="patientSex" style={{ ...adrInputStyle, width: 80 }} />
+        <span style={{ fontWeight: 700 }}>If Female, pregnant or not:</span>
+        <input name="femalePregnant" style={{ ...adrInputStyle, width: 90 }} />
+        <span style={{ fontWeight: 700 }}>Age (at the time of reaction):</span>
+        <input name="patientAge" style={{ ...adrInputStyle, width: 70 }} />
+        <span style={{ fontWeight: 700 }}>Weight (kg)</span>
+        <input name="patientWeight" style={{ ...adrInputStyle, width: 60 }} />
+      </div>
+
+      {/* B. SUSPECTED DRUG(S)/VACCINE(S) */}
+      <SectionTitle regular=" (use additional pages if necessary):">
+        B. SUSPECTED DRUG(S)/VACCINE(S)/ALTERNATIVE MEDICINE(S)
+      </SectionTitle>
+      <DrugTable prefix="suspectedDrug" rows={2} />
+
+      {/* C. SUSPECTED REACTION(S) */}
+      <SectionTitle regular=" (use additional pages if necessary):">
+        C. SUSPECTED REACTION(S)
+      </SectionTitle>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "baseline",
+          flexWrap: "wrap",
+          gap: "4px 16px",
+          marginBottom: 8,
+          fontSize: `${FONT.base}px`,
+        }}
+      >
+        <span style={{ fontWeight: 700 }}>1. When reaction started (DD/MM/YY):</span>
+        <input name="reactionStartedDate" style={{ ...adrInputStyle, width: 100 }} />
+        <span style={{ fontWeight: 700 }}>2. When recovery started (DD/MM/YY):</span>
+        <input name="reactionRecoveryDate" style={{ ...adrInputStyle, width: 110 }} />
+      </div>
+
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 12 }}>
+        {/* Left Column - Textareas */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+          <div>
+            <ItemLabel regular=" (use additional pages if necessary):">
+              3. Describe the reaction(s):
+            </ItemLabel>
+            <textarea name="reactionDescription" style={adrTextareaStyle} rows={4} />
+          </div>
+
+          <div>
+            <ItemLabel style={{ marginTop: 4 }}>
+              4. Other relevant history of the patient (Allergies, Smoking, Alcohol Use,
+              Hepatic/Renal Problems, and Pre-Existing Medical Problems etc.:
+            </ItemLabel>
+            <textarea name="medicalHistory" style={adrTextareaStyle} rows={3} />
+          </div>
+
+          <div>
+            <ItemLabel regular=" (use additional pages if necessary):" style={{ marginTop: 4 }}>
+              5. Relevant tests/Laboratory data with dates:
+            </ItemLabel>
+            <textarea name="labData" style={adrTextareaStyle} rows={3} />
+          </div>
+        </div>
+
+        {/* Right Column - Consolidate items 6 to 10 in a single white box matching the PDF */}
+        <div
+          style={{
+            border: "1.5px solid #000",
+            background: "transparent",
+            padding: "8px 12px",
+            fontSize: `${FONT.base}px`,
+            display: "flex",
+            flexDirection: "column",
+            gap: 6,
+            boxSizing: "border-box",
+          }}
+        >
+          {/* Item 6 */}
+          <div>
+            <div style={{ display: "flex", justifyContent: "space-between", fontWeight: 700, marginBottom: 2 }}>
+              <span>6. Do you consider the reaction(s) to be serious?</span>
+              <span>Yes/No</span>
+            </div>
+            <div style={{ fontSize: `${FONT.small}px`, fontWeight: 700, marginBottom: 4 }}>
+              If yes, please tick all that apply of the following:
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 2, paddingLeft: 4 }}>
+              <CheckOption block label="Patient died due to reaction:" name="seriousCriteria" value="Patient died due to reaction" />
+              <CheckOption block label="Life Threatening:" name="seriousCriteria" value="Life Threatening" />
+              <CheckOption block label="Involved or prolonged inpatient hospitalization:" name="seriousCriteria" value="Involved or prolonged inpatient hospitalization" />
+              <CheckOption block label="Involved persistent or significant disability or incapacity:" name="seriousCriteria" value="Involved persistent or significant disability or incapacity" />
+              <CheckOption block label="Congenital anomaly/Birth Defects:" name="seriousCriteria" value="Congenital anomaly/Birth Defects" />
+              <div style={{ display: "flex", alignItems: "baseline", flexWrap: "wrap", gap: 4 }}>
+                <CheckOption label="Other Serious (Medically Important Condition): please give details:" name="seriousCriteria" value="Other Serious" />
+                <input name="seriousOtherDetails" style={{ ...adrInputStyle, flex: 1, borderBottom: "1px solid #000", height: 18 }} />
+              </div>
+            </div>
+          </div>
+
+          <div style={{ borderTop: "1px solid #000", margin: "2px 0" }} />
+
+          {/* Item 7 */}
+          <div>
+            <div style={{ fontWeight: 700, marginBottom: 4 }}>
+              7. Reaction abated after use stopped or dose reduced?
+            </div>
+            <div style={{ paddingLeft: 4 }}>
+              <RadioOption label="Yes" name="dechallenge" value="Yes" />
+              <RadioOption label="No" name="dechallenge" value="No" />
+              <RadioOption label="Doesn't apply" name="dechallenge" value="Doesn't apply" />
+            </div>
+          </div>
+
+          <div style={{ borderTop: "1px solid #000", margin: "2px 0" }} />
+
+          {/* Item 8 */}
+          <div>
+            <div style={{ fontWeight: 700, marginBottom: 4 }}>
+              8. Reaction reappeared after reintroduction?
+            </div>
+            <div style={{ paddingLeft: 4 }}>
+              <RadioOption label="Yes" name="rechallenge" value="Yes" />
+              <RadioOption label="No" name="rechallenge" value="No" />
+              <RadioOption label="Doesn't apply" name="rechallenge" value="Doesn't apply" />
+            </div>
+          </div>
+
+          <div style={{ borderTop: "1px solid #000", margin: "2px 0" }} />
+
+          {/* Item 9 */}
+          <div>
+            <div style={{ fontWeight: 700, marginBottom: 4 }}>
+              9. Outcomes:
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 3, paddingLeft: 4 }}>
+              <div style={{ display: "flex", gap: 12 }}>
+                <CheckOption label="Fatal" name="outcomes" value="Fatal" />
+                <CheckOption label="Recovering" name="outcomes" value="Recovering" />
+                <CheckOption label="Unknown" name="outcomes" value="Unknown" />
+              </div>
+              <div style={{ display: "flex", gap: 12 }}>
+                <CheckOption label="Continuing" name="outcomes" value="Continuing" />
+                <CheckOption label="Recovered" name="outcomes" value="Recovered" />
+              </div>
+              <div style={{ display: "flex", alignItems: "baseline", gap: 4 }}>
+                <span style={{ fontSize: `${FONT.base}px` }}>Other</span>
+                <input name="outcomeOther" style={{ ...adrInputStyle, flex: 1, borderBottom: "1px solid #000", height: 18 }} />
+              </div>
+            </div>
+          </div>
+
+          <div style={{ borderTop: "1px solid #000", margin: "2px 0" }} />
+
+          {/* Item 10 */}
+          <div>
+            <div style={{ fontWeight: 700, marginBottom: 4 }}>
+              10. You consider the problem related to which of the following:
+            </div>
+            <div style={{ paddingLeft: 4 }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "2px 8px" }}>
+                <CheckOption label="Quality Problem" name="problemRelated" value="Quality Problem" />
+                <CheckOption label="Medication Error" name="problemRelated" value="Medication Error" />
+                <CheckOption label="Adverse Event/Reaction" name="problemRelated" value="Adverse Event/Reaction" />
+              </div>
+              <div style={{ display: "flex", alignItems: "baseline", gap: 4, marginTop: 4 }}>
+                <span>If other, please specify</span>
+                <input name="problemOther" style={{ ...adrInputStyle, flex: 1, borderBottom: "1px solid #000", height: 18 }} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* D. OTHER CONCOMITANT DRUG(S) */}
+      <SectionTitle regular=" (use additional pages if necessary):">
+        D. OTHER CONCOMITANT DRUG(S)/VACCINE(S)/ALTERNATIVE MEDICINE(S)
+      </SectionTitle>
+      <DrugTable prefix="concomitantDrug" rows={2} />
+
+      {/* E. SUSPECTED MEDICAL DEVICE(S) */}
+      <SectionTitle regular=" fill this area for suspected Device only (use additional pages if necessary):">
+        E. SUSPECTED MEDICAL DEVICE(S)
+      </SectionTitle>
+      <DeviceTable prefix="suspectedDevice" rows={1} />
+
+      {/* F. REPORTER DETAILS */}
+      <SectionTitle>F. REPORTER DETAILS</SectionTitle>
+      <p style={{ fontSize: `${FONT.base}px`, fontStyle: "italic", fontWeight: 700, textAlign: "center", margin: "6px 0 10px" }}>
+        &ldquo;This form neither has any legal value nor can be presented before any Court of Law as an Evidence.&rdquo;
+      </p>
+
+      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+        <div style={{ display: "flex", alignItems: "baseline", flexWrap: "wrap", gap: "4px 12px" }}>
+          <LineField label="Name:" name="reporterName" width={220} />
+          <LineField label="Professional Address:" name="reporterAddress" width={320} style={{ flex: 1 }} />
+        </div>
+        <div style={{ display: "flex", alignItems: "baseline", flexWrap: "wrap", gap: "4px 12px" }}>
+          <LineField label="Specialty:" name="reporterSpecialty" width={220} />
+          <LineField label="Tel No:" name="reporterTel" width={140} />
+          <span style={{ fontSize: `${FONT.base}px`, fontWeight: 700 }}>, Email Address:</span>
+          <input name="reporterEmail" style={{ ...adrInputStyle, width: 220, flex: 1 }} />
+        </div>
+        <div style={{ display: "flex", alignItems: "baseline", flexWrap: "wrap", gap: "4px 12px" }}>
+          <LineField label="Date of this report:" name="reportDate" width={140} />
+          <LineField label="Signature" name="reporterSignature" width={240} style={{ flex: 1 }} />
+        </div>
+        <div style={{ display: "flex", alignItems: "baseline", flexWrap: "wrap", gap: 8, fontSize: `${FONT.base}px` }}>
+          <span style={{ fontWeight: 700 }}>
+            Have you reported this problem to Provincial Pharmacovigilance Centre or Manufacturer? If yes, please specify:
+          </span>
+          <input name="reportedToCentre" style={{ ...adrInputStyle, width: 200, flex: 1 }} />
+        </div>
       </div>
     </div>
   );

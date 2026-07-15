@@ -362,6 +362,7 @@ const en = {
     successLabel: "Success!",
     errorLabel: "Error:",
     failedSubmit: "Failed to submit form",
+    fillRequired: "Please fill in reporter name, email, and reaction description.",
     errorOccurred: "An error occurred while submitting the form. Please try again.",
   },
 };

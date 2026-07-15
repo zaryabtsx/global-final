@@ -1,267 +1,99 @@
+"use client";
+
+import React from "react";
+import {
+  adrPageStyle,
+  adrTextareaStyle,
+  SectionTitle,
+  ItemLabel,
+  DrugTable,
+  DeviceTable,
+  DrapLogo,
+  ADR_YELLOW,
+  FONT,
+} from "./adrFormShared";
+
 export default function ADRFormPage3() {
-  const s = {
-    page: {
-      background: "#fff",
-      fontFamily: "'Times New Roman', Times, serif",
-      fontSize: "16px",
-      color: "#000",
-      padding: "16px 20px",
-      maxWidth: "1000px",
-      margin: "0 auto",
-      border: "1px solid #aaa",
-    },
-    headerTitle: {
-      textAlign: "center",
-      fontWeight: "bold",
-      fontSize: "24px",
-      letterSpacing: "0.4px",
-      marginBottom: "1px",
-    },
-    headerSub: {
-      textAlign: "center",
-      fontSize: "16px",
-      marginBottom: "1px",
-    },
-    headerItalic: {
-      textAlign: "center",
-      fontStyle: "italic",
-      fontWeight: "bold",
-      fontSize: "16px",
-      marginBottom: "8px",
-    },
-    sectionHeader: {
-      background: "#000",
-      color: "#fff",
-      fontWeight: "bold",
-      fontSize: "16px",
-      padding: "1.5px 5px",
-      marginBottom: "3px",
-      marginTop: "6px",
-      display: "flex",
-      justifyContent: "space-between",
-    },
-    table: {
-      width: "100%",
-      borderCollapse: "collapse",
-      fontSize: "16px",
-      marginBottom: "3px",
-    },
-    th: {
-      border: "0.8px solid #000",
-      background: "#e8e8e8",
-      padding: "2px 3px",
-      fontWeight: "bold",
-      textAlign: "center",
-      fontSize: "16px",
-      verticalAlign: "bottom",
-    },
-    td: {
-      border: "0.8px solid #000",
-      padding: "1px 2px",
-      height: "18px",
-    },
-    tdInput: {
-      border: "none",
-      outline: "none",
-      width: "100%",
-      fontSize: "16px",
-      background: "transparent",
-      fontFamily: "inherit",
-      padding: 0,
-      height: "16px",
-    },
-    boxField: {
-      border: "0.8px solid #000",
-      padding: "4px 6px",
-      marginBottom: "4px",
-      minHeight: "60px",
-      position: "relative",
-    },
-    boxLabel: {
-      fontSize: "16px",
-      fontWeight: "bold",
-      marginBottom: "2px",
-    },
-    contNote: {
-      fontSize: "16px",
-      fontStyle: "italic",
-      color: "#444",
-      marginLeft: "4px",
-    },
-    textarea: {
-      border: "none",
-      outline: "none",
-      width: "100%",
-      resize: "none",
-      fontSize: "16px",
-      fontFamily: "inherit",
-      background: "transparent",
-      padding: "1px",
-    },
-  };
-
-  function TableInput({ name }) {
-    return <input name={name} style={s.tdInput} />;
-  }
-
   return (
-    <div style={s.page}>
-
-      {/* ── HEADER ── */}
-      <div style={{ display: "flex", alignItems: "center", gap: "8px", borderBottom: "1.5px solid #000", paddingBottom: "5px", marginBottom: "5px" }}>
-        {/* Logo */}
-        <div style={{
-          width: "40px", height: "40px", 
-          borderRadius: "50%", display: "flex", alignItems: "center",
-          justifyContent: "center", fontSize: "16px", textAlign: "center",
-          flexShrink: 0, color: "#333",
-        }}>
-          <img src="/clip.png" alt="" />
+    <div style={{ ...adrPageStyle, marginTop: 16 }}>
+      {/* Header matching PDF page 3 */}
+      <div style={{ position: "relative", marginBottom: 12, paddingBottom: 10, borderBottom: "1.5px solid #000" }}>
+        {/* DRAP Logo in the top-left square */}
+        <div
+          style={{
+            position: "absolute",
+            left: 0,
+            top: 0,
+            width: 62,
+            height: 62,
+            border: "1.5px solid #000",
+            background: ADR_YELLOW,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            boxSizing: "border-box",
+          }}
+        >
+          <DrapLogo />
         </div>
 
-        <div style={{ flex: 1 }}>
-          <div style={s.headerTitle}>SUSPECTED ADVERSE DRUG REACTION REPORTING FORM</div>
-          <div style={s.headerSub}>
-            Thank of this form of adverse reporting to adverse drug reactions caused by therapeutic goods manufactured in Pakistan
+        <div style={{ textAlign: "center", padding: "0 80px" }}>
+          <div
+            style={{
+              fontSize: `${FONT.title}px`,
+              fontWeight: 700,
+              letterSpacing: 0.2,
+              textTransform: "uppercase",
+              lineHeight: 1.08,
+            }}
+          >
+            SUSPECTED ADVERSE DRUG REACTION REPORTING FORM
           </div>
-          <div style={s.headerItalic}>For Health Care Professionals (Additional page)</div>
+          <div style={{ fontSize: `${FONT.subtitle}px`, marginTop: 6, fontWeight: 400 }}>
+            This form is for voluntary reporting of adverse drug reactions caused by therapeutic goods marketed in Pakistan.
+          </div>
+          <div style={{ fontSize: `${FONT.base}px`, fontStyle: "italic", fontWeight: 700, marginTop: 6 }}>
+            For Health Care Professionals (Additional page)
+          </div>
         </div>
       </div>
 
-      {/* ── B. SUSPECTED DRUGS (continued) ── */}
-      <div style={s.sectionHeader}>
-        <span>B. SUSPECTED DRUG(S)/VACCINE(S)/ALTERNATIVE MEDICINE(S)</span>
-        <span style={{ fontStyle: "italic", fontWeight: "normal", fontSize: "16px" }}>(continued)</span>
-      </div>
-      <table style={s.table}>
-        <thead>
-          <tr>
-            <th style={{ ...s.th, width: "22%" }}>
-              Drug/Vaccine/Alternative<br />Medicine<br /><span style={{ fontWeight: "normal", fontSize: "16px" }}>(Brand/Generic/Common Name)</span>
-            </th>
-            <th style={s.th}>Batch No.</th>
-            <th style={s.th}>Manufacturer/<br />Importer</th>
-            <th style={s.th}>Route of<br />Administration &<br />Daily Doses</th>
-            <th style={s.th}>Dosage<br />&<br />Strength</th>
-            <th style={s.th}>Start Date</th>
-            <th style={s.th}>Stop Date</th>
-            <th style={s.th}>Prescribed For</th>
-          </tr>
-        </thead>
-        <tbody>
-          {[1, 2, 3, 4].map((r) => (
-            <tr key={r}>
-              {Array(8).fill(0).map((_, i) => {
-                const colNames = ["drugName", "batchNo", "manufacturer", "route", "dosage", "startDate", "stopDate", "prescribedFor"];
-                return (
-                  <td key={i} style={s.td}><TableInput name={`drug_${colNames[i]}_${r}`} /></td>
-                );
-              })}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      {/* B (continued) */}
+      <SectionTitle regular=" (continued):">
+        B. SUSPECTED DRUG(S)/VACCINE(S)/ALTERNATIVE MEDICINE(S)
+      </SectionTitle>
+      <DrugTable prefix="suspectedDrugCont" rows={4} />
 
-      {/* ── C. SUSPECTED REACTIONS (continued) ── */}
-      <div style={s.sectionHeader}>
-        <span>C. SUSPECTED REACTION(S)</span>
-        <span style={{ fontStyle: "italic", fontWeight: "normal", fontSize: "16px" }}>(continued)</span>
+      {/* C (continued) */}
+      <SectionTitle regular=" (continued):">C. SUSPECTED REACTION(S)</SectionTitle>
+
+      <div style={{ marginBottom: 8 }}>
+        <ItemLabel>3. Describe the reaction(s) (continued):</ItemLabel>
+        <textarea name="reactionDescriptionCont" style={adrTextareaStyle} rows={4} />
       </div>
 
-      {/* Box 3 – Describe the reaction */}
-      <div style={s.boxField}>
-        <div style={s.boxLabel}>
-          3. Describe the reaction(s)
-          <span style={s.contNote}>(continued)</span>
-        </div>
-        <textarea name="reactionDescriptionCont" style={{ ...s.textarea, height: "60px" }} />
+      <div style={{ marginBottom: 8 }}>
+        <ItemLabel>
+          4. Other relevant history of the patient (Allergies, Smoking, Alcohol Use, Hepatic/Renal Problems, and
+          Pre-Existing Medical Problems etc. (continued) :
+        </ItemLabel>
+        <textarea name="medicalHistoryCont" style={adrTextareaStyle} rows={4} />
       </div>
 
-      {/* Box – Other relevant history */}
-      <div style={s.boxField}>
-        <div style={s.boxLabel}>
-          4. Other relevant history patient (Allergies, Smoking, Alcohol, Renal/Liver Problems and Pre Existing Medical Problems)
-          <span style={s.contNote}>(continued)</span>
-        </div>
-        <textarea name="medicalHistoryCont" style={{ ...s.textarea, height: "44px" }} />
+      <div style={{ marginBottom: 8 }}>
+        <ItemLabel>5. Relevant Tests/Laboratory Data with Dates (continued):</ItemLabel>
+        <textarea name="labDataCont" style={adrTextareaStyle} rows={4} />
       </div>
 
-      {/* Box 5 – Relevant Tests */}
-      <div style={s.boxField}>
-        <div style={s.boxLabel}>
-          5. Relevant Tests/Laboratory Data with Dates
-          <span style={s.contNote}>(continued)</span>
-        </div>
-        <textarea name="labDataCont" style={{ ...s.textarea, height: "60px" }} />
-      </div>
+      {/* D (continued) */}
+      <SectionTitle regular=" (continued):">
+        D. OTHER CONCOMITANT DRUG(S)/VACCINE(S)/ALTERNATIVE MEDICINE(S)
+      </SectionTitle>
+      <DrugTable prefix="concomitantDrugCont" rows={4} />
 
-      {/* ── D. OTHER CONCOMITANT DRUGS (continued) ── */}
-      <div style={s.sectionHeader}>
-        <span>D. OTHER CONCOMITANT DRUG(S)/VACCINE(S)/ALTERNATIVE MEDICINE(S)</span>
-        <span style={{ fontStyle: "italic", fontWeight: "normal", fontSize: "16px" }}>(continued)</span>
-      </div>
-      <table style={s.table}>
-        <thead>
-          <tr>
-            <th style={{ ...s.th, width: "22%" }}>
-              Drug/Vaccine/Alternative<br />Medicine<br /><span style={{ fontWeight: "normal", fontSize: "16px" }}>(Brand/Generic/Common Name)</span>
-            </th>
-            <th style={s.th}>Batch No.</th>
-            <th style={s.th}>Manufacturer/<br />Importer</th>
-            <th style={s.th}>Route of<br />Administration &<br />Daily Doses</th>
-            <th style={s.th}>Dosage<br />&<br />Strength</th>
-            <th style={s.th}>Start Date</th>
-            <th style={s.th}>Stop Date</th>
-            <th style={s.th}>Prescribed For</th>
-          </tr>
-        </thead>
-        <tbody>
-          {[1, 2, 3, 4].map((r) => (
-            <tr key={r}>
-              {Array(8).fill(0).map((_, i) => {
-                const colNames = ["drugName", "batchNo", "manufacturer", "route", "dosage", "startDate", "stopDate", "prescribedFor"];
-                return (
-                  <td key={i} style={s.td}><TableInput name={`concomitant_${colNames[i]}_${r}`} /></td>
-                );
-              })}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
-      {/* ── E. SUSPECTED MEDICAL DEVICE(S) ── */}
-      <div style={s.sectionHeader}>
-        <span>E. SUSPECTED MEDICAL DEVICE(S)</span>
-      </div>
-      <table style={s.table}>
-        <thead>
-          <tr>
-            <th style={{ ...s.th, width: "20%" }}>
-              Medical Device<br />Common/Generic/Brand Name
-            </th>
-            <th style={s.th}>Lot/No.<br />Batch No.</th>
-            <th style={s.th}>Manufacturer/<br />Importer</th>
-            <th style={s.th}>Model No.</th>
-            <th style={s.th}>Unique<br />Identifier No.</th>
-            <th style={s.th}>Serial No.</th>
-            <th style={s.th}>ID Implanted<br />enter date</th>
-            <th style={s.th}>ID Explanted<br />enter date</th>
-          </tr>
-        </thead>
-        <tbody>
-          {[1, 2].map((r) => (
-            <tr key={r}>
-              {Array(8).fill(0).map((_, i) => {
-                const colNames = ["deviceName", "batchNo", "manufacturer", "modelNo", "uniqueId", "serialNo", "implantedDate", "explantedDate"];
-                return (
-                  <td key={i} style={{ ...s.td, height: "22px" }}><TableInput name={`device_${colNames[i]}_${r}`} /></td>
-                );
-              })}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
+      {/* E (continued) */}
+      <SectionTitle regular=" (continued):">E. SUSPECTED MEDICAL DEVICE(S)</SectionTitle>
+      <DeviceTable prefix="suspectedDeviceCont" rows={2} />
     </div>
   );
 }

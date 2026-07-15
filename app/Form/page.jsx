@@ -4,7 +4,6 @@ import React, { useState, useRef } from "react";
 import Header from "../component/Header";
 import Footer from "../component/Footer";
 import ADRForm from "../component/Form1";
-import Pdf from "../component/Pdf";
 import ADRGuidelinesPage from "../component/Form2";
 import ADRFormPage3 from "../component/Form3";
 import Pharmacovigelence from "../component/Pharmacovigelence";
@@ -48,12 +47,19 @@ export default function Form() {
         }
       });
 
-      console.log("Form Data Collected:", formData);
+      if (
+        !formData.reporterName?.trim() ||
+        !formData.reporterEmail?.trim() ||
+        (!formData.reactionDescription?.trim() && !formData.reactionDescriptionCont?.trim())
+      ) {
+        setSubmitError(t("form.fillRequired"));
+        setIsSubmitting(false);
+        return;
+      }
 
-      // Send email with form data
+      formData.formType = "ADR Reporting Form";
+
       const result = await sendADRFormEmail(formData);
-      
-      console.log("Submit Result:", result);
 
       if (result.success) {
         setSubmitMessage(result.message);
@@ -75,12 +81,11 @@ export default function Form() {
     <div style={{ background: "white" }}>
       <Header />
       <Pharmacovigelence />
-        <Pdf></Pdf>
-      
+
       <form ref={formRef} onSubmit={handleSubmit}>
-        {/* <ADRForm />
+        <ADRForm />
         <ADRGuidelinesPage />
-        <ADRFormPage3 /> */}
+        <ADRFormPage3 />
 
         <div className="max-w-sm mx-auto px-4 md:px-6 py-6 md:py-8">
           {/* Success Message */}
