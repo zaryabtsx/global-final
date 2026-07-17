@@ -17,6 +17,11 @@ jobs:
 
       - run: npm ci
 
+      - name: Remove server-only API routes (not supported by static export)
+        run: |
+          rm -rf app/api/career
+          rm -rf app/api/test-email
+
       - run: npm run build
         env:
           STATIC_EXPORT: "true"
