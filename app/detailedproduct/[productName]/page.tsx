@@ -1,8 +1,8 @@
 import ProductDetail from '../ProductDetail.jsx';
-import { ALL_PRODUCTS } from '../../component/Products';
+import { ALL_PRODUCTS } from '../../component/productsData';
 
 export function generateStaticParams() {
-  return ALL_PRODUCTS.map((product: { name: string }) => ({
+  return ALL_PRODUCTS.map((product) => ({
     productName: product.name,
   }));
 }
