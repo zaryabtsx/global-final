@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Outfit, Noto_Nastaliq_Urdu } from "next/font/google";
-import { cookies } from "next/headers";
 import "./globals.css";
 import { LanguageProvider } from "./i18n/LanguageProvider";
-import { COOKIE_NAME, defaultLocale, getDir, isLocale } from "./i18n/config";
+import { defaultLocale, getDir } from "./i18n/config";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -24,14 +23,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const cookieStore = await cookies();
-  const cookieValue = cookieStore.get(COOKIE_NAME)?.value;
-  const locale = isLocale(cookieValue) ? cookieValue : defaultLocale;
+  const locale = defaultLocale;
   const dir = getDir(locale);
 
   return (
