@@ -1,4 +1,10 @@
-import ProductDetail from '../ProductDetail.jsx';
+import { ALL_PRODUCTS } from '../../component/Products';
+
+export function generateStaticParams() {
+  return ALL_PRODUCTS.map((product: { name: string }) => ({
+    productName: product.name,
+  }));
+}
 
 interface Props {
   params: Promise<{
