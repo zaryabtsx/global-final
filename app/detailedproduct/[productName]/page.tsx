@@ -1,10 +1,27 @@
 import ProductDetail from '../ProductDetail.jsx';
 import { ALL_PRODUCTS } from '../../component/productsData';
 
+// Short names used by the homepage product cards (from PRODUCT_DATA)
+const HOME_PRODUCT_NAMES = [
+  "Pelton-C",
+  "Vonoglob",
+  "Glomov",
+  "Artinil-K",
+  "Nalbin",
+  "Anzonil",
+  "Citolin",
+  "Piractim",
+  "Tamsol-D",
+  "Norbac",
+];
+
 export function generateStaticParams() {
-  const uniqueNames = Array.from(
-    new Set(ALL_PRODUCTS.map((product) => product.name.trim()))
-  );
+  const allNames = [
+    ...ALL_PRODUCTS.map((product) => product.name.trim()),
+    ...HOME_PRODUCT_NAMES,
+  ];
+
+  const uniqueNames = Array.from(new Set(allNames));
 
   return uniqueNames.map((productName) => ({ productName }));
 }
