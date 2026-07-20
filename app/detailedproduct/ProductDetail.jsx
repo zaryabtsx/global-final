@@ -78,8 +78,8 @@ const DEFAULT_STYLING = {
 const IMAGE_OVERRIDES = {
   "Alergocit 5mg": "Alergocit Tablets 10's.png",
   "Aloram 0.25mg": "Aloram-0.25.png",
-  "Aloram 0.5mg": "Aloram-0.5.png",
-  "Aloram 1mg": "Aloram-1mg.png",
+  "Aloram 0.5mg": "Aloram0.5.png",
+  "Aloram 1mg": "Aloram1mg.png",
   "Anzonil 3mg": "Anzonil.png",
   "Aptizole 40mg": "Aptizole.png",
   "Artinil-K 75mg": "Artinil-K75mg.png",
