@@ -14,7 +14,7 @@ import {
 import Image from "next/image";
 import Header from "../component/Header";
 import Footer from "../component/Footer";
-import { ALL_PRODUCTS } from "../component/Products";
+import { ALL_PRODUCTS } from "../component/productsData";
 import { PRODUCT_DATA } from "../component/Product";
 
 const NAV_LINKS = [
