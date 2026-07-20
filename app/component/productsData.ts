@@ -16,7 +16,7 @@ export const ALL_PRODUCTS: Product[] = [
   { name: 'Alergocit 5mg', category: 'ANTI ALLERGICS', generic: 'Levocetirizine 2HCl 5mg', form: 'Tablet', reg: '38935', essential: false, packSize: "10's, 20's", description: 'Each Film coated Tablet contains: Levocetrizine 2HCL 5mg.' },
   { name: 'Sebesta 10mg', category: 'ANTI ALLERGICS', generic: 'Ebastine 10mg', form: 'Tablet', reg: '24348', essential: false, packSize: "1x10's", description: 'Each tablet contains: Ebastine 10mg (JP Specs).' },
   { name: 'Sulprex 50mg', category: 'ANTI ALLERGICS', generic: '', form: 'Tablet', reg: '24348', essential: false, packSize: "2x10's", description: 'Each tablet contains: Levosulpiride 5mg (Innovator\'s Specs)' },
-  { name: 'Sulprex 25mg ', category: 'ANTI ALLERGICS', generic: '', form: 'Tablet', reg: '24348', essential: false, packSize: "1*10's, 2X10's", description: 'Each tablet contains: Levosulpiride 25mg (Innovator\'s Specs)' },
+  { name: 'Sulprex 25mg', category: 'ANTI ALLERGICS', generic: '', form: 'Tablet', reg: '24348', essential: false, packSize: "1*10's, 2X10's", description: 'Each tablet contains: Levosulpiride 25mg (Innovator\'s Specs)' },
   { name: 'Levozine 5mg', category: 'ANTI ALLERGICS', generic: 'Levocetirizine Dihydrochloride 5mg', form: 'Tablet', reg: '38129', essential: false, packSize: "10's", description: 'Each film coated tablet contains: Levocetrizine dihydrochloride....5mg.' },
   { name: 'Lodine 10mg', category: 'ANTI ALLERGICS', generic: 'Loratadine 10mg', form: 'Tablet', reg: '41738', essential: false, packSize: "10's", description: 'Each film coated tablet contains: Loratidine......10mg.' },
 
@@ -26,8 +26,8 @@ export const ALL_PRODUCTS: Product[] = [
   { name: 'Rovast 20mg', category: 'CARDIOVASCULAR', generic: 'Rosuvastatin (as Calcium) 20mg', form: 'Tablet', reg: '54735', essential: false, packSize: "10's", description: 'Each tablet contains: Rosuvastatin (as Calcium) 20mg (USP Specification) .' },
   { name: 'Transolide 500mg', category: 'CARDIOVASCULAR', generic: ' Tranexamic Acid 500mg', form: 'Capsule', reg: '38938', essential: false, packSize: "2x10's, 5 x 10's", description: 'Each capsule contains: Tranexamic Acid 500mg' },
   { name: 'Transolide 500mg inj', category: 'CARDIOVASCULAR', generic: ' Tranexamic Acid 500mg', form: 'Injection', reg: '59436', essential: false, packSize: "5mlx10's", description: 'Each 5ml contains: Tranexamic acid(BP) 500mg(JP Specs)' },
-  { name: 'Transolide 250mg ', category: 'CARDIOVASCULAR', generic: ' Tranexamic Acid 500mg', form: 'Capsules', reg: '038937', essential: false, packSize: "100's", description: 'Each Capsule Contains:Tranexamic Acid.....250mg ' },
-  { name: 'Transolide 250mg inj ', category: 'CARDIOVASCULAR', generic: ' Tranexamic Acid 500mg', form: 'Injection', reg: '038938', essential: false, packSize: "50 ml", description: 'Each 5ml Contains: Tranexamic Acid.....250mg ' },
+  { name: 'Transolide 250mg', category: 'CARDIOVASCULAR', generic: ' Tranexamic Acid 500mg', form: 'Capsules', reg: '038937', essential: false, packSize: "100's", description: 'Each Capsule Contains:Tranexamic Acid.....250mg ' },
+  { name: 'Transolide 250mg inj', category: 'CARDIOVASCULAR', generic: ' Tranexamic Acid 500mg', form: 'Injection', reg: '038938', essential: false, packSize: "50 ml", description: 'Each 5ml Contains: Tranexamic Acid.....250mg ' },
 
   // ─── NEURO ───────────────────────────────────────────────────────────────
   { name: 'Aloram 0.25mg', category: 'NEURO', generic: 'Alprazolam 0.25mg', form: 'Tablet', reg: '41929', essential: false, packSize: "3x10's", description: 'Aloram 0.25mg contains Alprazolam, a benzodiazepine that enhances GABAergic neurotransmission. It is indicated for the short-term treatment of anxiety disorders and panic attacks. Alprazolam provides rapid anxiolytic effects with good tolerability.' },
