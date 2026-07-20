@@ -431,7 +431,7 @@ export default function Products() {
                       // Save the first letter of the product before navigating
                       const firstLetter = product.name.charAt(0).toUpperCase();
                       localStorage.setItem('lastProductLetter', firstLetter);
-                      router.push(`/detailedproduct/${encodeURIComponent(product.name)}`);
+                      router.push(`/detailedproduct/${encodeURIComponent(product.name)}/`);
                     }}
                   >
                     <div className="flex gap-4 items-start">
